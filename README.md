@@ -4,7 +4,7 @@
 <p>KnoWaste is a food preording system that aims to eliminate foodwaste by giving catering institutions accurate information.</p>
 
 <h2>BootStrap</h2> 
-<p>We will be using the grid layout system from BootStrap. *code example*</p>
+<p>We will be using the grid layout system from BootStrap. 
 
 
 
