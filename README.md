@@ -14,7 +14,7 @@
 <p>In order to ensure compatiably between Unix and Windows operating systems it's important that we name all our files and folders in lowercase.<br>For example, we would name a component nav.jsx as opposed to Nav.jsx.</p>
 
 <h2>File Structure</h2>
-<p>All components should be that belong to one page should be created within the pages folder. Child components should be nested within the folder of their parent. For example, if navlink was a child component of register the file structure would look like this.</p>
+<p>All components should be that belong to one page should be created within the pages folder. Child components should be nested within the folder of their parent. For example, if navlink was a child component of register the file structure would look like this. Remeber that test files should have .spec.js as the file extention.</p>
               
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/P5nD6PD/fs.png" alt="fs" border="0"></a> 
 
