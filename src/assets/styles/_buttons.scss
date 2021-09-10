@@ -1,0 +1,17 @@
+@import "_variables.scss";
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+}
+
+.btn-primary {
+    background-color: $primary;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: $default;
+    color: $secondary;
+}
