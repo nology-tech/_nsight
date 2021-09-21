@@ -5,8 +5,8 @@ const courses = [
     numberEnrolled: 33,
     percentageEmployed: 98,
     courseLead: "Andy Evans",
-    courseStart: 04/09/2020,
-    courseCompletion: 27/11/2020,
+    courseStart: "04/09/2020",
+    courseCompletion: "27/11/2020",
     status: false
   },
   {
@@ -15,8 +15,8 @@ const courses = [
     numberEnrolled: 33,
     percentageEmployed: 98,
     courseLead: "Andy Evans",
-    courseStart: 04/09/2020,
-    courseCompletion: 27/11/2020,
+    courseStart: "04/09/2020",
+    courseCompletion: "27/11/2020",
     status: false
   },
   {
@@ -24,7 +24,7 @@ const courses = [
     name: "Ibiza",
     numberEnrolled: 13,
     courseLead: "Matt Bickell",
-    courseStart: 02/08/2021,
+    courseStart: "02/08/2021",
     status: true
   },
   {
@@ -33,8 +33,8 @@ const courses = [
     numberEnrolled: 16,
     percentageEmployed: 72,
     courseLead: "Sam Joyce",
-    courseStart: 14/06/2021,
-    courseCompletion: 03/09/2021,
+    courseStart: "14/06/2021",
+    courseCompletion: "03/09/2021",
     status: false
   },
   {
@@ -43,7 +43,7 @@ const courses = [
     numberEnrolled: 13,
     percentageEmployed: 0,
     courseLead: "Charlie Richardson",
-    courseStart: 04/09/2020,
+    courseStart: "04/09/2020",
     status: false
   },
   {
@@ -52,8 +52,8 @@ const courses = [
     numberEnrolled: 31,
     percentageEmployed: 95,
     courseLead: "Andy Evans",
-    courseStart: 04/09/2020,
-    courseCompletion: 27/11/2020,
+    courseStart: "04/09/2020",
+    courseCompletion: "27/11/2020",
     status: false
   },
   {
