@@ -65,3 +65,5 @@ const courses = [
     percentageEmployed: 92
   }
 ]
+
+export default courses;

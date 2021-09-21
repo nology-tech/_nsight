@@ -6,7 +6,6 @@ import Courses from "./pages/Courses/Courses";
 function App() {
     return (
         <div className="App">
-            <Example></Example>
             <Courses/>
         </div>
     );
