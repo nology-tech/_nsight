@@ -2,10 +2,9 @@ import logo from './logo.svg';
 import './App.scss';
 import Example from './pages/example/example.jsx';
 
-function App() {
+const  App = () => {
   return (
     <div className="App">
-        <Example></Example>
     </div>
   );
 }
