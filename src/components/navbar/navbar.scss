@@ -1,7 +1,13 @@
-
-
 .navbar{
     display: flex;
     flex-direction: column;
-    background-color: black;
+    background-color: rgb(16,43,63);
+    h1 {
+        color: #FFFFFF;
+    }
+    &__item {
+        display: flex;
+        justify-content: center;
+        color: #87959F;
+    }
 }

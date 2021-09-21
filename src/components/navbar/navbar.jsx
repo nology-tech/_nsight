@@ -11,7 +11,7 @@ import house from "../../assets/icons/house.svg"
 const Navbar = () => {
     return (
         <nav className="navbar">
-            <h1 className="navbar_item">_n</h1>
+            <h1 className="navbar_header">_n</h1>
             <div className="navbar__item">
                 <img src={house} alt="" />
                 <p>Dashboard</p>
