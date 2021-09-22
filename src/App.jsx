@@ -6,7 +6,6 @@ import Students from  "./pages/students/students";
 function App() {
   return (
     <div className="App">
-        <Example></Example>
         <Students />
     </div>
   );

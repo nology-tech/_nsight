@@ -1,23 +1,68 @@
 import "./students.scss";
 import students from "../../assets/data/student-data";
+import moreInfo from "../../assets/icons/chevron-more.svg";
 
 
 const Students = () => {
-    const studentData = students.map(student => (
-        <div>
-            <p>{student.first_name} {student.last_name}</p>
-            <p>{student.email}</p>
-            <p>{student.mobile_number}</p>
-            <p>{student.type}</p>
-            <p>{student.employed}</p>
-            <p>{student.course_name}</p>
-        </div>
-    ))
+    const studentData = students.map(student => {
+        let employed = "NO";
+        if (student.employed) {
+            employed = "YES"
+        }
+            
+        return <div class="row">
+                    <div class="col-lg">
+                        <p>{student.first_name} {student.last_name}</p>
+                    </div>
+                    <div class="col-lg">
+                        <p>{student.email}</p>
+                    </div>
+                    <div class="col-lg">
+                        <p>{student.mobile_number}</p>
+                    </div>
+                    <div class="col-lg">
+                        <p>{student.type}</p>
+                    </div>
+                    <div class="col-lg">
+                        {employed}
+                    </div>
+                    <div class="col-lg">
+                        <p>{student.course_name}</p>
+                    </div>
+                    <div class="col-lg">
+                        <img src={moreInfo} alt="more info chevron" />
+                    </div>
+                </div>
+    })
 
     return (
-        <div>
-            {studentData}
-        </div>
+        <>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg">
+                        <p>Student Name</p>
+                    </div>
+                    <div class="col-lg">
+                        <p>Email Address</p>
+                    </div>
+                    <div class="col-lg">
+                        <p>Mobile Number</p>
+                    </div>
+                    <div class="col-lg">
+                        <p>Consumer/Consultant</p>
+                    </div>
+                    <div class="col-lg">
+                        <p>Employed</p>
+                    </div>
+                    <div class="col-lg">
+                        <p>Course Name</p>
+                    </div>
+                    <div class="col-lg">
+                    </div>
+                </div>
+                {studentData}
+            </div>
+        </>
     )
 }
 
