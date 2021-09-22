@@ -9,17 +9,37 @@
         font-size: 70px;
         font-weight: bold;
         color: #FFFFFF;
+        width: 81.7%;
+        border-bottom: 1px solid $secondary-nav;
+        text-align: center;
+        padding-bottom: 22px;
+        margin: 15px 0;
+    }
+    .list-break-bottom {
+        width: 81.7%;
+        height: 25px;
+        border-bottom: 1px solid $secondary-nav;
     }
     &__item {
         color: #87959F;
-        img {
+        width: 200px;
+        padding: 15px 0;
+        a {
+            text-decoration: none;
             color: rgb(135,149,159);
-            // width: 100%;
         }
-        p {
-            padding: 15px 0;
-            margin: 0;
-            text-align: left;
+        img {
+            color: purple;
+            padding-right: 40px;
+            width: 60px;
         }
+        // .smaller-image {
+        //     width: 56px;
+        // }
+        // p {
+        //     padding: 15px 0;
+        //     margin: 0;
+        //     text-align: left;
+        // }
     }
 }
