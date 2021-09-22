@@ -1,13 +1,13 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
 import courses from "../../assets/data/coursedata";
-import courseList from "./courseList/courseList";
+import CourseList from "./CourseList/CourseList";
 import "./Courses.scss"
 
 const Courses = () => {
-
+    console.log("courses")
     const coursesData = courses.map(course => {
-        <courseList course={course}/>
+        return(
+            <CourseList course={course}/>)
     });
 
     return (

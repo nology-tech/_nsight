@@ -25,6 +25,7 @@ const courses = [
     numberEnrolled: 13,
     courseLead: "Matt Bickell",
     courseStart: "02/08/2021",
+    courseCompletion: "-",
     status: true
   },
   {
@@ -44,6 +45,7 @@ const courses = [
     percentageEmployed: 0,
     courseLead: "Charlie Richardson",
     courseStart: "04/09/2020",
+    courseCompletion: "-",
     status: false
   },
   {
