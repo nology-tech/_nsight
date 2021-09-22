@@ -1,5 +1,8 @@
 import React from 'react'
 import "./CourseList.scss"
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 const CourseList = (props) => {
     const {course} = props
@@ -12,13 +15,34 @@ const CourseList = (props) => {
     }
     return (
         <div className="Courselist">
-            <p>{course.name}</p>
-            <p>{course.numberEnrolled}</p>
-            <p>{course.percentageEmployed}</p>
-            <p>{course.courseLead}</p>
-            <p>{course.courseStart}</p>
-            <p>{course.courseCompletion}</p>
-            <p>{status}</p>
+          <Container>
+            <Row>
+              <Col>
+                <p>{course.name}</p>
+              </Col>
+              <Col>
+                <p>{course.numberEnrolled}</p>
+              </Col>
+              <Col>
+                <p>{course.percentageEmployed}</p>
+              </Col>
+              <Col>
+                <p>{course.courseLead}</p>
+              </Col>
+              <Col>
+                <p>{course.courseStart}</p>
+              </Col>
+              <Col>
+                <p>{course.courseCompletion}</p>
+              </Col>
+              <Col>
+                <p>{status}</p>
+              </Col>
+              <Col>
+              >
+              </Col>
+            </Row>
+          </Container>
         </div>
     )
 }
