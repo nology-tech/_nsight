@@ -23,6 +23,7 @@ const courses = [
     id: 3,
     name: "Ibiza",
     numberEnrolled: 13,
+    percentageEmployed: 0,
     courseLead: "Matt Bickell",
     courseStart: "02/08/2021",
     courseCompletion: "-",

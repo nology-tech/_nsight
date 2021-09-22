@@ -16,34 +16,34 @@ const CourseList = (props) => {
     }
     return (
         <div className="Courselist">
-          <Container>
-            <Row>
-              <Col>
-                <p>{course.name}</p>
-              </Col>
-              <Col>
-                <p>{course.numberEnrolled}</p>
-              </Col>
-              <Col>
-                <p>{course.percentageEmployed}</p>
-              </Col>
-              <Col>
-                <p>{course.courseLead}</p>
-              </Col>
-              <Col>
-                <p>{course.courseStart}</p>
-              </Col>
-              <Col>
-                <p>{course.courseCompletion}</p>
-              </Col>
-              <Col>
-                <p>{status}</p>
-              </Col>
-              <Col>
-              <img src={arrow} alt="" />
-              </Col>
-            </Row>
-          </Container>
+            <Container>
+                <Row>
+                    <Col>
+                        <p>{course.name}</p>
+                    </Col>
+                    <Col>
+                        <p>{course.numberEnrolled}</p>
+                    </Col>
+                    <Col>
+                        <p>{course.percentageEmployed}</p>
+                    </Col>
+                    <Col>
+                        <p>{course.courseLead}</p>
+                    </Col>
+                    <Col>
+                        <p>{course.courseStart}</p>
+                    </Col>
+                    <Col>
+                        <p>{course.courseCompletion}</p>
+                    </Col>
+                    <Col>
+                        <p>{status}</p>
+                    </Col>
+                    <Col>
+                        <img src={arrow} alt="" />
+                    </Col>
+                </Row>
+            </Container>
         </div>
     )
 }
