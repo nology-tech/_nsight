@@ -14,7 +14,7 @@ const Navbar = () => {
             <div className="row">
                 <div className="navbar__item">
                     <img src={house} alt="" className="" />
-                    <p>Dashboard</p>
+                    <p>Dashboard</p> 135, 149, 159
                 </div>
                 <div className="navbar__item">
                     <img src={book} alt="" />
