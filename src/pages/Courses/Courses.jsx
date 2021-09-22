@@ -13,6 +13,11 @@ const Courses = () => {
             <CourseList course={course}/>)
     });
 
+    const selfData = courses.filter(course =>
+        course.name === "Self-Paced Course"
+    )
+    console.log(selfData)
+
     return (
         <>
         <Container>

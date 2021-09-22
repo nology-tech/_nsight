@@ -3,6 +3,7 @@ import "./CourseList.scss"
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import arrow from "../../../assets/icons/chevron-more.svg";
 
 const CourseList = (props) => {
     const {course} = props
@@ -39,7 +40,7 @@ const CourseList = (props) => {
                 <p>{status}</p>
               </Col>
               <Col>
-              >
+              <img src={arrow} alt="" />
               </Col>
             </Row>
           </Container>
