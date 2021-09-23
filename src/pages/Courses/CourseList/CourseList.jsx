@@ -1,19 +1,23 @@
 import React from 'react'
 import "./CourseList.scss"
 import arrow from "../../../assets/icons/chevron-more.svg";
+import statCircleRed from "../../../assets/icons/red-dot.svg";
+import statCicrcleGreen from "../../../assets/icons/green-dot.svg";
 
 const CourseList = (props) => {
     const {course} = props
 
     let status = "";
     let statColour = "";
+    let statColourImg = "";
     if(course.status === false){
         status = "Inactive"
         statColour = "red";
-
+        statColourImg = statCircleRed;
     }else {
         status = "Active"
         statColour = "green"
+        statColourImg = statCicrcleGreen;
     }
     return (
         <div className="courselist">
@@ -38,7 +42,8 @@ const CourseList = (props) => {
                         <p className="courselist__tag">{course.courseCompletion}</p>
                     </div>
                     <div class="col">
-                        <div>
+                        <div className="stats">
+                            <img className="stats__img" src={statColourImg}/>
                             <p style={{color:statColour}}>{status}</p>
                         </div>
                     </div>
