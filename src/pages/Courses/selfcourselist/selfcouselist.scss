@@ -1,7 +1,13 @@
 @import "../../../assets/styles/styles.scss";
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .selfcourse{
+  padding-top: 10px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
   height: 70px;
@@ -12,5 +18,9 @@
   margin: 10px;
   &__tag{
     color: #95ACCB;
+  }
+  .arrow{
+    padding-left: 30px;
+    padding-right: unset;
   }
 }

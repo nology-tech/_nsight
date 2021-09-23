@@ -23,7 +23,7 @@ const Courses = (props) => {
         <div class="container">
                 <h2>Full-Time Bootcamp</h2>
             <div className="courses">
-                <div class="row">
+                <div class="row names">
                     <div class="col">Course Name</div>
                     <div class="col">No. Enrolled</div>
                     <div class="col">% Employment</div>
@@ -38,7 +38,7 @@ const Courses = (props) => {
             <div class="container">
                 <h2>Self-Paced Bootcamp</h2>
                 <div className="courses">
-                <div class="row">
+                <div class="row selfnames">
                     <div class="col">Course Name</div>
                     <div class="col">No. Enrolled</div>
                     <div class="col">No. Completed</div>

@@ -1,6 +1,11 @@
 @import "../../../assets/styles/styles.scss";
-
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .courselist{
+  padding-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -47,7 +47,7 @@ const courses = [
     courseLead: "Charlie Richardson",
     courseStart: "04/09/2020",
     courseCompletion: "-",
-    status: false
+    status: true
   },
   {
     id: 6,

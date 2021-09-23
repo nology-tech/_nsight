@@ -16,7 +16,7 @@ const CourseList = (props) => {
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <p>{course.name}</p>
+                        <h5>{course.name}</h5>
                     </div>
                     <div class="col">
                         <p className="courselist__tag">{course.numberEnrolled}</p>
@@ -34,7 +34,9 @@ const CourseList = (props) => {
                         <p className="courselist__tag">{course.courseCompletion}</p>
                     </div>
                     <div class="col">
+                      <div>
                         <p>{status}</p>
+                      </div>
                     </div>
                     <div class="col">
                         <img src={arrow} alt="" />
