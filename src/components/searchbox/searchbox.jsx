@@ -4,11 +4,11 @@ import search from "../../assets/icons/search.svg";
 
 const Searchbox = (props) => {
     
-    const { handleSearch } = props;
+    const { searchTerm, handleSearch } = props;
 
     return (
         <div className="searchbar">
-            <input type="text" onChange={handleSearch} />
+            <input type="text" value={searchTerm} onChange={handleSearch} />
             <img src={search} alt="Search icon" className="searchbar__icon" />
         </div>
     )
