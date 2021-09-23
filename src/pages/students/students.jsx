@@ -4,6 +4,7 @@ import Searchbox from "../../components/searchbox/searchbox";
 import Sort from "../../components/sort/sort";
 import StudentList from "../../components/studentList/studentList";
 import studentsData from "../../assets/data/student-data";
+import Filter from "../../components/filter/filter";
 
 const Students = () => {
     const [students, setStudents] = useState([]);
@@ -51,6 +52,35 @@ const Students = () => {
         setStudents(studentsSortedByName);
     };
 
+    // consumer/consultant, employed (boolean)
+    const filterByConsumer = (e) => {
+        if (e.target.checked) {
+            const filteredConsumers = students.filter(student => student.type === "Consumer");
+            setStudents(filteredConsumers);
+        } else {
+            setStudents(studentsData);
+        }
+    }
+
+    const filterByConsultant = (e) => {
+        if (e.target.checked) {
+            const filteredConsultants = students.filter(student => student.type === "Consultant");
+            setStudents(filteredConsultants);
+        } else {
+            setStudents(studentsData);
+        }
+    }
+
+    const filterByEmployed = (e) => {
+        if (e.target.checked) {
+            const filteredEmployed = students.filter(student => student.employed);
+            setStudents(filteredEmployed);
+        } else {
+            setStudents(studentsData);
+        }
+    }
+
+
     const getStudents = () => {
         setStudents(studentsData);
     };
@@ -65,6 +95,7 @@ const Students = () => {
                 <h3 className="list-title__heading">Student List</h3>
                 <Searchbox handleSearch={handleSearch} />
                 <Sort sortAscendingByFirstName={sortAscendingByFirstName} sortDescendingByFirstName={sortDescendingByFirstName} />
+                <Filter filterByConsumer={filterByConsumer} filterByConsultant={filterByConsultant} filterByEmployed={filterByEmployed} />
             </div>
             <StudentList studentData={students} />
         </>
