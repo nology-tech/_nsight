@@ -1,8 +1,5 @@
 import React from 'react'
 import "./CourseList.scss"
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import arrow from "../../../assets/icons/chevron-more.svg";
 
 const CourseList = (props) => {
@@ -10,40 +7,40 @@ const CourseList = (props) => {
 
     let status = "";
     if(course.status === false){
-        status = "InActive"
+        status = "Inactive"
     }else {
         status = "Active"
     }
     return (
-        <div className="Courselist">
-            <Container>
-                <Row>
-                    <Col>
+        <div className="courselist">
+            <div class="container">
+              <div class="row">
+                <div class="col">
                         <p>{course.name}</p>
-                    </Col>
-                    <Col>
-                        <p>{course.numberEnrolled}</p>
-                    </Col>
-                    <Col>
-                        <p>{course.percentageEmployed}</p>
-                    </Col>
-                    <Col>
-                        <p>{course.courseLead}</p>
-                    </Col>
-                    <Col>
-                        <p>{course.courseStart}</p>
-                    </Col>
-                    <Col>
-                        <p>{course.courseCompletion}</p>
-                    </Col>
-                    <Col>
+                    </div>
+                    <div class="col">
+                        <p className="courselist__tag">{course.numberEnrolled}</p>
+                    </div>
+                    <div class="col">
+                        <p className="courselist__tag">{course.percentageEmployed}</p>
+                    </div>
+                    <div class="col">
+                        <p className="courselist__tag">{course.courseLead}</p>
+                    </div>
+                    <div class="col">
+                        <p className="courselist__tag">{course.courseStart}</p>
+                    </div>
+                    <div class="col">
+                        <p className="courselist__tag">{course.courseCompletion}</p>
+                    </div>
+                    <div class="col">
                         <p>{status}</p>
-                    </Col>
-                    <Col>
+                    </div>
+                    <div class="col">
                         <img src={arrow} alt="" />
-                    </Col>
-                </Row>
-            </Container>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
