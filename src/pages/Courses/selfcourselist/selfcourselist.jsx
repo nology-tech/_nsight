@@ -14,16 +14,16 @@ const SelfCourseList = (props) => {
                             <p>{selfCourse.name}</p>
                         </div>
                         <div class="col">
-                            <p>{selfCourse.numberEnrolled}</p>
+                            <p className="selfcourse__tag">{selfCourse.numberEnrolled}</p>
                         </div>
                         <div className="col">
-                            <p>{selfCourse.numberCompleted}</p>
+                            <p className="selfcourse__tag">{selfCourse.numberCompleted}</p>
                         </div>
                         <div className="col">
-                        <p>{selfCourse.courseLead}</p>
+                            <p className="selfcourse__tag">{selfCourse.courseLead}</p>
                         </div>
                         <div className="col">
-                            <p>{selfCourse.percentageEmployed}</p>
+                            <p className="selfcourse__tag">{selfCourse.percentageEmployed}</p>
                         </div>
                         <div class="col">
                             <img src={arrow} alt="" />

@@ -14,8 +14,8 @@ const CourseList = (props) => {
     return (
         <div className="courselist">
             <div class="container">
-              <div class="row">
-                <div class="col">
+                <div class="row">
+                    <div class="col">
                         <p>{course.name}</p>
                     </div>
                     <div class="col">
