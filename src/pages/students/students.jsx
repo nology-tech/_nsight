@@ -8,6 +8,7 @@ import Filter from "../../components/filter/filter";
 
 const Students = () => {
     const [students, setStudents] = useState([]);
+    
 
     // Search by first and last name
     const handleSearch = (e) => {
@@ -52,7 +53,8 @@ const Students = () => {
         setStudents(studentsSortedByName);
     };
 
-    // consumer/consultant, employed (boolean)
+    // checking consumer and consultant shows nothing instead of everything
+    // unchecking boxes - consider if other boxes are checked
     const filterByConsumer = (e) => {
         if (e.target.checked) {
             const filteredConsumers = students.filter(student => student.type === "Consumer");
@@ -95,7 +97,10 @@ const Students = () => {
                 <h3 className="list-title__heading">Student List</h3>
                 <Searchbox handleSearch={handleSearch} />
                 <Sort sortAscendingByFirstName={sortAscendingByFirstName} sortDescendingByFirstName={sortDescendingByFirstName} />
-                <Filter filterByConsumer={filterByConsumer} filterByConsultant={filterByConsultant} filterByEmployed={filterByEmployed} />
+                <Filter filterByConsumer={filterByConsumer} 
+                filterByConsultant={filterByConsultant} 
+                filterByEmployed={filterByEmployed}
+                />
             </div>
             <StudentList studentData={students} />
         </>

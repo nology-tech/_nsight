@@ -8,20 +8,13 @@ const Filter = (props) => {
     return (
         <div>
             <label>Filter by Consumer</label>
-            <input type="checkbox" value="" onChange={filterByConsumer}/>
+            <input type="checkbox" onChange={filterByConsumer} />
 
             <label>Filter by Consultant</label>
-            <input type="checkbox" value="" onChange={filterByConsultant}/>
+            <input type="checkbox" onChange={filterByConsultant} />
 
-            <label>Employed?</label>
-            <input type="checkbox" value="" onChange={filterByEmployed}/>
-
-
-            <input
-	            checked={checkboxValue}
-	            onChange={() => setCheckboxValue(!checkboxValue)}
-	            type="checkbox"
-            />
+            <label>Employed</label>
+            <input id="employed" type="checkbox" onChange={filterByEmployed} />
         </div>
     )
 }
