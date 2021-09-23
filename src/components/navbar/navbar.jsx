@@ -1,14 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./navbar.scss";
 import book from "../../assets/icons/book.svg"
+import bookonhover from "../../assets/icons/bookonhover.svg"
 import medals from "../../assets/icons/medals.svg"
 import nut from "../../assets/icons/nut.svg"
 import students from "../../assets/icons/students.svg"
 import house from "../../assets/icons/house.svg"
+import houseonhover from "../../assets/icons/houseonhover.svg"
 import { Link } from 'react-router-dom';
 
 
+
 const Navbar = () => {
+
+    const [bookState, setBookState] = useState(false);
+    const [houseState, setHouseState] = useState(false);
+
+
+    const handleCoursesEnter = () => {
+        setBookState(true);
+    }
+    const handleCoursesLeave = () => {
+        setBookState(false);
+    }
+
+    const handleDashboardEnter = () => {
+        setHouseState(true);
+    }
+    const handleDashboardLeave = () => {
+        setHouseState(false);
+    }
+
     return (
         <nav className="navbar container">
 
@@ -16,14 +38,16 @@ const Navbar = () => {
 
             <div className="row navbar__item justify-content-start">
 
-                <Link to="/" className="col"><img src={house} alt="" />Dashboard</Link>
+                { !houseState && <Link to="/" className="col" onMouseEnter={handleDashboardEnter}><img src={house} alt="" />Dashboard</Link>}
+                { houseState && <Link to="/" className="col" onMouseLeave={handleDashboardLeave}><img src={houseonhover} alt="" />Dashboard</Link>}
                 {/* <a html="https://www.google.com" className="col"><img src={house} alt="" />Dashboard</a> */}
                 {/* <p className="col">Dashboard</p> */}
             </div>
 
             <div className="row navbar__item justify-content-start">
 
-                <Link to="/courses" className="col"><img src={book} alt="" className="smaller-image" />Courses</Link>
+                { !bookState && <Link to="/courses" className="col" onMouseEnter={handleCoursesEnter}><img src={book} alt="" className="smaller-image" />Courses</Link>}
+                { bookState && <Link to="/courses" className="col" onMouseLeave={handleCoursesLeave}><img src={bookonhover} alt="" className="smaller-image" />Courses</Link>}
                 {/* <a html="#" className="col"><img src={book} alt="" className="smaller-image" />Courses</a> */}
                 
                 {/* <p className="col">Courses</p> */}
