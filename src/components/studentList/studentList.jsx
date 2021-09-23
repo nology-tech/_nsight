@@ -10,7 +10,6 @@ const StudentList = (props) => {
             employed = "YES"
         }
 
-            
         return <div class="row">
                     <div class="col-lg">
                         <p>{student.first_name} {student.last_name}</p>
@@ -34,7 +33,7 @@ const StudentList = (props) => {
                         <img src={moreInfo} alt="more info chevron" />
                     </div>
                 </div>
-    })
+    });
 
     return (
             <div class="container">
@@ -62,7 +61,7 @@ const StudentList = (props) => {
                 </div>
                 {studentDisplay}
             </div>
-    )
-}
+    );
+};
 
-export default StudentList
+export default StudentList;
