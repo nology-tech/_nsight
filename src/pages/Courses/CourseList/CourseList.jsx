@@ -6,10 +6,14 @@ const CourseList = (props) => {
     const {course} = props
 
     let status = "";
+    let statColour = "";
     if(course.status === false){
         status = "Inactive"
+        statColour = "red";
+
     }else {
         status = "Active"
+        statColour = "green"
     }
     return (
         <div className="courselist">
@@ -34,9 +38,9 @@ const CourseList = (props) => {
                         <p className="courselist__tag">{course.courseCompletion}</p>
                     </div>
                     <div class="col">
-                      <div>
-                        <p>{status}</p>
-                      </div>
+                        <div>
+                            <p style={{color:statColour}}>{status}</p>
+                        </div>
                     </div>
                     <div class="col">
                         <img src={arrow} alt="" />
