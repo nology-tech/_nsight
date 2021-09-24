@@ -61,25 +61,28 @@ const Navbar = () => {
         <nav className="navbar container">
             <h1 className="navbar_header">_n</h1>
             <div className="row navbar__item justify-content-start">
-                { !houseState && <Link to="/" className="col" onMouseEnter={handleDashboardEnter}><img src={house} alt="" />Dashboard</Link>}
-                { houseState && <Link to="/" className="col" onMouseLeave={handleDashboardLeave}><img src={houseonhover} alt="" />Dashboard</Link>}
+                <Link to="/" className="col" onMouseEnter={handleDashboardEnter} onMouseLeave={handleDashboardLeave}>{ !houseState && <img src={house} alt="" />}{ houseState && <img src={houseonhover} alt="" />}Dashboard</Link>
+                {/* { houseState && <Link to="/" className="col" onMouseLeave={handleDashboardLeave}><img src={houseonhover} alt="" />Dashboard</Link>} */}
             </div>
             <div className="row navbar__item justify-content-start">
-                { !bookState && <Link to="/courses" className="col" onMouseEnter={handleCoursesEnter}><img src={book} alt="" className="smaller-image" />Courses</Link>}
-                { bookState && <Link to="/courses" className="col" onMouseLeave={handleCoursesLeave}><img src={bookonhover} alt="" className="smaller-image" />Courses</Link>}
+                {/* { !bookState && <Link to="/courses" className="col" onMouseEnter={handleCoursesEnter}><img src={book} alt="" className="smaller-image" />Courses</Link>}
+                { bookState && <Link to="/courses" className="col" onMouseLeave={handleCoursesLeave}><img src={bookonhover} alt="" className="smaller-image" />Courses</Link>} */}
+                <Link to="/courses" className="col" onMouseEnter={handleCoursesEnter} onMouseLeave={handleCoursesLeave}> { !bookState && <img src={book} alt="" className="smaller-image" />}{ bookState && <img src={bookonhover} alt="" className="smaller-image" />}Courses</Link>
+                {/* { bookState && <Link to="/courses" className="col" onMouseLeave={handleCoursesLeave}><img src={bookonhover} alt="" className="smaller-image" />Courses</Link>} */}
             </div>
             <div className="row navbar__item justify-content-start" >
-                { !studentsState && <Link to="/students" className="col" onMouseEnter={handleStudentsEnter}><img src={students} alt="" className="" />Students</Link>}
-                { studentsState && <Link to="/students" className="col" onMouseLeave={handleStudentsLeave}><img src={studentsonhover} alt="" className="" />Students</Link>}
+                <Link to="/students" className="col" onMouseEnter={handleStudentsEnter} onMouseLeave={handleStudentsLeave}>{ !studentsState && <img src={students} alt="" className="" />}{ studentsState && <img src={studentsonhover} alt="" className="" />}Students</Link>
+                {/* { !studentsState && <Link to="/students" className="col" onMouseEnter={handleStudentsEnter}><img src={students} alt="" className="" />Students</Link>}
+                { studentsState && <Link to="/students" className="col" onMouseLeave={handleStudentsLeave}><img src={studentsonhover} alt="" className="" />Students</Link>} */}
             </div>
             <div className="row navbar__item text-left">
-                { !medalsState && <Link to="/enrollment" className="col" onMouseEnter={handleEnrollmentEnter}><img src={medals} alt="" className="smaller-image" />Enrollment</Link>}
-                { medalsState && <Link to="/enrollment" className="col" onMouseLeave={handleEnrollmentLeave}><img src={medalsonhover} alt="" className="smaller-image" />Enrollment</Link>}
+                <Link to="/enrollment" className="col" onMouseEnter={handleEnrollmentEnter} onMouseLeave={handleEnrollmentLeave}>{ !medalsState && <img src={medals} alt="" className="smaller-image" />}{ medalsState && <img src={medalsonhover} alt="" className="smaller-image" />}Enrollment</Link>
+                {/* { !medalsState && <Link to="/enrollment" className="col" onMouseEnter={handleEnrollmentEnter}><img src={medals} alt="" className="smaller-image" />Enrollment</Link>}
+                { medalsState && <Link to="/enrollment" className="col" onMouseLeave={handleEnrollmentLeave}><img src={medalsonhover} alt="" className="smaller-image" />Enrollment</Link>} */}
             </div>
             <div className="list-break-bottom"></div>
             <div className="row navbar__item text-left">
-                { !nutState && <Link to="/settings" className="col" onMouseEnter={handleSettingsEnter}><img src={nut} alt="" className="smaller-image" />Settings</Link>}
-                { nutState && <Link to="/settings" className="col" onMouseLeave={handleSettingsLeave}><img src={nutonhover} alt="" className="smaller-image" />Settings</Link>}
+                <Link to="/settings" className="col" onMouseEnter={handleSettingsEnter} onMouseLeave={handleSettingsLeave}>{ !nutState && <img src={nut} alt="" className="smaller-image" />}{ nutState && <img src={nutonhover} alt="" className="smaller-image" />}Settings</Link>
                 {/* <a html="#" className="col"><img src={nut} alt="" className="smaller-image" />Settings</a> */}
                 {/* <img src={nut} alt="" className="col-md-4" />
                 <p className="col-md-8">Settings</p> */}
