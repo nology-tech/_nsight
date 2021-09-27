@@ -13,10 +13,10 @@ const  App = () => {
       <div className="App">
         <Navbar/>
             <Switch>
-              <Route path="/courses" exact component={Courses}/>
-              <Route path="/students" exact component={Students}/>
-              <Route path="/Enrollment" exact component={Enrollment}/>
-              <Route path="/Settings" exact component={Settings}/>
+              <Route path="/courses" component={Courses}/>
+              <Route path="/students" component={Students}/>
+              <Route path="/Enrollment" component={Enrollment}/>
+              <Route path="/Settings" component={Settings}/>
               <Route path="/" component={Dashboard}/>
             </Switch>
       </div>

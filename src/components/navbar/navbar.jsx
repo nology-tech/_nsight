@@ -10,7 +10,7 @@ import students from "../../assets/icons/students.svg"
 import studentsonhover from "../../assets/icons/studentsonhover.svg"
 import house from "../../assets/icons/house.svg"
 import houseonhover from "../../assets/icons/houseonhover.svg"
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from "../../assets/images/_nology.png"
 
 
@@ -18,44 +18,48 @@ import logo from "../../assets/images/_nology.png"
 const Navbar = () => {
 
     const [bookState, setBookState] = useState(false);
-    const [houseState, setHouseState] = useState(false);
+    const [houseState, setHouseState] = useState(true);
     const [medalsState, setMedalsState] = useState(false);
     const [studentsState, setStudentsState] = useState(false);
     const [nutState, setNutState] = useState(false);
 
-    const handleCoursesEnter = () => {
+    const handleCoursesClick = () => {
+        handleClearActiveStatus();
         setBookState(true);
     }
-    const handleCoursesLeave = () => {
-        setBookState(false);
-    }
 
-    const handleDashboardEnter = () => {
+    const handleDashboardClick = () => {
+        handleClearActiveStatus();
         setHouseState(true);
     }
-    const handleDashboardLeave = () => {
-        setHouseState(false);
-    }
 
-    const handleStudentsEnter = () => {
+    const handleStudentsClick = () => {
+        handleClearActiveStatus();
         setStudentsState(true);
     }
-    const handleStudentsLeave = () => {
-        setStudentsState(false);
-    }
 
-    const handleEnrollmentEnter = () => {
+    const handleEnrollmentClick = () => {
+        handleClearActiveStatus();
         setMedalsState(true);
     }
-    const handleEnrollmentLeave = () => {
-        setMedalsState(false);
-    }
 
-    const handleSettingsEnter = () => {
+    const handleSettingsClick = () => {
+        handleClearActiveStatus();
         setNutState(true);
     }
-    const handleSettingsLeave = () => {
-        setNutState(false);
+
+    const handleClearActiveStatus = () => {
+        if (bookState) {
+            setBookState(false);
+        } else if (houseState) {
+            setHouseState(false);
+        } else if (studentsState) {
+            setStudentsState(false);
+        } else if (medalsState) {
+            setMedalsState(false);
+        } else if (nutState) {
+            setNutState(false);
+        }
     }
 
     return (
@@ -66,25 +70,25 @@ const Navbar = () => {
             <div className="list-break-bottom"></div>
 
             <div className="row navbar__item justify-content-start">
-                <Link to="/" className="col" onMouseEnter={handleDashboardEnter} onMouseLeave={handleDashboardLeave}>{ !houseState && <img src={house} alt="" />}{ houseState && <img src={houseonhover} alt="" />}Dashboard</Link>
-            </div>
-
-            <div className="row navbar__item justify-content-start">
-                <Link to="/courses" className="col" onMouseEnter={handleCoursesEnter} onMouseLeave={handleCoursesLeave}> { !bookState && <img src={book} alt="" className="smaller-image" />}{ bookState && <img src={bookonhover} alt="" className="smaller-image" />}Courses</Link>
+                <NavLink exact to="/" className="col" onClick={handleDashboardClick} activeClassName="active">{ !houseState && <img src={house} alt="" />}{ houseState && <img src={houseonhover} alt="" />}Dashboard</NavLink>
             </div>
 
             <div className="row navbar__item justify-content-start" >
-                <Link to="/students" className="col" onMouseEnter={handleStudentsEnter} onMouseLeave={handleStudentsLeave}>{ !studentsState && <img src={students} alt="" className="" />}{ studentsState && <img src={studentsonhover} alt="" className="" />}Students</Link>
+                <NavLink exact to="/courses" className="col" onClick={handleCoursesClick} activeClassName="active" > { !bookState && <img src={book} alt="" className="smaller-image" />}{ bookState && <img src={bookonhover} alt="" className="smaller-image" />}Courses</NavLink>
+            </div>
+
+            <div className="row navbar__item justify-content-start" >
+                <NavLink exact to="/students" className="col" onClick={handleStudentsClick} activeClassName="active">{ !studentsState && <img src={students} alt="" className="" />}{ studentsState && <img src={studentsonhover} alt="" className="" />}Students</NavLink>
             </div>
 
             <div className="row navbar__item text-left">
-                <Link to="/enrollment" className="col" onMouseEnter={handleEnrollmentEnter} onMouseLeave={handleEnrollmentLeave}>{ !medalsState && <img src={medals} alt="" className="smaller-image" />}{ medalsState && <img src={medalsonhover} alt="" className="smaller-image" />}Enrollment</Link>
+                <NavLink exact to="/enrollment" className="col" onClick={handleEnrollmentClick} activeClassName="active">{ !medalsState && <img src={medals} alt="" className="smaller-image" />}{ medalsState && <img src={medalsonhover} alt="" className="smaller-image" />}Enrollment</NavLink>
             </div>
 
             <div className="list-break-bottom"></div>
 
             <div className="row navbar__item text-left">
-                <Link to="/settings" className="col" onMouseEnter={handleSettingsEnter} onMouseLeave={handleSettingsLeave}>{ !nutState && <img src={nut} alt="" className="smaller-image" />}{ nutState && <img src={nutonhover} alt="" className="smaller-image" />}Settings</Link>
+                <NavLink exact to="/settings" className="col" onClick={handleSettingsClick} activeClassName="active">{ !nutState && <img src={nut} alt="" className="smaller-image" />}{ nutState && <img src={nutonhover} alt="" className="smaller-image" />}Settings</NavLink>
             </div>     
         </nav>
     )
