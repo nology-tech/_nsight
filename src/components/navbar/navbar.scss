@@ -13,17 +13,12 @@
     position: absolute;
     top: 0;
     left: 0;
+    .logo{
+        margin-top: 60px;
+        width: 80px;
 
-    h1 {
-        font-size: 70px;
-        font-weight: bold;
-        color: #FFFFFF;
-        width: 81.7%;
-        border-bottom: 1px solid $secondary-nav;
-        text-align: center;
-        padding-bottom: 22px;
-        margin: 15px 0;
     }
+
 
     .list-break-bottom {
         width: 81.7%;
