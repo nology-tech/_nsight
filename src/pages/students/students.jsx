@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./students.scss";
 import Searchbox from "../../components/searchbox/searchbox";
 import Sort from "../../components/sort/sort";
@@ -55,33 +55,14 @@ const Students = () => {
 
     // checking consumer and consultant shows nothing instead of everything
     // unchecking boxes - consider if other boxes are checked
-    const filterByConsumer = (e) => {
+    const filterByCourseName = (e) => {
         if (e.target.checked) {
-            const filteredConsumers = students.filter(student => student.type === "Consumer");
-            setStudents(filteredConsumers);
+            const filteredCourseName = students.filter(student => student.course_name === e.target.value);
+            setStudents(filteredCourseName);
         } else {
             setStudents(studentsData);
         }
     }
-
-    const filterByConsultant = (e) => {
-        if (e.target.checked) {
-            const filteredConsultants = students.filter(student => student.type === "Consultant");
-            setStudents(filteredConsultants);
-        } else {
-            setStudents(studentsData);
-        }
-    }
-
-    const filterByEmployed = (e) => {
-        if (e.target.checked) {
-            const filteredEmployed = students.filter(student => student.employed);
-            setStudents(filteredEmployed);
-        } else {
-            setStudents(studentsData);
-        }
-    }
-
 
     const getStudents = () => {
         setStudents(studentsData);
@@ -97,10 +78,7 @@ const Students = () => {
                 <h3 className="list-title__heading">Student List</h3>
                 <Searchbox handleSearch={handleSearch} />
                 <Sort sortAscendingByFirstName={sortAscendingByFirstName} sortDescendingByFirstName={sortDescendingByFirstName} />
-                <Filter filterByConsumer={filterByConsumer} 
-                filterByConsultant={filterByConsultant} 
-                filterByEmployed={filterByEmployed}
-                />
+                <Filter studentData={studentsData} filterByCourseName={filterByCourseName} />
             </div>
             <StudentList studentData={students} />
         </>
