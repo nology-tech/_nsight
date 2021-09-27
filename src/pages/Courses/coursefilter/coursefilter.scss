@@ -14,28 +14,17 @@
       list-style: none;
       white-space: nowrap;
       padding: 0;
-      &-tag1{
-        margin-bottom: 20px;
-        border-bottom: 2px solid #EDE8F8;
+      &-tag:hover{
+        border-bottom: solid 2px #724BCB;
       }
-      &-tag1:hover{
-        border-bottom: solid 2px purple;
+      &-tag{
+        margin-left: 30px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid transparent;
         padding-bottom: 10px;
       }
-      &-tag2{
-        margin-left: 30px;
-        margin-bottom: 20px;
-        border-bottom: 2px solid #EDE8F8;
-      }
-      &-tag3{
-        margin-left: 30px;
-        margin-bottom: 20px;
-        border-bottom: 2px solid #EDE8F8;
-      }
-      &-tag4{
-        margin-left: 30px;
-        margin-bottom: 20px;
-        border-bottom: 2px solid #EDE8F8;
+      &-tag:first-child{
+        margin-left: 0;
       }
     }
   }

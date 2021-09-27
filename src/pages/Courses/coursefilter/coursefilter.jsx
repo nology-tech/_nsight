@@ -6,10 +6,10 @@ const CourseFilter = () => {
     <div className="coursefilter">
     <nav className="coursefilter__nav">
       <ul className="coursefilter__nav-list">
-        <li href="" className="coursefilter__nav-list-tag1">All</li>
-        <li href="" className="coursefilter__nav-list-tag2">Full-time</li>
-        <li href="" className="coursefilter__nav-list-tag3">Self-Paced</li>
-        <li href="" className="coursefilter__nav-list-tag4">Corporate</li>
+        <li href="" className="coursefilter__nav-list-tag">All</li>
+        <li href="" className="coursefilter__nav-list-tag">Full-time</li>
+        <li href="" className="coursefilter__nav-list-tag">Self-Paced</li>
+        <li href="" className="coursefilter__nav-list-tag">Corporate</li>
       </ul>
     </nav>
     </div>
