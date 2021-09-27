@@ -16,7 +16,6 @@ const Students = () => {
     const courseNames = studentsData.map(student => student.course_name);
 
     const uniqueCourseNames = courseNames.filter(unique);
-    console.log(uniqueCourseNames);
     
     const createStatefulObject = (courseNames) => {
         return courseNames.reduce((statefulObject, courseName) => {
@@ -34,6 +33,7 @@ const Students = () => {
         setCourses(tempCourses); // not synchronous
         return tempCourses;
     }
+    console.log(courses)
 
     // Search by first and last name
     const handleSearch = (e) => {
@@ -78,18 +78,32 @@ const Students = () => {
         setStudents(studentsSortedByName);
     };
 
-    // checking consumer and consultant shows nothing instead of everything
-    // unchecking boxes - consider if other boxes are checked
     const filterByCourseName = (e) => {
         const courses = handleSetCourses(e.target.value);
 
+        // stateArray updates depending on state of each course
+        // NEXT: update list  displayed ln 106 onwards
+        const stateArray = [];
+
+        Object.keys(courses).forEach(key => {
+            if (courses[key]) {
+                stateArray.push(key)
+            }
+        })
+        // console.log(stateArray)
         // We have an object of {courseName: boolean}
         // How do filter students with this?
         // Create new array of 'true' states
         // Generate statement dynamically
         
         // student.course_name === Mariana || student.course_name === Ibiza 
-        const filteredCourseName = students.filter(student => student.course_name === e.target.value);
+        // for (let i = 0; i < stateArray.length; i++) {
+            
+        // }
+
+        // // const found = arr1.some(r=> arr2.includes(r))
+        // const filteredCourseName = students.some(r => stateArray.includes(r))
+        const filteredCourseName = students.filter(student => students.every(r => stateArray.includes(r)));
         setStudents(filteredCourseName);
     }
 
