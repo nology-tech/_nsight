@@ -2,6 +2,8 @@ import React from "react";
 import courses from "../../assets/data/coursedata";
 import CourseList from "./CourseList/CourseList";
 import SelfCourseList from "./selfcourselist/selfcourselist";
+import TopHeader from "../../components/topheader/topheader";
+import CourseFilter from "./coursefilter/coursefilter";
 import "./Courses.scss"
 
 const Courses = (props) => {
@@ -19,7 +21,10 @@ const Courses = (props) => {
         )
     });
     return (
-        <>
+        <div className="mainCourse">
+        <TopHeader title="Courses">
+            <CourseFilter/>
+        </TopHeader>
         <div class="container">
                 <h2>Full-Time Bootcamp</h2>
             <div className="courses">
@@ -50,7 +55,7 @@ const Courses = (props) => {
                 {selfCourseData}
             </div>
         </div>
-        </>
+        </div>
     )
 }
 export default Courses;

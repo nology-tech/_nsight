@@ -1,0 +1,42 @@
+.coursefilter{
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  &__nav{
+    &-list{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-end;
+      list-style: none;
+      white-space: nowrap;
+      padding: 0;
+      &-tag1{
+        margin-bottom: 20px;
+        border-bottom: 2px solid #EDE8F8;
+      }
+      &-tag1:hover{
+        border-bottom: solid 2px purple;
+        padding-bottom: 10px;
+      }
+      &-tag2{
+        margin-left: 30px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #EDE8F8;
+      }
+      &-tag3{
+        margin-left: 30px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #EDE8F8;
+      }
+      &-tag4{
+        margin-left: 30px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #EDE8F8;
+      }
+    }
+  }
+}
