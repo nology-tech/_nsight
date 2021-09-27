@@ -43,8 +43,8 @@ const CourseList = (props) => {
                     </div>
                     <div class="col">
                         <div className="stats">
-                            <img className="stats__img" src={statColourImg}/>
-                            <p style={{color:statColour}}>{status}</p>
+                            {/*<img className="stats__img" src={statColourImg}/>*/}
+                            <li style={{color:statColour}}>{status}</li>
                         </div>
                     </div>
                     <div class="col">
