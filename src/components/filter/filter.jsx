@@ -3,21 +3,13 @@ import "./filter.scss"
 
 const Filter = (props) => {
 
-    const { studentData, filterByCourseName } = props;
+    const {courses, filterByCourseName } = props;
 
-    const unique = (value, index, self) => {
-        return self.indexOf(value) === index
-    }
-
-    const courseNames = studentData.map(student => student.course_name);
-
-    const uniqueCourseNames = courseNames.filter(unique);
-
-    const distinctCourseNames = uniqueCourseNames.map(courseName => {
+    const distinctCourseNames = Object.entries(courses).map(course => {
         return (
             <>
-                <input id={courseName} type="checkbox" value={courseName} onChange={filterByCourseName}/>
-                <label htmlFor={courseName}>{courseName}</label>
+                <input id={course[0]} type="checkbox" value={course[0]} checked={course[1]} onChange={filterByCourseName}/>
+                <label htmlFor={course[0]}>{course[0]}</label>
             </>
         );
     });

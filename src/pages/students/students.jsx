@@ -8,7 +8,32 @@ import Filter from "../../components/filter/filter";
 
 const Students = () => {
     const [students, setStudents] = useState([]);
+
+    const unique = (value, index, self) => {
+        return self.indexOf(value) === index
+    }
+
+    const courseNames = studentsData.map(student => student.course_name);
+
+    const uniqueCourseNames = courseNames.filter(unique);
+    console.log(uniqueCourseNames);
     
+    const createStatefulObject = (courseNames) => {
+        return courseNames.reduce((statefulObject, courseName) => {
+            statefulObject[courseName] = false;
+            return statefulObject;
+        }, {})
+    }
+
+    const [courses, setCourses] = useState(createStatefulObject(uniqueCourseNames))
+
+    const handleSetCourses = (courseName) => {
+        const tempCourses = {...courses};
+        tempCourses[courseName] = !tempCourses[courseName];
+
+        setCourses(tempCourses); // not synchronous
+        return tempCourses;
+    }
 
     // Search by first and last name
     const handleSearch = (e) => {
@@ -56,12 +81,16 @@ const Students = () => {
     // checking consumer and consultant shows nothing instead of everything
     // unchecking boxes - consider if other boxes are checked
     const filterByCourseName = (e) => {
-        if (e.target.checked) {
-            const filteredCourseName = students.filter(student => student.course_name === e.target.value);
-            setStudents(filteredCourseName);
-        } else {
-            setStudents(studentsData);
-        }
+        const courses = handleSetCourses(e.target.value);
+
+        // We have an object of {courseName: boolean}
+        // How do filter students with this?
+        // Create new array of 'true' states
+        // Generate statement dynamically
+        
+        // student.course_name === Mariana || student.course_name === Ibiza 
+        const filteredCourseName = students.filter(student => student.course_name === e.target.value);
+        setStudents(filteredCourseName);
     }
 
     const getStudents = () => {
@@ -78,7 +107,7 @@ const Students = () => {
                 <h3 className="list-title__heading">Student List</h3>
                 <Searchbox handleSearch={handleSearch} />
                 <Sort sortAscendingByFirstName={sortAscendingByFirstName} sortDescendingByFirstName={sortDescendingByFirstName} />
-                <Filter studentData={studentsData} filterByCourseName={filterByCourseName} />
+                <Filter courses={courses} filterByCourseName={filterByCourseName} />
             </div>
             <StudentList studentData={students} />
         </>
