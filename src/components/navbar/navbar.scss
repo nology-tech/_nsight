@@ -1,6 +1,6 @@
 @import "../../assets/styles/styles.scss";
 
-.navbar{
+.navbar {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -14,7 +14,7 @@
     top: 0;
     left: 0;
 
-    .logo{
+    .logo {
         margin-top: 60px;
         width: 80px;
 
@@ -55,9 +55,7 @@
 }
 
 @media screen and (min-width: 1400px) {
-
-    .navbar{
-
+    .navbar {
         a {
             padding: 15px 0 15px 5em;
         }
@@ -65,8 +63,7 @@
 }
 
 @media screen and (min-width: 1500px) {
-    .navbar{
-
+    .navbar {
         a {
             padding: 15px 0 15px 6em;
         }
@@ -75,7 +72,6 @@
 
 @media screen and (min-width: 1600px) {
     .navbar{
-        
         a {
             padding: 15px 0 15px 7em;
         }
@@ -83,8 +79,7 @@
 }
 
 @media screen and (min-width: 1700px) {
-    .navbar{
-        
+    .navbar{   
         a {
             padding: 15px 0 15px 8em;
         }

@@ -7,17 +7,37 @@
     padding: 10px 20px;
     font-size: 16px;
     margin: 20px;
-    margin-right: 800px;
+    // margin-right: 800px;
     border: none;
 }
 
+// Purple Save button
 .button-primary{
     background-color: #724BCB;
     color: white;
 }
 
+// White buttom
 .button-secondary{
     background-color: $default;
     color: $secondary;
     border: 1px solid #724BCB;
+}
+
+// wider purple button
+.button-tertiary{
+    background-color: #724BCB;
+    color: white;
+    width: 255px;
+    height: 42px;
+    border: 1px solid #724BCB;
+}
+
+//grey Cancel button
+.button-fourth{
+    background-color: #7C768A;
+    color: $default;
+    width: 145px;
+    height: 39px;
+    opacity: 0.25;
 }
