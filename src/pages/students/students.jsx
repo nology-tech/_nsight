@@ -81,31 +81,22 @@ const Students = () => {
     const filterByCourseName = (e) => {
         const courses = handleSetCourses(e.target.value);
 
-        // stateArray updates depending on state of each course
-        // NEXT: update list  displayed ln 106 onwards
         const stateArray = [];
 
         Object.keys(courses).forEach(key => {
             if (courses[key]) {
                 stateArray.push(key)
             }
-        })
-        // console.log(stateArray)
-        // We have an object of {courseName: boolean}
-        // How do filter students with this?
-        // Create new array of 'true' states
-        // Generate statement dynamically
-        
-        // student.course_name === Mariana || student.course_name === Ibiza 
-        // for (let i = 0; i < stateArray.length; i++) {
-            
-        // }
+        });
 
-        // // const found = arr1.some(r=> arr2.includes(r))
-        // const filteredCourseName = students.some(r => stateArray.includes(r))
-        const filteredCourseName = students.filter(student => students.every(r => stateArray.includes(r)));
-        setStudents(filteredCourseName);
-    }
+        const filteredCourseName = studentsData.filter(student => stateArray.includes(student.course_name));
+
+        if (filteredCourseName.length === 0) {
+            setStudents(studentsData);
+        } else {
+            setStudents(filteredCourseName);
+        }
+    };
 
     const getStudents = () => {
         setStudents(studentsData);
@@ -125,7 +116,7 @@ const Students = () => {
             </div>
             <StudentList studentData={students} />
         </>
-    )
+    );
 };
 
 export default Students;
