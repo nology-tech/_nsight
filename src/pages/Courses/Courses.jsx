@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import courses from "../../assets/data/coursedata";
 import CourseList from "./CourseList/CourseList";
 import SelfCourseList from "./selfcourselist/selfcourselist";
@@ -7,6 +7,8 @@ import CourseFilter from "./coursefilter/coursefilter";
 import "./Courses.scss"
 
 const Courses = (props) => {
+
+    const [searchResults, setSearchResults] = useState("");
 
     const filteredCourseData = courses.filter(course => course.name !== "Self-Paced Course")
     const coursesData = filteredCourseData.map(course => {
@@ -23,7 +25,7 @@ const Courses = (props) => {
     return (
         <div className="mainCourse">
             <TopHeader title="Courses">
-                <CourseFilter CourseFilter={coursesData}/>
+                <CourseFilter CourseFilter={CourseFilter}/>
             </TopHeader>
             <div class="container">
                 <h2>Full-Time Bootcamp</h2>

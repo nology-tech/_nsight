@@ -4,15 +4,14 @@ import courses from "../../../assets/data/coursedata";
 import CourseList from "../CourseList/CourseList";
 
 const CourseFilter = (props) => {
-    const CourseFilter = props
-    const [searchResults, setSearchResults] = useState("");
+    const {filteredCourseData } = props
 
     const All = () => {
 
     }
 
     const FullTime = (CourseFilter) => {
-        console.log("Full time")
+        // console.log("Full time")
     }
 
     const SelfPaced = () => {
