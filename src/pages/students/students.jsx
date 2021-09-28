@@ -125,30 +125,27 @@ const Students = () => {
 
     const previousPage = () => {
         const newPageStart = pageStart- 10;
-        const newPageEnd = pageEnd- 10;
-        
-        console.log(newPageStart)
-        console.log(newPageEnd)
+        let newPageEnd = pageEnd- 10;
+        if (newPageStart >= 0) {
+            setPageStart(newPageStart);
+        }
+        if (newPageEnd % 10 != 0) {
+            setPageEnd(pageEnd - (newPageEnd % 10));
+            newPageEnd = pageEnd - (newPageEnd % 10);
+        } else {
+            if (newPageEnd > 0) {
+                setPageEnd(newPageEnd);
+            }
+        }
+        if (newPageStart >= 0) {
+            displayPage(newPageStart, newPageEnd);
+            if (pageEnd < 10) {
+                displayPage(newPageStart, 10)
+            } else {
+                displayPage(newPageStart, newPageEnd);
+            }
+        }
     }
-
-    // if (newPageStart >= 0) {
-    //     setPageStart(newPageStart);
-    // }
-    // if (pageEnd >= 10) {
-    //     if (newPageEnd < 10) {
-    //         setPageEnd(10);
-    //     } else {
-    //         setPageEnd(newPageEnd);
-    //     }
-    // } else {setPageEnd(10)}
-    // if (newPageStart >= 0) {
-    //     displayPage(newPageStart, newPageEnd);
-    //     if (pageEnd < 10) {
-    //         displayPage(newPageStart, 10)
-    //     } else {
-    //         displayPage(newPageStart, newPageEnd);
-    //     }
-    // }
 
     const getStudents = () => {
         // setStudents(studentsData);
@@ -160,9 +157,8 @@ const Students = () => {
         getStudents();
     }, []);
 
-    // useEffect(() => {
-    //     displayPage();
-    // }, []);
+
+    //  when search, 'showing 1-10' does not update - needs to disappear, wrap 172-174 in div and use "-- && div"
 
     return (
         <>
