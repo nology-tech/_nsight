@@ -7,8 +7,10 @@ import CourseFilter from "./coursefilter/coursefilter";
 import "./Courses.scss"
 
 const Courses = (props) => {
-
-    const [searchResults, setSearchResults] = useState("");
+    // Two boolean states
+    // 1 for Full time && 1 for Self-paced
+    // function to pass into filter, switches from true to false
+    // etc.
 
     const filteredCourseData = courses.filter(course => course.name !== "Self-Paced Course")
     const coursesData = filteredCourseData.map(course => {
@@ -22,13 +24,18 @@ const Courses = (props) => {
             <SelfCourseList selfCourse={course}/>
         )
     });
+
+
+    const [searchResults, setSearchResults] = useState("");
+
+
     return (
         <div className="mainCourse">
             <TopHeader title="Courses">
-                <CourseFilter CourseFilter={CourseFilter}/>
+                <CourseFilter searchResults={searchResults}/>
             </TopHeader>
             <div class="container">
-                <h2>Full-Time Bootcamp</h2>
+                {false && (<><h2>Full-Time Bootcamp</h2>
                 <div className="courses">
                     <div class="row names">
                         <div class="col">Course Name</div>
@@ -41,7 +48,7 @@ const Courses = (props) => {
                         <div class="col"> </div>
                     </div>
                     {coursesData}
-                </div>
+                </div></>)}
                 <div class="container">
                     <h2>Self-Paced Bootcamp</h2>
                     <div className="courses">
