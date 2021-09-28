@@ -7,6 +7,7 @@ import Students from './pages/students/students.jsx';
 import Settings from "./pages/settings/settings.jsx";
 import Enrollment from "./pages/enrollment/enrollment.jsx";
 
+
 const  App = () => {
   return (
     <Router>
