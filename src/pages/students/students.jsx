@@ -93,7 +93,7 @@ const Students = () => {
         const filteredCourseName = studentsData.filter(student => stateArray.includes(student.course_name));
 
         if (filteredCourseName.length === 0) {
-            setStudents(studentsData);
+            getStudents(studentsData);
         } else {
             setStudents(filteredCourseName);
         }
@@ -102,23 +102,58 @@ const Students = () => {
     const [pageStart, setPageStart] = useState(0);
     const [pageEnd, setPageEnd] = useState(10);
 
-    const displayPage = () => {
-        const toShow = students.slice(pageStart, pageEnd);
+    const displayPage = (pageStart, pageEnd) => {
+        const toShow = studentsData.slice(pageStart, pageEnd);
         setStudents(toShow);
     }
 
     const nextPage = () => {
-        setPageStart(pageStart + 10);
-        if (pageEnd > studentsData.length) {
+        const newPageStart = pageStart+ 10;
+        const newPageEnd = pageEnd+ 10;
+        if (newPageStart < studentsData.length) {
+            setPageStart(newPageStart);
+        }
+        if (newPageEnd > studentsData.length) {
             setPageEnd(studentsData.length);
         } else {
-            setPageEnd(pageEnd + 10);
+            setPageEnd(newPageEnd);
         }
-        displayPage();
+        if (newPageStart < studentsData.length) {
+            displayPage(newPageStart, newPageEnd);
+        }
     }
 
+    const previousPage = () => {
+        const newPageStart = pageStart- 10;
+        const newPageEnd = pageEnd- 10;
+        
+        console.log(newPageStart)
+        console.log(newPageEnd)
+    }
+
+    // if (newPageStart >= 0) {
+    //     setPageStart(newPageStart);
+    // }
+    // if (pageEnd >= 10) {
+    //     if (newPageEnd < 10) {
+    //         setPageEnd(10);
+    //     } else {
+    //         setPageEnd(newPageEnd);
+    //     }
+    // } else {setPageEnd(10)}
+    // if (newPageStart >= 0) {
+    //     displayPage(newPageStart, newPageEnd);
+    //     if (pageEnd < 10) {
+    //         displayPage(newPageStart, 10)
+    //     } else {
+    //         displayPage(newPageStart, newPageEnd);
+    //     }
+    // }
+
     const getStudents = () => {
-        setStudents(studentsData);
+        // setStudents(studentsData);
+        const toShow = studentsData.slice(pageStart, pageEnd);
+        setStudents(toShow);
     };
 
     useEffect(() => {
@@ -139,7 +174,7 @@ const Students = () => {
             </div>
             <StudentList studentData={students} />
             <p>{pageStart+1}-{pageEnd} of {studentsData.length}</p>
-            <img src={chevronLeft} alt="previous page" onClick={nextPage} />
+            <img src={chevronLeft} alt="previous page" onClick={previousPage} />
             <img src={chevronRight} alt="next page" onClick={nextPage} />
         </>
     );
