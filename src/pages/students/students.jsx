@@ -5,6 +5,8 @@ import Sort from "../../components/sort/sort";
 import StudentList from "../../components/studentList/studentList";
 import studentsData from "../../assets/data/student-data";
 import Filter from "../../components/filter/filter";
+import chevronLeft from "../../assets/icons/chevron-left.svg";
+import chevronRight from "../../assets/icons/chevron-right.svg";
 
 const Students = () => {
     const [students, setStudents] = useState([]);
@@ -80,10 +82,9 @@ const Students = () => {
 
     const filterByCourseName = (e) => {
         const courses = handleSetCourses(e.target.value);
-
         const stateArray = [];
 
-        Object.keys(courses).forEach(key => {
+        Object.keys(courses).filter(key => {
             if (courses[key]) {
                 stateArray.push(key)
             }
@@ -98,6 +99,24 @@ const Students = () => {
         }
     };
 
+    const [pageStart, setPageStart] = useState(0);
+    const [pageEnd, setPageEnd] = useState(10);
+
+    const displayPage = () => {
+        const toShow = students.slice(pageStart, pageEnd);
+        setStudents(toShow);
+    }
+
+    const nextPage = () => {
+        setPageStart(pageStart + 10);
+        if (pageEnd > studentsData.length) {
+            setPageEnd(studentsData.length);
+        } else {
+            setPageEnd(pageEnd + 10);
+        }
+        displayPage();
+    }
+
     const getStudents = () => {
         setStudents(studentsData);
     };
@@ -105,6 +124,10 @@ const Students = () => {
     useEffect(() => {
         getStudents();
     }, []);
+
+    // useEffect(() => {
+    //     displayPage();
+    // }, []);
 
     return (
         <>
@@ -115,6 +138,9 @@ const Students = () => {
                 <Filter courses={courses} filterByCourseName={filterByCourseName} />
             </div>
             <StudentList studentData={students} />
+            <p>{pageStart+1}-{pageEnd} of {studentsData.length}</p>
+            <img src={chevronLeft} alt="previous page" onClick={nextPage} />
+            <img src={chevronRight} alt="next page" onClick={nextPage} />
         </>
     );
 };
