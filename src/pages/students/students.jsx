@@ -161,7 +161,7 @@ const Students = () => {
     //  when search, 'showing 1-10' does not update - needs to disappear, wrap 172-174 in div and use "-- && div"
 
     return (
-        <>
+        <div className="student-list">
             <div className="list-title">
                 <h3 className="list-title__heading">Student List</h3>
                 <Searchbox handleSearch={handleSearch} />
@@ -172,7 +172,7 @@ const Students = () => {
             <p>{pageStart+1}-{pageEnd} of {studentsData.length}</p>
             <img src={chevronLeft} alt="previous page" onClick={previousPage} />
             <img src={chevronRight} alt="next page" onClick={nextPage} />
-        </>
+        </div>
     );
 };
 
