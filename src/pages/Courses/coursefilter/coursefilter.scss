@@ -14,9 +14,14 @@
       list-style: none;
       white-space: nowrap;
       padding: 0;
+      a{
+        text-decoration: none;
+        color: black;
+      }
       &-tag:hover{
         border-bottom: solid 2px #724BCB;
       }
+
       &-tag{
         margin-left: 30px;
         margin-bottom: 20px;
