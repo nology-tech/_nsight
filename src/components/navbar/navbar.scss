@@ -1,0 +1,87 @@
+@import "../../assets/styles/styles.scss";
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: $primary-nav;
+    padding: 30px 0;
+    border-radius: 0 30px 0 0;
+    box-shadow: 0px 20px 40px #F0F0EE;
+    height: 100vh;
+    width: 21.3vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .logo {
+        margin-top: 60px;
+        width: 80px;
+
+    }
+
+    .list-break-bottom {
+        width: 81.7%;
+        height: 25px;
+        border-bottom: 1px solid $secondary-nav;
+        margin-bottom: 25px;
+    }
+
+    &__item {
+        color: $nav-text-color;
+        width: 100%;
+
+        a {
+            text-decoration: none;
+            font-size: 16px;
+            color: $nav-text-color;
+            padding: 15px 0 15px 4em;
+            border-left: 1px solid transparent;
+        }
+
+        .active {
+            background-color: $third-nav;
+            color: $default;
+            cursor: pointer;
+            border-left: 1px solid #724BCB;
+            
+        }
+
+        img {
+            padding-right: 40px;
+            width: 60px;
+        }
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .navbar {
+        a {
+            padding: 15px 0 15px 5em;
+        }
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .navbar {
+        a {
+            padding: 15px 0 15px 6em;
+        }
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .navbar{
+        a {
+            padding: 15px 0 15px 7em;
+        }
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .navbar{   
+        a {
+            padding: 15px 0 15px 8em;
+        }
+    }
+}
