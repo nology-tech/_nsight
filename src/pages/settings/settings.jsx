@@ -3,8 +3,8 @@ import "./settings.scss"
 
 const Settings = () => {
     return (
-        <div className="myClass4">
-            Working big time!!!
+        <div className="">
+
         </div>
     )
 }

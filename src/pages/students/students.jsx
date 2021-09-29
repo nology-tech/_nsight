@@ -4,8 +4,8 @@ import "./students.scss"
 const Students = () => {
 
     return (
-        <div className="myClass5">
-            Working amazing!
+        <div className="">
+
         </div>
     )
 }

@@ -3,8 +3,8 @@ import "./courses.scss"
 
 const Courses = () => {
     return (
-        <div className="myClass1">
-            Hello world
+        <div className="">
+
         </div>
     )
 }

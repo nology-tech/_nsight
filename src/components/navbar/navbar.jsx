@@ -65,30 +65,30 @@ const Navbar = () => {
     return (
         <nav className="navbar container">
             
-            <img src={logo} className="logo" alt="" />
+            <img src={logo} className="logo" alt="logo" />
 
             <div className="list-break-bottom"></div>
 
             <div className="row navbar__item justify-content-start">
-                <NavLink exact to="/" className="col" onClick={handleDashboardClick} activeClassName="active">{ !houseState && <img src={house} alt="" />}{ houseState && <img src={houseonhover} alt="" />}Dashboard</NavLink>
+                <NavLink exact to="/" className="col" onClick={handleDashboardClick} activeClassName="active">{ !houseState && <img src={house} alt="house" />}{ houseState && <img src={houseonhover} alt="houseonhover" />}Dashboard</NavLink>
             </div>
 
             <div className="row navbar__item justify-content-start" >
-                <NavLink exact to="/courses" className="col" onClick={handleCoursesClick} activeClassName="active" > { !bookState && <img src={book} alt="" className="smaller-image" />}{ bookState && <img src={bookonhover} alt="" className="smaller-image" />}Courses</NavLink>
+                <NavLink exact to="/courses" className="col" onClick={handleCoursesClick} activeClassName="active" > { !bookState && <img src={book} alt="book" className="smaller-image" />}{ bookState && <img src={bookonhover} alt="bookonhover" className="smaller-image" />}Courses</NavLink>
             </div>
 
             <div className="row navbar__item justify-content-start" >
-                <NavLink exact to="/students" className="col" onClick={handleStudentsClick} activeClassName="active">{ !studentsState && <img src={students} alt="" className="" />}{ studentsState && <img src={studentsonhover} alt="" className="" />}Students</NavLink>
+                <NavLink exact to="/students" className="col" onClick={handleStudentsClick} activeClassName="active">{ !studentsState && <img src={students} alt="students" className="" />}{ studentsState && <img src={studentsonhover} alt="studentsonhover" className="" />}Students</NavLink>
             </div>
 
             <div className="row navbar__item text-left">
-                <NavLink exact to="/enrollment" className="col" onClick={handleEnrollmentClick} activeClassName="active">{ !medalsState && <img src={medals} alt="" className="smaller-image" />}{ medalsState && <img src={medalsonhover} alt="" className="smaller-image" />}Enrollment</NavLink>
+                <NavLink exact to="/enrollment" className="col" onClick={handleEnrollmentClick} activeClassName="active">{ !medalsState && <img src={medals} alt="medals" className="smaller-image" />}{ medalsState && <img src={medalsonhover} alt="medalsonhover" className="smaller-image" />}Enrollment</NavLink>
             </div>
 
             <div className="list-break-bottom"></div>
 
             <div className="row navbar__item text-left">
-                <NavLink exact to="/settings" className="col" onClick={handleSettingsClick} activeClassName="active">{ !nutState && <img src={nut} alt="" className="smaller-image" />}{ nutState && <img src={nutonhover} alt="" className="smaller-image" />}Settings</NavLink>
+                <NavLink exact to="/settings" className="col" onClick={handleSettingsClick} activeClassName="active">{ !nutState && <img src={nut} alt="nut" className="smaller-image" />}{ nutState && <img src={nutonhover} alt="nutonhover" className="smaller-image" />}Settings</NavLink>
             </div>     
         </nav>
     )
