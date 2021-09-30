@@ -47,6 +47,11 @@ const Students = () => {
             return sanitisedStudentName.includes(sanitiseInput);
         })
         setStudents(studentSearch)
+
+        setShowResults(true)
+        if (e.target.value.length === 0) {
+            setShowResults(false)
+        }
     };
 
     // Sort by first and last name
@@ -97,6 +102,17 @@ const Students = () => {
         } else {
             setStudents(filteredCourseName);
         }
+
+
+        console.log(stateArray.includes(true));
+
+        //If any courses have state true, our useState is true
+        if (stateArray.includes(true)) {
+            setShowResults(true)
+        } else {
+            setShowResults(false)
+        }
+
     };
 
     const [pageStart, setPageStart] = useState(0);
@@ -159,6 +175,7 @@ const Students = () => {
 
 
     //  when search, 'showing 1-10' does not update - needs to disappear, wrap 172-174 in div and use "-- && div"
+    const [showResults, setShowResults] = useState(false);
 
     return (
         <div className="student-list">
@@ -169,7 +186,10 @@ const Students = () => {
                 <Filter courses={courses} filterByCourseName={filterByCourseName} />
             </div>
             <StudentList studentData={students} />
-            <p>{pageStart+1}-{pageEnd} of {studentsData.length}</p>
+            <div>
+                {!showResults && <p>{pageStart+1}-{pageEnd} of {studentsData.length}</p>}
+                {showResults && <p>Showing results: {pageStart+1}- of {students.length}</p>}
+            </div>
             <img src={chevronLeft} alt="previous page" onClick={previousPage} />
             <img src={chevronRight} alt="next page" onClick={nextPage} />
         </div>
