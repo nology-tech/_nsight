@@ -24,7 +24,7 @@ const Filter = (props) => {
     const toggleFilter = (e) => {
         setFilter(!filter);
         if (filter) {
-            filterClass += " filter-open";
+            filterClass =+ " filter-open";
         }
     }
 

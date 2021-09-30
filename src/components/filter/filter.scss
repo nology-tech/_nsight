@@ -6,10 +6,9 @@
     }
 
     &-list {
-    // display: none;
+    display: none;
     transition-duration: 0.5s;
     text-decoration: none;
-    visibility: hidden;
     }
 
     &-heading:hover {
@@ -17,8 +16,7 @@
     }
 
     &-open {
-        // display: block;
-        visibility: visible;
+        display: block;
     }
 }
 
