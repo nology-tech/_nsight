@@ -4,6 +4,7 @@ import arrow from "../../../assets/icons/chevron-more.svg";
 
 const SelfCourseList = (props) => {
     const { selfCourse } = props;
+    
     return(
         <>
             <div className="selfcourse">
