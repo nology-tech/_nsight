@@ -1,32 +1,31 @@
-import './App.scss';
-import Navbar from './components/navbar/navbar';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Courses from './pages/Courses/Courses';
-import Dashboard from './pages/dashboard/dashboard.jsx';
-import Students from './pages/students/students.jsx';
+import "./App.scss";
+import Navbar from "./components/navbar/navbar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Courses from "./pages/Courses/Courses";
+import Dashboard from "./pages/dashboard/dashboard.jsx";
+import Students from "./pages/students/students.jsx";
 import Settings from "./pages/settings/settings.jsx";
 import Enrollment from "./pages/enrollment/enrollment.jsx";
 
-
-const  App = () => {
-return (
+const App = () => {
+  return (
     <Router>
-    <div>
-        <div className="Navbar">
-            <Navbar/>
+      <div className="row">
+        <div className="col-3 p-0">
+          <Navbar />
         </div>
-            <Switch>
-                <div className="Courses">
-                    <Route path="/courses" component={Courses}/>
-                </div>
-            <Route path="/students" component={Students}/>
-            <Route path="/Enrollment" component={Enrollment}/>
-            <Route path="/Settings" component={Settings}/>
-            <Route path="/" component={Dashboard}/>
-            </Switch>
-    </div>
+        <div className="col-9 p-0">
+          <Switch>
+            <Route path="/courses" component={Courses} />
+            <Route path="/students" component={Students} />
+            <Route path="/Enrollment" component={Enrollment} />
+            <Route path="/Settings" component={Settings} />
+            <Route path="/" component={Dashboard} />
+          </Switch>
+        </div>
+      </div>
     </Router>
-);
-}
+  );
+};
 
 export default App;
