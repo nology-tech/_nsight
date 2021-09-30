@@ -36,7 +36,7 @@ const StudentList = (props) => {
     });
 
     return (
-            <div class="container">
+            <div class="student-container">
                 <div class="row">
                     <div class="col">
                         <p>Student Name</p>
