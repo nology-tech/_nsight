@@ -3,6 +3,11 @@ import Navbar from './navbar.jsx';
 import userEvent from "@testing-library/user-event";
 import { BrowserRouter as Router } from 'react-router-dom';
 
+
+beforeEach(() => {
+  window.location.replace("http://localhost/");
+})
+
 test('Dashboard link text is rendered', () => {
   render(<Router><Navbar /></Router>);
   const linkElement = screen.getByText("Dashboard");
@@ -104,5 +109,44 @@ test('Logo is there on initial render', () => {
   render(<Router><Navbar /></Router>);
   expect(screen.getByAltText('logo')).toBeInTheDocument();
 });
+
+// Testing the Routing paths.-
+
+
+test('Courses path is reached when Courses link is clicked', () => {
+  render(<Router><Navbar /></Router>);
+  userEvent.click(screen.getByText('Courses'));
+  expect(window.location.href).toBe("http://localhost/courses");
+});
+
+test('Enrollment path is reached when Enrollment link is clicked', () => {
+  render(<Router><Navbar /></Router>);
+  userEvent.click(screen.getByText('Enrollment'));
+  expect(window.location.href).toBe("http://localhost/enrollment");
+});
+
+test('Settings path is reached when Settings link is clicked', () => {
+  render(<Router><Navbar /></Router>);
+  userEvent.click(screen.getByText('Settings'));
+  expect(window.location.href).toBe("http://localhost/settings");
+});
+
+test('Students path is reached when Students link is clicked', () => {
+  render(<Router><Navbar /></Router>);
+  userEvent.click(screen.getByText('Students'));
+  expect(window.location.href).toBe("http://localhost/students");
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 // console.log(window.location.href);
