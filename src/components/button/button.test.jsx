@@ -33,3 +33,22 @@ test('Button to have class fourth', () => {
   const buttonElement = screen.getByText("Upload");
   expect(buttonElement).toHaveClass("button-fourth");
 });
+
+test('Button to have class fifth', () => {
+  render(<Button text="Cancel" btnStyle="fifth"/>);
+  const buttonElement = screen.getByText("Cancel");
+  expect(buttonElement).toHaveClass("button-fifth");
+});
+
+test('Button to have class sixth', () => {
+  render(<Button text="Confirm" btnStyle="sixth"/>);
+  const buttonElement = screen.getByText("Confirm");
+  expect(buttonElement).toHaveClass("button-sixth");
+});
+
+test('Button has button1 class as default', () => {
+  render(<Button text="Upload" btnStyle="fourth"/>);
+  const buttonElement = screen.getByText("Upload");
+  console.log(window.location.href);
+  expect(buttonElement).toHaveClass("button1");
+});

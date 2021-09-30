@@ -40,3 +40,22 @@
     height: 39px;
     opacity: 0.25;
 }
+
+//white with red border Delete User Cancel button
+.button-fifth{
+    background-color: $default;
+    color: #EE6161;
+    width: 132px;
+    height: 38px;
+    border: 0.804878px solid #EE6161;
+    border-radius: 5.63415px;
+}
+
+//red with white text Delete User Confirm button
+.button-sixth{
+    background-color: #EE6161;
+    color: $default;
+    width: 132px;
+    height: 38px;
+    border-radius: 5.54167px;
+}

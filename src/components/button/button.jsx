@@ -13,6 +13,10 @@ const Button = ({text , btnStyle}) => {
         buttonStyle += " button-tertiary";
       } else if (btnStyle === "fourth") {
         buttonStyle += " button-fourth";
+      } else if (btnStyle === "fifth") {
+        buttonStyle += " button-fifth";
+      } else if (btnStyle === "sixth") {
+        buttonStyle += " button-sixth";
       }
 
     return (
