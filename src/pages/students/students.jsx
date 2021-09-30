@@ -103,11 +103,9 @@ const Students = () => {
             setStudents(filteredCourseName);
         }
 
-
-        console.log(stateArray.includes(true));
-
-        //If any courses have state true, our useState is true
-        if (stateArray.includes(true)) {
+        const filteredStateArray = stateArray.filter(courseName => courseName.includes(true));
+        
+        if (filteredStateArray) {
             setShowResults(true)
         } else {
             setShowResults(false)
