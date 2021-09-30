@@ -181,7 +181,7 @@ const Students = () => {
                 <h3 className="list-title__heading">Student List</h3>
                 <Searchbox handleSearch={handleSearch} />
                 <Sort sortAscendingByFirstName={sortAscendingByFirstName} sortDescendingByFirstName={sortDescendingByFirstName} />
-                <Filter courses={courses} filterByCourseName={filterByCourseName} />
+                <Filter courses={courses} filterByCourseName={filterByCourseName} onClick={}/>
             </div>
             <StudentList studentData={students} />
             <div>
