@@ -12,6 +12,10 @@ import downArrow from "../../assets/icons/down-arrow.svg";
 const Students = () => {
     const [students, setStudents] = useState([]);
     const [pagination, setPagination] = useState(false);
+    const [perPage, setPerPage] = useState(10);
+    const [pageStart, setPageStart] = useState(0);
+    const [pageEnd, setPageEnd] = useState(perPage);
+    const [showResults, setShowResults] = useState(false);
 
     const unique = (value, index, self) => {
         return self.indexOf(value) === index
@@ -48,7 +52,8 @@ const Students = () => {
             const sanitisedStudentName = `${sanitisedStudentFirstName} ${sanitisedStudentLastName}`;
             return sanitisedStudentName.includes(sanitiseInput);
         })
-        setStudents(studentSearch)
+        const toShow = studentSearch.slice(pageStart, pageEnd);
+        setStudents(toShow);
 
         setShowResults(true)
         if (e.target.value.length === 0) {
@@ -59,6 +64,7 @@ const Students = () => {
     };
 
     // Sort by first and last name
+    // SORTING ONLY SORTS THE PAGE VISIBLE AS RELIES ON STUDENTS STATE
     const sortAscendingAZ = (a, b) => {
         if (a.first_name < b.first_name) {
             return -1;
@@ -104,7 +110,8 @@ const Students = () => {
         if (filteredCourseName.length === 0) {
             getStudents(studentsData);
         } else {
-            setStudents(filteredCourseName);
+            const filtered = filteredCourseName.slice(pageStart, pageEnd);
+            setStudents(filtered);
         }
 
         const filteredStateArray = stateArray.filter(courseName => courseName.includes(true));
@@ -117,17 +124,14 @@ const Students = () => {
 
     };
 
-    const [pageStart, setPageStart] = useState(0);
-    const [pageEnd, setPageEnd] = useState(10);
-
     const displayPage = (pageStart, pageEnd) => {
         const toShow = studentsData.slice(pageStart, pageEnd);
         setStudents(toShow);
     }
 
     const nextPage = () => {
-        const newPageStart = pageStart+ 10;
-        const newPageEnd = pageEnd+ 10;
+        const newPageStart = pageStart + perPage;
+        const newPageEnd = pageEnd + perPage;
         if (newPageStart < studentsData.length) {
             setPageStart(newPageStart);
         }
@@ -142,14 +146,14 @@ const Students = () => {
     }
 
     const previousPage = () => {
-        const newPageStart = pageStart- 10;
-        let newPageEnd = pageEnd- 10;
+        const newPageStart = pageStart - perPage;
+        let newPageEnd = pageEnd - perPage;
         if (newPageStart >= 0) {
             setPageStart(newPageStart);
         }
-        if (newPageEnd % 10 != 0) {
-            setPageEnd(pageEnd - (newPageEnd % 10));
-            newPageEnd = pageEnd - (newPageEnd % 10);
+        if (newPageEnd % perPage != 0) {
+            setPageEnd(pageEnd - (newPageEnd % perPage));
+            newPageEnd = pageEnd - (newPageEnd % perPage);
         } else {
             if (newPageEnd > 0) {
                 setPageEnd(newPageEnd);
@@ -157,8 +161,8 @@ const Students = () => {
         }
         if (newPageStart >= 0) {
             displayPage(newPageStart, newPageEnd);
-            if (pageEnd < 10) {
-                displayPage(newPageStart, 10)
+            if (pageEnd < perPage) {
+                displayPage(newPageStart, perPage)
             } else {
                 displayPage(newPageStart, newPageEnd);
             }
@@ -170,8 +174,15 @@ const Students = () => {
         setPagination(!pagination);
     }
 
+    const togglePerPage = (e) => {
+        setPerPage(e.target.value);
+        setPageStart(0);
+        setPageEnd(e.target.value);
+        displayPage(0, e.target.value);
+        togglePagination();
+    }
+
     const getStudents = () => {
-        // setStudents(studentsData);
         const toShow = studentsData.slice(pageStart, pageEnd);
         setStudents(toShow);
     };
@@ -180,9 +191,13 @@ const Students = () => {
         getStudents();
     }, []);
 
+    let length = 0;
+    if (students.length > perPage) {
+        length = perPage
+    } else {
+        length = students.length
+    }
 
-    //  when search, 'showing 1-10' does not update - needs to disappear, wrap 172-174 in div and use "-- && div"
-    const [showResults, setShowResults] = useState(false);
 
     return (
         <div className="student-list">
@@ -195,20 +210,22 @@ const Students = () => {
             <StudentList studentData={students} />
             <div className="pagination">
                 <p>Rows per page</p>
-                <img onClick={togglePagination} src={downArrow} alt="down arrow" />
+                <p onClick={togglePagination}>{perPage} <img src={downArrow} alt="down arrow" /></p>
                 {pagination &&
                     <ul>
-                    <li>5</li>
-                    <li>10</li>
-                    <li>15</li>
-                    <li>20</li>
-                    <li>25</li>
-                    <li>30</li>
+                    <li onClick={togglePerPage} value="5">5</li>
+                    <li onClick={togglePerPage} value="10">10</li>
+                    <li onClick={togglePerPage} value="15">15</li>
+                    <li onClick={togglePerPage} value="20">20</li>
+                    <li onClick={togglePerPage} value="25">25</li>
+                    <li onClick={togglePerPage} value="30">30</li>
                 </ul>}
+                
             </div>
             <div>
                 {!showResults && <p>{pageStart+1}-{pageEnd} of {studentsData.length}</p>}
-                {showResults && <p>Showing results: {pageStart+1}- of {students.length}</p>}
+                {/* students is updated for pagination, so students.length will always be number of rows per page - need to make number of entries total of filter/search result */}
+                {showResults && <p>Showing results: {length} of {students.length}</p>}
             </div>
             <img src={chevronLeft} alt="previous page" onClick={previousPage} />
             <img src={chevronRight} alt="next page" onClick={nextPage} />
