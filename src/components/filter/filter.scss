@@ -6,7 +6,7 @@
     }
 
     &-list {
-    display: none;
+    display: absolute;
     transition-duration: 0.5s;
     text-decoration: none;
     }
@@ -14,13 +14,13 @@
     &-heading:hover {
         cursor: pointer;
     }
-
-    &-open {
-        display: block;
-    }
 }
 
-
+.filter-open {
+    position: absolute;
+    display: block;
+    visibility: visible;
+}
 
     // ul li ul {
     //     visibility: hidden;
@@ -32,11 +32,10 @@
     //     display: none;
     // }
 
-//    ul li:hover > ul,
-//    ul li ul:hover {
-//      visibility: visible;
-//      opacity: 1;
-//      display: block;
+//    ul li ul {
+//         visibility: visible;
+//         opacity: 1;
+//         display: block;
 //    }
 
 //    ul li ul li {

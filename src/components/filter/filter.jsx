@@ -23,9 +23,11 @@ const Filter = (props) => {
 
     const toggleFilter = (e) => {
         setFilter(!filter);
-        if (filter) {
-            filterClass =+ " filter-open";
-        }
+        // if (filter) {
+        //     filterClass = "filter-open";
+        // }
+        console.log(filterClass);
+        // return filterClass;
     }
 
     return (
@@ -34,9 +36,9 @@ const Filter = (props) => {
                 <img src={filterIcon}/>
                 <p>Filters</p>
             </div>
-            <ul className={filterClass}>
+            {filter && <ul className={filterClass}>
                 {distinctCourseNames}
-            </ul>
+            </ul>}
         </div>
     )
 }
