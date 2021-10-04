@@ -1,7 +1,7 @@
 import "./App.scss";
 import Navbar from "./components/navbar/navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Courses from "./pages/Courses/Courses";
+import Courses from "./pages/courses/courses";
 import Dashboard from "./pages/dashboard/dashboard.jsx";
 import Students from "./pages/students/students.jsx";
 import Settings from "./pages/settings/settings.jsx";
