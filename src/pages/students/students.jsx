@@ -7,9 +7,11 @@ import studentsData from "../../assets/data/student-data";
 import Filter from "../../components/filter/filter";
 import chevronLeft from "../../assets/icons/chevron-left.svg";
 import chevronRight from "../../assets/icons/chevron-right.svg";
+import downArrow from "../../assets/icons/down-arrow.svg";
 
 const Students = () => {
     const [students, setStudents] = useState([]);
+    const [pagination, setPagination] = useState(false);
 
     const unique = (value, index, self) => {
         return self.indexOf(value) === index
@@ -51,6 +53,8 @@ const Students = () => {
         setShowResults(true)
         if (e.target.value.length === 0) {
             setShowResults(false)
+            const toShow = studentsData.slice(pageStart, pageEnd);
+            setStudents(toShow);
         }
     };
 
@@ -161,6 +165,11 @@ const Students = () => {
         }
     }
 
+    // Pagination
+    const togglePagination = () => {
+        setPagination(!pagination);
+    }
+
     const getStudents = () => {
         // setStudents(studentsData);
         const toShow = studentsData.slice(pageStart, pageEnd);
@@ -184,6 +193,19 @@ const Students = () => {
                 <Filter courses={courses} filterByCourseName={filterByCourseName} />
             </div>
             <StudentList studentData={students} />
+            <div className="pagination">
+                <p>Rows per page</p>
+                <img onClick={togglePagination} src={downArrow} alt="down arrow" />
+                {pagination &&
+                    <ul>
+                    <li>5</li>
+                    <li>10</li>
+                    <li>15</li>
+                    <li>20</li>
+                    <li>25</li>
+                    <li>30</li>
+                </ul>}
+            </div>
             <div>
                 {!showResults && <p>{pageStart+1}-{pageEnd} of {studentsData.length}</p>}
                 {showResults && <p>Showing results: {pageStart+1}- of {students.length}</p>}

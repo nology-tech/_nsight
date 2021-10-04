@@ -23,11 +23,6 @@ const Filter = (props) => {
 
     const toggleFilter = (e) => {
         setFilter(!filter);
-        // if (filter) {
-        //     filterClass = "filter-open";
-        // }
-        console.log(filterClass);
-        // return filterClass;
     }
 
     return (
