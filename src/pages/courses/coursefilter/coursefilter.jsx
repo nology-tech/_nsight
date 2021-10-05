@@ -37,7 +37,7 @@ const CourseFilter = (props) => {
         <div className="coursefilter">
             <nav className="coursefilter__nav">
                 <ul className="coursefilter__nav-list">
-                    <a onClick={All} href="" className={(selfPaced && fullTime) === true ? "underLineStyled coursefilter__nav-list-tag" : "coursefilter__nav-list-tag"}>All</a>
+                    <a onClick={All} href="" className={selfPaced === true && fullTime === true ? "underLineStyled coursefilter__nav-list-tag" : "coursefilter__nav-list-tag"}>All</a>
                     <a onClick={FullTime} href="" className={selfPaced === false && fullTime === true ? "underLineStyled coursefilter__nav-list-tag" : "coursefilter__nav-list-tag"}>Full-time</a>
                     <a onClick={SelfPaced} href="" className={selfPaced === true && fullTime === false ? "underLineStyled coursefilter__nav-list-tag" : "coursefilter__nav-list-tag"}>Self-Paced</a>
                     <a onClick={Coporate} href="" className="coursefilter__nav-list-tag">Corporate</a>

@@ -7,7 +7,7 @@
 .selfcourse{
   padding-top: 10px;
   display: flex;
-  justify-content: space-around;
+  // justify-content: space-between;
   align-items: center;
   text-align: center;
   height: 70px;
@@ -20,8 +20,10 @@
   &__tag{
     color: #95ACCB;
   }
+
   .arrow{
     // margin-left: 50px;
-    // padding-right: unset;
+    padding-right: unset;
+    margin-right: unset;
   }
 }

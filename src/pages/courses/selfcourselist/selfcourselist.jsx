@@ -9,7 +9,7 @@ const SelfCourseList = (props) => {
         <>
             <div className="selfcourse">
                 <div className="container">
-                    <div class="row">
+                    <div class="row all tags">
                         <div class="col">
                             <h5>{selfCourse.name}</h5>
                         </div>

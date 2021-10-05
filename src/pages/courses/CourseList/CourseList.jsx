@@ -1,6 +1,13 @@
 import React from 'react'
 import "./CourseList.scss"
 import arrow from "../../../assets/icons/chevron-more.svg";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams
+} from "react-router-dom";
 
 const CourseList = (props) => {
     const {course} = props
@@ -42,7 +49,9 @@ const CourseList = (props) => {
                         </div>
                     </div>
                     <div class="col">
+                    <Link to={"/courses/" + course.id}>
                         <img src={arrow} alt="" />
+                    </Link>
                     </div>
                 </div>
             </div>
