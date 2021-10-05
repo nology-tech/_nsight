@@ -48,7 +48,7 @@ const CourseList = (props) => {
                             <li style={{color:statColour}}>{status}</li>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-md-1 ms-auto">
                     <Link to={"/courses/" + course.id}>
                         <img src={arrow} alt="" />
                     </Link>

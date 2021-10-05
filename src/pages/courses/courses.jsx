@@ -49,7 +49,7 @@ const Courses = (props) => {
                                 <div class="col">Course Start</div>
                                 <div class="col">Course Completion</div>
                                 <div class="col">Status</div>
-                                    <div class="col"> </div>
+                                    <div class="col-md-1 ms-auto"> </div>
                             </div>
                             {coursesData}
                         </div>
@@ -66,7 +66,7 @@ const Courses = (props) => {
                                     <div class="col">No. Completed</div>
                                     <div class="col">Course Lead</div>
                                     <div class="col">% Employment</div>
-                                    <div class="col"></div>
+                                    <div class="col-md-1 ms-auto"></div>
                                 </div>
                                 {selfCourseData}
                             </div>
