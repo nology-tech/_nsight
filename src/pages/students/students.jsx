@@ -11,12 +11,72 @@ import downArrow from "../../assets/icons/down-arrow.svg";
 
 const Students = () => {
     const [students, setStudents] = useState([]);
+    const [studentsCopy, setStudentsCopy] = useState([]);
     const [pagination, setPagination] = useState(false);
     const [perPage, setPerPage] = useState(10);
     const [pageStart, setPageStart] = useState(0);
     const [pageEnd, setPageEnd] = useState(perPage);
     const [showResults, setShowResults] = useState(false);
 
+    // SEARCH by first and last name
+    const handleSearch = (e) => {
+        const sanitiseInput = e.target.value.toLowerCase();
+        const studentSearch = studentsData.filter(student => {
+            const sanitisedStudentFirstName = student.first_name.toLowerCase();
+            const sanitisedStudentLastName = student.last_name.toLowerCase();
+            const sanitisedStudentName = `${sanitisedStudentFirstName} ${sanitisedStudentLastName}`;
+            return sanitisedStudentName.includes(sanitiseInput);
+        })
+        const toShow = studentSearch.slice(pageStart, pageEnd);
+        setStudents(toShow);
+
+        setShowResults(true)
+        if (e.target.value.length === 0) {
+            setShowResults(false)
+            const toShow = studentsData.slice(pageStart, pageEnd);
+            setStudents(toShow);
+        }
+    };
+
+    // SORT by first and last name
+    // SORTING ONLY SORTS THE PAGE VISIBLE AS RELIES ON STUDENTS STATE
+    const sortAscendingAZ = (a, b) => {
+        if (a.first_name < b.first_name) {
+            return -1;
+        } else if (a.first_name > b.first_name) {
+            return 1;
+        } else {
+            return 0;
+        }
+    };
+
+    const sortAscendingByFirstName = () => {
+        const studentsSortedByName = studentsCopy.filter(student => student).sort(sortAscendingAZ);
+        setStudentsCopy(studentsSortedByName);
+
+        const toShow = studentsSortedByName.slice(pageStart, pageEnd);
+        setStudents(toShow);
+    };
+
+    const sortDescendingAZ = (a, b) => {
+        if (b.first_name < a.first_name) {
+            return -1;
+        } else if (b.first_name > a.first_name) {
+            return 1;
+        } else {
+            return 0;
+        }
+    };
+
+    const sortDescendingByFirstName = () => {
+        const studentsSortedByName = studentsCopy.filter(student => student).sort(sortDescendingAZ);
+        setStudentsCopy(studentsSortedByName);
+
+        const toShow = studentsSortedByName.slice(pageStart, pageEnd);
+        setStudents(toShow);
+    };
+
+    // FILTER - Dynamic filter checkboxes
     const unique = (value, index, self) => {
         return self.indexOf(value) === index
     }
@@ -41,59 +101,6 @@ const Students = () => {
         setCourses(tempCourses); // not synchronous
         return tempCourses;
     }
-    console.log(courses)
-
-    // Search by first and last name
-    const handleSearch = (e) => {
-        const sanitiseInput = e.target.value.toLowerCase();
-        const studentSearch = studentsData.filter(student => {
-            const sanitisedStudentFirstName = student.first_name.toLowerCase();
-            const sanitisedStudentLastName = student.last_name.toLowerCase();
-            const sanitisedStudentName = `${sanitisedStudentFirstName} ${sanitisedStudentLastName}`;
-            return sanitisedStudentName.includes(sanitiseInput);
-        })
-        const toShow = studentSearch.slice(pageStart, pageEnd);
-        setStudents(toShow);
-
-        setShowResults(true)
-        if (e.target.value.length === 0) {
-            setShowResults(false)
-            const toShow = studentsData.slice(pageStart, pageEnd);
-            setStudents(toShow);
-        }
-    };
-
-    // Sort by first and last name
-    // SORTING ONLY SORTS THE PAGE VISIBLE AS RELIES ON STUDENTS STATE
-    const sortAscendingAZ = (a, b) => {
-        if (a.first_name < b.first_name) {
-            return -1;
-        } else if (a.first_name > b.first_name) {
-            return 1;
-        } else {
-            return 0;
-        }
-    };
-
-    const sortAscendingByFirstName = () => {
-        const studentsSortedByName = students.filter(student => student).sort(sortAscendingAZ);
-        setStudents(studentsSortedByName);
-    };
-
-    const sortDescendingAZ = (a, b) => {
-        if (b.first_name < a.first_name) {
-            return -1;
-        } else if (b.first_name > a.first_name) {
-            return 1;
-        } else {
-            return 0;
-        }
-    };
-
-    const sortDescendingByFirstName = () => {
-        const studentsSortedByName = students.filter(student => student).sort(sortDescendingAZ);
-        setStudents(studentsSortedByName);
-    };
 
     const filterByCourseName = (e) => {
         const courses = handleSetCourses(e.target.value);
@@ -124,6 +131,7 @@ const Students = () => {
 
     };
 
+    // PAGINATION
     const displayPage = (pageStart, pageEnd) => {
         const toShow = studentsData.slice(pageStart, pageEnd);
         setStudents(toShow);
@@ -141,7 +149,8 @@ const Students = () => {
             setPageEnd(newPageEnd);
         }
         if (newPageStart < studentsData.length) {
-            displayPage(newPageStart, newPageEnd);
+            const toShow = studentsCopy.slice(newPageStart, newPageEnd);
+            setStudents(toShow);
         }
     }
 
@@ -160,16 +169,19 @@ const Students = () => {
             }
         }
         if (newPageStart >= 0) {
-            displayPage(newPageStart, newPageEnd);
+            const toShow = studentsCopy.slice(newPageStart, newPageEnd);
+            setStudents(toShow);
+
             if (pageEnd < perPage) {
-                displayPage(newPageStart, perPage)
+                const toShow = studentsCopy.slice(newPageStart, perPage);
+                setStudents(toShow);
             } else {
-                displayPage(newPageStart, newPageEnd);
+                const toShow = studentsCopy.slice(newPageStart, newPageEnd);
+                setStudents(toShow);
             }
         }
     }
 
-    // Pagination
     const togglePagination = () => {
         setPagination(!pagination);
     }
@@ -185,6 +197,7 @@ const Students = () => {
     const getStudents = () => {
         const toShow = studentsData.slice(pageStart, pageEnd);
         setStudents(toShow);
+        setStudentsCopy(studentsData);
     };
 
     useEffect(() => {
