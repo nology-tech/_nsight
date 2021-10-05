@@ -10,33 +10,37 @@ const StudentList = (props) => {
             employed = "YES"
         }
 
-        return <div class="row">
-                    <div class="col">
-                        <p>{student.first_name} {student.last_name}</p>
-                    </div>
-                    <div class="col">
-                        <p>{student.email}</p>
-                    </div>
-                    <div class="col">
-                        <p>{student.mobile_number}</p>
-                    </div>
-                    <div class="col">
-                        <p>{student.type}</p>
-                    </div>
-                    <div class="col">
-                        {employed}
-                    </div>
-                    <div class="col">
-                        <p>{student.course_name}</p>
-                    </div>
-                    <div class="col">
-                        <img src={moreInfo} alt="more info chevron" />
-                    </div>
+        return (
+        <div className="student-list">
+            <div class="row">
+                <div class="col">
+                    <p>{student.first_name} {student.last_name}</p>
                 </div>
-    });
+                <div class="col">
+                    <p>{student.email}</p>
+                </div>
+                <div class="col">
+                    <p>{student.mobile_number}</p>
+                </div>
+                <div class="col">
+                    <p>{student.type}</p>
+                </div>
+                <div class="col">
+                    {employed}
+                </div>
+                <div class="col">
+                    <p>{student.course_name}</p>
+                </div>
+                <div class="col">
+                    <img src={moreInfo} alt="more info chevron" />
+                </div>
+            </div>
+        </div>
+    )});
 
     return (
-            <div class="student-container">
+        <div className="students">
+            <div class="container">
                 <div class="row">
                     <div class="col">
                         <p>Student Name</p>
@@ -61,6 +65,7 @@ const StudentList = (props) => {
                 </div>
                 {studentDisplay}
             </div>
+        </div> 
     );
 };
 

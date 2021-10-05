@@ -1,25 +1,26 @@
+@import "../../assets/styles/styles.scss";
 
-// * {
-//     margin: 0;
-//     padding: 0;
-//     box-sizing: border-box;
-// }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .students{
+    text-align: center;
+}
+
+.student-list{
     padding-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: auto;
-    width: 1300px;
+    height: 70px;
     background-color: #FFFFFF;
     box-shadow: 0px 30px 30px rgba(114, 75, 203, 0.06);
-    border: 3px solid black;
     border-radius: 7px;
     margin: 10px;
     font-family: "Poppins";
-    font-size: 14px;
-    &__img{
-        text-align: center;
-    }
+    font-size: 12px;
 }

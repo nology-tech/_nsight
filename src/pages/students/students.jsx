@@ -216,14 +216,16 @@ const Students = () => {
 
 
     return (
-        <div className="student-list">
+        <div className="main-student">
+            <TopHeader title="Students" />
             <div className="list-title">
-                <TopHeader className="list-title__heading" title="Students" />
                 <Searchbox handleSearch={handleSearch} />
                 <Sort sortAscendingByFirstName={sortAscendingByFirstName} sortDescendingByFirstName={sortDescendingByFirstName} />
                 <Filter courses={courses} filterByCourseName={filterByCourseName} />
             </div>
-            <StudentList studentData={students} />
+            <div class="container">
+                <StudentList studentData={students} />
+            </div>
             <div className="pagination">
                 <p>Rows per page</p>
                 <p onClick={togglePagination}>{perPage} <img src={downArrow} alt="down arrow" /></p>
@@ -236,11 +238,9 @@ const Students = () => {
                     <li onClick={togglePerPage} value="25">25</li>
                     <li onClick={togglePerPage} value="30">30</li>
                 </ul>}
-                
             </div>
             <div>
                 {!showResults && <p>{pageStart+1}-{pageEnd} of {studentsData.length}</p>}
-                {/* students is updated for pagination, so students.length will always be number of rows per page - need to make number of entries total of filter/search result */}
                 {showResults && <p>Showing results: {length} of {studentsCopy.length}</p>}
             </div>
             <img src={chevronLeft} alt="previous page" onClick={previousPage} />
