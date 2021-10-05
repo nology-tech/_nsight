@@ -17,6 +17,8 @@ const Students = () => {
         return self.indexOf(value) === index
     }
 
+    console.log(studentsData);
+
     const courseNames = studentsData.map(student => student.course_name);
 
     const uniqueCourseNames = courseNames.filter(unique);
