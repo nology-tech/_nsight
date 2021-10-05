@@ -1,9 +1,16 @@
 import React from "react";
 import "./selfcouselist.scss";
 import arrow from "../../../assets/icons/chevron-more.svg";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams
+} from "react-router-dom";
 
 const SelfCourseList = (props) => {
-    const { selfCourse } = props;
+    const { selfCourse, course } = props;
     
     return(
         <>
@@ -26,7 +33,9 @@ const SelfCourseList = (props) => {
                             <p className="selfcourse__tag">{selfCourse.percentageEmployed}</p>
                         </div>
                         <div class="col arrow">
+                        <Link to={"/courses/" + selfCourse.id}>
                             <img src={arrow} alt="" />
+                        </Link>
                         </div>
                     </div>
                 </div>
