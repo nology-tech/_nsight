@@ -16,6 +16,8 @@ const Students = () => {
     const [pageStart, setPageStart] = useState(0);
     const [pageEnd, setPageEnd] = useState(perPage);
     const [showResults, setShowResults] = useState(false);
+    // const [studentResults, setStudentResults] = useState(0);
+    const [studentsCopy, setStudentsCopy] = useState([]);
 
     const unique = (value, index, self) => {
         return self.indexOf(value) === index
@@ -41,7 +43,6 @@ const Students = () => {
         setCourses(tempCourses); // not synchronous
         return tempCourses;
     }
-    console.log(courses)
 
     // Search by first and last name
     const handleSearch = (e) => {
@@ -52,6 +53,7 @@ const Students = () => {
             const sanitisedStudentName = `${sanitisedStudentFirstName} ${sanitisedStudentLastName}`;
             return sanitisedStudentName.includes(sanitiseInput);
         })
+        setStudentsCopy(studentSearch);
         const toShow = studentSearch.slice(pageStart, pageEnd);
         setStudents(toShow);
 
@@ -78,6 +80,7 @@ const Students = () => {
     const sortAscendingByFirstName = () => {
         const studentsSortedByName = students.filter(student => student).sort(sortAscendingAZ);
         setStudents(studentsSortedByName);
+        setStudentsCopy(studentsSortedByName);
     };
 
     const sortDescendingAZ = (a, b) => {
@@ -93,6 +96,7 @@ const Students = () => {
     const sortDescendingByFirstName = () => {
         const studentsSortedByName = students.filter(student => student).sort(sortDescendingAZ);
         setStudents(studentsSortedByName);
+        setStudentsCopy(studentsSortedByName);
     };
 
     const filterByCourseName = (e) => {
@@ -110,6 +114,7 @@ const Students = () => {
         if (filteredCourseName.length === 0) {
             getStudents(studentsData);
         } else {
+            setStudentsCopy(filteredCourseName);
             const filtered = filteredCourseName.slice(pageStart, pageEnd);
             setStudents(filtered);
         }
@@ -132,15 +137,15 @@ const Students = () => {
     const nextPage = () => {
         const newPageStart = pageStart + perPage;
         const newPageEnd = pageEnd + perPage;
-        if (newPageStart < studentsData.length) {
+        if (newPageStart < studentsCopy.length) {
             setPageStart(newPageStart);
         }
-        if (newPageEnd > studentsData.length) {
-            setPageEnd(studentsData.length);
+        if (newPageEnd > studentsCopy.length) {
+            setPageEnd(studentsCopy.length);
         } else {
             setPageEnd(newPageEnd);
         }
-        if (newPageStart < studentsData.length) {
+        if (newPageStart < studentsCopy.length) {
             displayPage(newPageStart, newPageEnd);
         }
     }
@@ -184,6 +189,7 @@ const Students = () => {
 
     const getStudents = () => {
         const toShow = studentsData.slice(pageStart, pageEnd);
+        setStudentsCopy(studentsData);
         setStudents(toShow);
     };
 
@@ -225,7 +231,7 @@ const Students = () => {
             <div>
                 {!showResults && <p>{pageStart+1}-{pageEnd} of {studentsData.length}</p>}
                 {/* students is updated for pagination, so students.length will always be number of rows per page - need to make number of entries total of filter/search result */}
-                {showResults && <p>Showing results: {length} of {students.length}</p>}
+                {showResults && <p>Showing results: {length} of {studentsCopy.length}</p>}
             </div>
             <img src={chevronLeft} alt="previous page" onClick={previousPage} />
             <img src={chevronRight} alt="next page" onClick={nextPage} />
