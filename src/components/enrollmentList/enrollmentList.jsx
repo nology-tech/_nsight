@@ -8,6 +8,30 @@ const EnrollmentList = (props) => {
     const intakeDisplay = enrollmentData.map((intake, i) => {
         return (
             <>
+            <div class="student-container">
+                <div class="row">
+                    <div class="col">
+                        <p>Student Name</p>
+                    </div>
+                    <div class="col">
+                        <p>Email Address</p>
+                    </div>
+                    <div class="col">
+                        <p>Mobile Number</p>
+                    </div>
+                    <div class="col">
+                        <p>Consumer/Consultant</p>
+                    </div>
+                    <div class="col">
+                        <p>Employed</p>
+                    </div>
+                    <div class="col">
+                        <p>Course Name</p>
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+            </div>
                 <h1>{intake.intakeName}</h1>
                 {intake.students.map((student) => {
                     let employed = "NO";
@@ -46,6 +70,10 @@ const EnrollmentList = (props) => {
     });
 
     return <div>{intakeDisplay}</div>;
+    
 };
 
 export default EnrollmentList;
+
+
+// Use the index to set the column titles
