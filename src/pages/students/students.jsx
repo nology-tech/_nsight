@@ -36,11 +36,11 @@ const Students = () => {
             setShowResults(false)
             const toShow = studentsData.slice(pageStart, pageEnd);
             setStudents(toShow);
+            setStudentsCopy(studentsData);
         }
     };
 
     // SORT by first and last name
-    // SORTING ONLY SORTS THE PAGE VISIBLE AS RELIES ON STUDENTS STATE
     const sortAscendingAZ = (a, b) => {
         if (a.first_name < b.first_name) {
             return -1;
@@ -150,7 +150,7 @@ const Students = () => {
         } else {
             setPageEnd(newPageEnd);
         }
-        if (newPageStart < studentsData.length) {
+        if (newPageStart < studentsCopy.length) {
             const toShow = studentsCopy.slice(newPageStart, newPageEnd);
             setStudents(toShow);
         }
@@ -200,7 +200,6 @@ const Students = () => {
         const toShow = studentsData.slice(pageStart, pageEnd);
         setStudentsCopy(studentsData);
         setStudents(toShow);
-        setStudentsCopy(studentsData);
     };
 
     useEffect(() => {
