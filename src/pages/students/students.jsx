@@ -8,6 +8,7 @@ import Filter from "../../components/filter/filter";
 import chevronLeft from "../../assets/icons/chevron-left.svg";
 import chevronRight from "../../assets/icons/chevron-right.svg";
 import downArrow from "../../assets/icons/down-arrow.svg";
+import TopHeader from "../../components/topheader/topheader";
 
 const Students = () => {
     const [students, setStudents] = useState([]);
@@ -217,7 +218,7 @@ const Students = () => {
     return (
         <div className="student-list">
             <div className="list-title">
-                <h3 className="list-title__heading">Student List</h3>
+                <TopHeader className="list-title__heading" title="Students" />
                 <Searchbox handleSearch={handleSearch} />
                 <Sort sortAscendingByFirstName={sortAscendingByFirstName} sortDescendingByFirstName={sortDescendingByFirstName} />
                 <Filter courses={courses} filterByCourseName={filterByCourseName} />
