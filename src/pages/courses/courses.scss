@@ -1,4 +1,19 @@
-.myClass1{
-    text-align: center;
-    background-color:red;
+@import "../../assets/styles/styles.scss";
+
+.mainCourse{
+  background-color: #f8f8ff; //ebebf5
+  width: 100%;
+  height: 100vh;
+  // font-family: "Poppins";
+}
+.courses{
+  text-align: center;
+}
+
+.names{
+  margin-left: 10px;
+}
+
+.selfnames{
+  margin-left: 20px;
 }

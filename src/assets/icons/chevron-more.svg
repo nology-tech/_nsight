@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M0.824703 12L7.42154 6L0.824703 0L0.000244141 0.749868L5.77262 6L0.000244141 11.2501L0.824703 12Z" fill="black"/>
+=======
+<svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.777656 12L7 6L0.777656 0L0 0.749868L5.44469 6L0 11.2501L0.777656 12Z" fill="black"/>
+>>>>>>> 6f98411dd01a4de173a8e52571efbca91f771165
 </svg>
