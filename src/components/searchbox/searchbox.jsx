@@ -7,7 +7,7 @@ const Searchbox = (props) => {
 
     return (
         <div className="searchbar">
-            <input type="text" onChange={handleSearch} />
+            <input className="searchbar__input" type="text" onChange={handleSearch} />
             <img src={search} alt="Search icon" className="searchbar__icon" />
         </div>
     );

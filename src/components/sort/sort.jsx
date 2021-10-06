@@ -15,12 +15,12 @@ const Sort = (props) => {
         <div>
             <div onClick={toggleSort} className="sort">
                 <img src={sortIcon} alt="Sort icon" />
-                <p>Sort</p>
+                <p className="sort__word">Sort</p>
             </div>
             {sort && 
-                <div>
-                    <p onClick={sortAscendingByFirstName}>Sort A-Z</p>
-                    <p onClick={sortDescendingByFirstName}>Sort Z-A</p>
+                <div className="sort-dropdown">
+                    <p onClick={sortAscendingByFirstName} className="sort-dropdown__heading">Ascending to Descending</p>
+                    <p onClick={sortDescendingByFirstName} className="sort-dropdown__heading">Descending to Ascending</p>
                 </div>
             }
         </div>

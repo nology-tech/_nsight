@@ -8,13 +8,11 @@ const Filter = (props) => {
 
     const [filter, setFilter] = useState(false);
 
-    let filterClass = "filter-list";
-
     const distinctCourseNames = Object.entries(courses).map(course => {
         return (
             <>
                 <li className="filter-item">
-                    <input id={course[0]} type="checkbox" value={course[0]} checked={course[1]} onChange={filterByCourseName}/>
+                    <input className="filter-item__checkbox" id={course[0]} type="checkbox" value={course[0]} checked={course[1]} onChange={filterByCourseName}/>
                     <label htmlFor={course[0]}>{course[0]}</label>
                 </li>
             </>
@@ -31,7 +29,7 @@ const Filter = (props) => {
                 <img src={filterIcon}/>
                 <p>Filters</p>
             </div>
-            {filter && <ul className={filterClass}>
+            {filter && <ul className="filter-list">
                 {distinctCourseNames}
             </ul>}
         </div>
