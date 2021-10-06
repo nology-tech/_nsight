@@ -14,8 +14,9 @@ useEffect(() => {
     return(
         <>
             <h1>Hello there</h1>
-            <h2>{foundStudent.first_name}</h2>
+            <h2>{student.first_name}</h2>
         </>
     )
 }
+
 export default StudentDummyPage;
