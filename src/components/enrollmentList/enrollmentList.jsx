@@ -14,7 +14,7 @@ const EnrollmentList = (props) => {
 
       <div class="row">
         <div class="col">
-            <p>{intake.student.first_name} {intakestudent.last_name}</p>
+            <p>{Object.keys(intake).students.first_name} {Object.keys(intake).students.last_name}</p>
         </div>
         {/* <div class="col">
             <p>{student.email}</p>
