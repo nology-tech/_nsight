@@ -18,12 +18,9 @@ const EnrollmentList = (props) => {
                             employed = "YES"
                         }
                         return (
-                            <div class="row">
+                            <div class="row student">
                                 <div class="col">
-                                    <p>{student.first_name}</p>
-                                </div>
-                                <div class="col">
-                                    <p>{student.last_name}</p>
+                                    <p>{student.first_name} {student.last_name}</p>
                                 </div>
                                 <div class="col">
                                     <p>{student.email}</p>
@@ -49,31 +46,30 @@ const EnrollmentList = (props) => {
         } else {
             return (
                 <>
-                    <h1>{intake.intakeName}</h1>                    
-                    <div class="student-container">
-                        <div class="row">
-                    <div class="col">
-                        <p>Student Name</p>
+                <h1>{intake.intakeName}</h1>                                    
+                    <div class="row student student-container-headers">
+                        <div class="col">
+                            <p>Student Name</p>
+                        </div>
+                        <div class="col">
+                            <p>Email Address</p>
+                        </div>
+                        <div class="col">
+                            <p>Mobile Number</p>
+                        </div>
+                        <div class="col">
+                            <p>Consumer/Consultant</p>
+                        </div>
+                        <div class="col">
+                            <p>Employed</p>
+                        </div>
+                        <div class="col">
+                            <p>Course Name</p>
+                        </div>
+                        <div class="col">
+
+                        </div>
                     </div>
-                    <div class="col">
-                        <p>Email Address</p>
-                    </div>
-                    <div class="col">
-                        <p>Mobile Number</p>
-                    </div>
-                    <div class="col">
-                        <p>Consumer/Consultant</p>
-                    </div>
-                    <div class="col">
-                        <p>Employed</p>
-                    </div>
-                    <div class="col">
-                        <p>Course Name</p>
-                    </div>
-                    <div class="col">
-                    </div>
-                </div>
-            </div>
 
                     {intake.students.map((student) => {
                         let employed = "NO";
@@ -81,12 +77,9 @@ const EnrollmentList = (props) => {
                             employed = "YES"
                         }
                         return (
-                            <div class="row">
+                            <div class="row student">
                                 <div class="col">
-                                    <p>{student.first_name}</p>
-                                </div>
-                                <div class="col">
-                                    <p>{student.last_name}</p>
+                                    <p>{student.first_name} {student.last_name}</p>
                                 </div>
                                 <div class="col">
                                     <p>{student.email}</p>
