@@ -1,5 +1,9 @@
 import "./studentList.scss";
-import moreInfo from "../../assets/icons/chevron-more.svg"
+import moreInfo from "../../assets/icons/chevron-more.svg";
+import { 
+    BrowserRouter as Router, 
+    Link 
+} from "react-router-dom";
 
 const StudentList = (props) => {
     const { studentData } = props;
@@ -32,7 +36,9 @@ const StudentList = (props) => {
                     <p>{student.course_name}</p>
                 </div>
                 <div class="col">
-                    <img src={moreInfo} alt="more info chevron" />
+                    <Link to={"/students/" + student.id}>
+                        <img src={moreInfo} alt="more student info" />
+                    </Link>
                 </div>
             </div>
         </div>
