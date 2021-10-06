@@ -218,10 +218,15 @@ const Students = () => {
     return (
         <div className="main-student">
             <TopHeader title="Students" />
-            <div className="list-title">
-                <Searchbox handleSearch={handleSearch} />
-                <Sort sortAscendingByFirstName={sortAscendingByFirstName} sortDescendingByFirstName={sortDescendingByFirstName} />
-                <Filter courses={courses} filterByCourseName={filterByCourseName} />
+            <div className="student-heading">
+                <div>
+                    <h4>Student List</h4>
+                </div>
+                <div className="student-heading__subsets">
+                    <Searchbox handleSearch={handleSearch} />
+                    <Sort sortAscendingByFirstName={sortAscendingByFirstName} sortDescendingByFirstName={sortDescendingByFirstName} />
+                    <Filter courses={courses} filterByCourseName={filterByCourseName} />
+                </div>
             </div>
             <div class="container">
                 <StudentList studentData={students} />

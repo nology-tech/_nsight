@@ -6,6 +6,14 @@
     height: 100vh;
 }
 
+.student-heading {
+    display: flex;
+    justify-content: space-between;
+    &__subsets {
+        display: flex;
+    }
+}
+
 .pagination {
     display: flex;
     align-items: flex-start;
