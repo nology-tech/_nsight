@@ -6,10 +6,52 @@ const EnrollmentList = (props) => {
     const { enrollmentData } = props;
 
     const intakeDisplay = enrollmentData.map((intake, i) => {
-        return (
-            <>
-            <div class="student-container">
-                <div class="row">
+
+        if (i !== 0) {
+            return (
+                <>
+                    <h1>{intake.intakeName}</h1>
+                    
+                    {intake.students.map((student) => {
+                        let employed = "NO";
+                        if (student.employed) {
+                            employed = "YES"
+                        }
+                        return (
+                            <div class="row">
+                                <div class="col">
+                                    <p>{student.first_name}</p>
+                                </div>
+                                <div class="col">
+                                    <p>{student.last_name}</p>
+                                </div>
+                                <div class="col">
+                                    <p>{student.email}</p>
+                                </div>
+                                <div class="col">
+                                    <p>{student.mobile_number}</p>
+                                </div>
+                                <div class="col">
+                                    <p>{student.type}</p>
+                                </div>
+                                <div class="col">{employed}</div>
+                                <div class="col">
+                                    <p>{student.course_name}</p>
+                                </div>
+                                <div class="col">
+                                    <img src={moreInfo} alt="more info chevron" />
+                                </div>
+                            </div>
+                        );
+                    })}
+                </>
+            );
+        } else {
+            return (
+                <>
+                    <h1>{intake.intakeName}</h1>                    
+                    <div class="student-container">
+                        <div class="row">
                     <div class="col">
                         <p>Student Name</p>
                     </div>
@@ -32,41 +74,42 @@ const EnrollmentList = (props) => {
                     </div>
                 </div>
             </div>
-                <h1>{intake.intakeName}</h1>
-                {intake.students.map((student) => {
-                    let employed = "NO";
-                    if (student.employed) {
-                        employed = "YES"
-                    }
-                    return (
-                        <div class="row">
-                            <div class="col">
-                                <p>{student.first_name}</p>
+
+                    {intake.students.map((student) => {
+                        let employed = "NO";
+                        if (student.employed) {
+                            employed = "YES"
+                        }
+                        return (
+                            <div class="row">
+                                <div class="col">
+                                    <p>{student.first_name}</p>
+                                </div>
+                                <div class="col">
+                                    <p>{student.last_name}</p>
+                                </div>
+                                <div class="col">
+                                    <p>{student.email}</p>
+                                </div>
+                                <div class="col">
+                                    <p>{student.mobile_number}</p>
+                                </div>
+                                <div class="col">
+                                    <p>{student.type}</p>
+                                </div>
+                                <div class="col">{employed}</div>
+                                <div class="col">
+                                    <p>{student.course_name}</p>
+                                </div>
+                                <div class="col">
+                                    <img src={moreInfo} alt="more info chevron" />
+                                </div>
                             </div>
-                            <div class="col">
-                                <p>{student.last_name}</p>
-                            </div>
-                            <div class="col">
-                                <p>{student.email}</p>
-                            </div>
-                            <div class="col">
-                                <p>{student.mobile_number}</p>
-                            </div>
-                            <div class="col">
-                                <p>{student.type}</p>
-                            </div>
-                            <div class="col">{employed}</div>
-                            <div class="col">
-                                <p>{student.course_name}</p>
-                            </div>
-                            <div class="col">
-                                <img src={moreInfo} alt="more info chevron" />
-                            </div>
-                        </div>
-                    );
-                })}
-            </>
-        );
+                        );
+                    })}
+                </>
+            );
+        }
     });
 
     return <div>{intakeDisplay}</div>;
@@ -75,5 +118,3 @@ const EnrollmentList = (props) => {
 
 export default EnrollmentList;
 
-
-// Use the index to set the column titles
