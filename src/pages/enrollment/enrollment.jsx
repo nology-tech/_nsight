@@ -5,12 +5,9 @@ import EnrollmentList from "../../components/enrollmentList/enrollmentList"
 
 const Enrollment = () => {
 
-    console.log(enrollmentData);
-
     return (
         <div className="enrollment-list">
-           <EnrollmentList enrollmentData={enrollmentData} />
-
+            <EnrollmentList enrollmentData={enrollmentData} />
         </div>
     )
 }

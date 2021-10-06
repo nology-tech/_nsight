@@ -1,5 +1,7 @@
 const courses = [
-    {mariana: {
+    {
+        id: 1,
+        intakeName: "mariana",
         students: [
             {
                 id: 1,
@@ -56,11 +58,12 @@ const courses = [
                 employed: true,
                 employer: "HSBC",
                 role: "Junior Software Developer",
-            }
-        ]
-        }
+            },
+        ],
     },
-    {aruba: {
+    {
+        id: 2,
+        intakeName: "aruba",
         students: [
             {
                 id: 1,
@@ -103,11 +106,12 @@ const courses = [
                 employed: true,
                 employer: "Shell",
                 role: "Junior Software Developer",
-            }
-        ]
-        }
+            },
+        ],
     },
-    {selfPaced: {
+    {
+        id: 3,
+        intakeName: "self-paced",
         students: [
             {
                 id: 1,
@@ -192,9 +196,9 @@ const courses = [
                 employed: false,
                 employer: "",
                 role: "",
-            }
-        ]
-    }}
-]
+            },
+        ],
+    },
+];
 
 export default courses;
