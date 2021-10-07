@@ -1,9 +1,12 @@
 @import "../../assets/styles/styles.scss";
 
-.main-student{
+.main-student {
     background-color: #f8f8ff;
     width: 100%;
     height: 100vh;
+    img {
+        cursor: pointer;
+    }
 }
 
 .student-heading {
@@ -18,4 +21,3 @@
     display: flex;
     align-items: flex-start;
 }
-

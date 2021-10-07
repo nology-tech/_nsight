@@ -12,30 +12,30 @@ const StudentList = (props) => {
         }
 
         return (
-            <div class="row student-list">
-                <div class="col">
+            <div className="row student-list" key={student.id}>
+                <div className="col">
                     <h5>
                         {student.first_name} {student.last_name}
                     </h5>
                 </div>
-                <div class="col">
+                <div className="col">
                     <p className="student-list__data">{student.email}</p>
                 </div>
-                <div class="col">
+                <div className="col">
                     <p className="student-list__data">
                         {student.mobile_number}
                     </p>
                 </div>
-                <div class="col">
+                <div className="col">
                     <p className="student-list__data">{student.type}</p>
                 </div>
-                <div class="col">
+                <div className="col">
                     <p className="student-list__data">{employed}</p>
                 </div>
-                <div class="col">
+                <div className="col">
                     <p className="student-list__data">{student.course_name}</p>
                 </div>
-                <div class="col">
+                <div className="col">
                     <Link to={"/students/" + student.id}>
                         <img src={moreInfo} alt="more student info" />
                     </Link>
@@ -45,27 +45,27 @@ const StudentList = (props) => {
     });
 
     return (
-        <div class="container">
-            <div class="row students">
-                <div class="col">
+        <div className="container">
+            <div className="row students">
+                <div className="col">
                     <p>Student Name</p>
                 </div>
-                <div class="col">
+                <div className="col">
                     <p>Email Address</p>
                 </div>
-                <div class="col">
+                <div className="col">
                     <p>Mobile Number</p>
                 </div>
-                <div class="col">
+                <div className="col">
                     <p>Consumer/Consultant</p>
                 </div>
-                <div class="col">
+                <div className="col">
                     <p>Employed</p>
                 </div>
-                <div class="col">
+                <div className="col">
                     <p>Course Name</p>
                 </div>
-                <div class="col"></div>
+                <div className="col"></div>
             </div>
             {studentDisplay}
         </div>

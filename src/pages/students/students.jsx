@@ -236,7 +236,7 @@ const Students = () => {
                     />
                 </div>
             </div>
-            <div class="container">
+            <div className="container">
                 <StudentList studentData={students} />
             </div>
             <div className="pagination">
