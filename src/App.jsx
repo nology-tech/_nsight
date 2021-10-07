@@ -18,17 +18,17 @@ const App = () => {
                 </div>
                 <div className="col-9 p-0">
                     <Switch>
-                        <Route path="/courses">
-                            <Courses />
-                        </Route>
                         <Route path="/courses/:courseId">
                             <DummyPage />
                         </Route>
-                        <Route path="/students">
-                            <Students />
+                        <Route path="/courses">
+                            <Courses />
                         </Route>
                         <Route path="/students/:studentId">
                             <StudentDummyPage />
+                        </Route>
+                        <Route path="/students">
+                            <Students />
                         </Route>
                         <Route path="/enrollment">
                             <Enrollment />
