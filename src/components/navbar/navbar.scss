@@ -42,14 +42,18 @@
                 color: $nav-text-color;
                 padding: 15px 0 15px 4em;
                 width: 100%;
-                border-left: 1px solid transparent;
+
+                &:hover {
+                    background-color: $third-nav;
+                    color: $default;
+                    cursor: pointer;
+                }
             }
 
             .active {
                 background-color: $third-nav;
                 color: $default;
                 cursor: pointer;
-                border-left: 1px solid #724bcb;
             }
 
             img {
