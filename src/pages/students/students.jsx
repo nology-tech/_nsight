@@ -22,19 +22,19 @@ const Students = () => {
     // SEARCH by first and last name
     const handleSearch = (e) => {
         const sanitiseInput = e.target.value.toLowerCase();
-        const studentSearch = studentsData.filter(student => {
+        const studentSearch = studentsData.filter((student) => {
             const sanitisedStudentFirstName = student.first_name.toLowerCase();
             const sanitisedStudentLastName = student.last_name.toLowerCase();
             const sanitisedStudentName = `${sanitisedStudentFirstName} ${sanitisedStudentLastName}`;
             return sanitisedStudentName.includes(sanitiseInput);
-        })
+        });
         setStudentsCopy(studentSearch);
         const toShow = studentSearch.slice(pageStart, pageEnd);
         setStudents(toShow);
 
-        setShowResults(true)
+        setShowResults(true);
         if (e.target.value.length === 0) {
-            setShowResults(false)
+            setShowResults(false);
             const toShow = studentsData.slice(pageStart, pageEnd);
             setStudents(toShow);
             setStudentsCopy(studentsData);
@@ -53,7 +53,9 @@ const Students = () => {
     };
 
     const sortAscendingByFirstName = () => {
-        const studentsSortedByName = studentsCopy.filter(student => student).sort(sortAscendingAZ);
+        const studentsSortedByName = studentsCopy
+            .filter((student) => student)
+            .sort(sortAscendingAZ);
         setStudentsCopy(studentsSortedByName);
 
         const toShow = studentsSortedByName.slice(pageStart, pageEnd);
@@ -71,7 +73,9 @@ const Students = () => {
     };
 
     const sortDescendingByFirstName = () => {
-        const studentsSortedByName = studentsCopy.filter(student => student).sort(sortDescendingAZ);
+        const studentsSortedByName = studentsCopy
+            .filter((student) => student)
+            .sort(sortDescendingAZ);
         setStudentsCopy(studentsSortedByName);
 
         const toShow = studentsSortedByName.slice(pageStart, pageEnd);
@@ -80,41 +84,39 @@ const Students = () => {
 
     // FILTER - Dynamic filter checkboxes
     const unique = (value, index, self) => {
-        return self.indexOf(value) === index
-    }
+        return self.indexOf(value) === index;
+    };
 
-    const courseNames = studentsData.map(student => student.course_name);
+    const courseNames = studentsData.map((student) => student.course_name);
 
     const uniqueCourseNames = courseNames.filter(unique);
-    
+
     const createStatefulObject = (courseNames) => {
         return courseNames.reduce((statefulObject, courseName) => {
             statefulObject[courseName] = false;
             return statefulObject;
-        }, {})
-    }
+        }, {});
+    };
 
-    const [courses, setCourses] = useState(createStatefulObject(uniqueCourseNames))
+    const [courses, setCourses] = useState(
+        createStatefulObject(uniqueCourseNames)
+    );
 
     const handleSetCourses = (courseName) => {
-        const tempCourses = {...courses};
+        const tempCourses = { ...courses };
         tempCourses[courseName] = !tempCourses[courseName];
 
         setCourses(tempCourses); // not synchronous
         return tempCourses;
-    }
+    };
 
     const filterByCourseName = (e) => {
         const courses = handleSetCourses(e.target.value);
-        const stateArray = [];
+        const stateArray = Object.keys(courses).filter((key) => courses[key]);
 
-        Object.keys(courses).filter(key => {
-            if (courses[key]) {
-                stateArray.push(key)
-            }
-        });
-
-        const filteredCourseName = studentsData.filter(student => stateArray.includes(student.course_name));
+        const filteredCourseName = studentsData.filter((student) =>
+            stateArray.includes(student.course_name)
+        );
 
         if (filteredCourseName.length === 0) {
             getStudents(studentsData);
@@ -124,21 +126,22 @@ const Students = () => {
             setStudents(filtered);
         }
 
-        const filteredStateArray = stateArray.filter(courseName => courseName.includes(true));
-        
-        if (filteredStateArray) {
-            setShowResults(true)
-        } else {
-            setShowResults(false)
-        }
+        const filteredStateArray = stateArray.filter((courseName) =>
+            courseName.includes(true)
+        );
 
+        if (filteredStateArray) {
+            setShowResults(true);
+        } else {
+            setShowResults(false);
+        }
     };
 
     // PAGINATION
     const displayPage = (pageStart, pageEnd) => {
         const toShow = studentsData.slice(pageStart, pageEnd);
         setStudents(toShow);
-    }
+    };
 
     const nextPage = () => {
         const newPageStart = pageStart + perPage;
@@ -155,7 +158,7 @@ const Students = () => {
             const toShow = studentsCopy.slice(newPageStart, newPageEnd);
             setStudents(toShow);
         }
-    }
+    };
 
     const previousPage = () => {
         const newPageStart = pageStart - perPage;
@@ -163,7 +166,7 @@ const Students = () => {
         if (newPageStart >= 0) {
             setPageStart(newPageStart);
         }
-        if (newPageEnd % perPage != 0) {
+        if (newPageEnd % perPage !== 0) {
             setPageEnd(pageEnd - (newPageEnd % perPage));
             newPageEnd = pageEnd - (newPageEnd % perPage);
         } else {
@@ -183,11 +186,11 @@ const Students = () => {
                 setStudents(toShow);
             }
         }
-    }
+    };
 
     const togglePagination = () => {
         setPagination(!pagination);
-    }
+    };
 
     const togglePerPage = (e) => {
         setPerPage(e.target.value);
@@ -195,7 +198,7 @@ const Students = () => {
         setPageEnd(e.target.value);
         displayPage(0, e.target.value);
         togglePagination();
-    }
+    };
 
     const getStudents = () => {
         const toShow = studentsData.slice(pageStart, pageEnd);
@@ -209,11 +212,10 @@ const Students = () => {
 
     let length = 0;
     if (students.length > perPage) {
-        length = perPage
+        length = perPage;
     } else {
-        length = students.length
+        length = students.length;
     }
-
 
     return (
         <div className="main-student">
@@ -224,8 +226,14 @@ const Students = () => {
                 </div>
                 <div className="student-heading__subsets">
                     <Searchbox handleSearch={handleSearch} />
-                    <Sort sortAscendingByFirstName={sortAscendingByFirstName} sortDescendingByFirstName={sortDescendingByFirstName} />
-                    <Filter courses={courses} filterByCourseName={filterByCourseName} />
+                    <Sort
+                        sortAscendingByFirstName={sortAscendingByFirstName}
+                        sortDescendingByFirstName={sortDescendingByFirstName}
+                    />
+                    <Filter
+                        courses={courses}
+                        filterByCourseName={filterByCourseName}
+                    />
                 </div>
             </div>
             <div class="container">
@@ -233,20 +241,43 @@ const Students = () => {
             </div>
             <div className="pagination">
                 <p>Rows per page</p>
-                <p onClick={togglePagination}>{perPage} <img src={downArrow} alt="down arrow" /></p>
-                {pagination &&
+                <p onClick={togglePagination}>
+                    {perPage} <img src={downArrow} alt="down arrow" />
+                </p>
+                {pagination && (
                     <ul>
-                    <li onClick={togglePerPage} value="5">5</li>
-                    <li onClick={togglePerPage} value="10">10</li>
-                    <li onClick={togglePerPage} value="15">15</li>
-                    <li onClick={togglePerPage} value="20">20</li>
-                    <li onClick={togglePerPage} value="25">25</li>
-                    <li onClick={togglePerPage} value="30">30</li>
-                </ul>}
+                        <li onClick={togglePerPage} value="5">
+                            5
+                        </li>
+                        <li onClick={togglePerPage} value="10">
+                            10
+                        </li>
+                        <li onClick={togglePerPage} value="15">
+                            15
+                        </li>
+                        <li onClick={togglePerPage} value="20">
+                            20
+                        </li>
+                        <li onClick={togglePerPage} value="25">
+                            25
+                        </li>
+                        <li onClick={togglePerPage} value="30">
+                            30
+                        </li>
+                    </ul>
+                )}
             </div>
             <div>
-                {!showResults && <p>{pageStart+1}-{pageEnd} of {studentsData.length}</p>}
-                {showResults && <p>Showing results: {length} of {studentsCopy.length}</p>}
+                {!showResults && (
+                    <p>
+                        {pageStart + 1}-{pageEnd} of {studentsData.length}
+                    </p>
+                )}
+                {showResults && (
+                    <p>
+                        Showing results: {length} of {studentsCopy.length}
+                    </p>
+                )}
             </div>
             <img src={chevronLeft} alt="previous page" onClick={previousPage} />
             <img src={chevronRight} alt="next page" onClick={nextPage} />
