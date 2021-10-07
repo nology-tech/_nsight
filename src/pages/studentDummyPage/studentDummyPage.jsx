@@ -3,20 +3,22 @@ import { useParams } from "react-router-dom";
 import students from "../../assets/data/student-data";
 
 const StudentDummyPage = (props) => {
-const { studentId } = useParams();
-const [student, setStudent] = useState("");
+    const { studentId } = useParams();
+    const [student, setStudent] = useState("");
 
-useEffect(() => {
-    const foundStudent = students.find(student => student.id === Number(studentId))
-    setStudent(foundStudent);
-}, [])
+    useEffect(() => {
+        const foundStudent = students.find(
+            (student) => student.id === Number(studentId)
+        );
+        setStudent(foundStudent);
+    }, [studentId]);
 
-    return(
+    return (
         <>
             <h1>Hello there</h1>
             <h2>{student.first_name}</h2>
         </>
-    )
-}
+    );
+};
 
 export default StudentDummyPage;
