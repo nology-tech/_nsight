@@ -1,0 +1,13 @@
+.searchbar {
+    background-color: #EBEBF5;
+    max-width: 250px;
+    height: 32px;
+    &__input {
+        background-color: #EBEBF5;
+        border: none;
+    }
+    &__input:focus {
+        outline: none;
+    }
+}
+

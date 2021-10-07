@@ -1,11 +1,21 @@
+@import "../../assets/styles/styles.scss";
 
-
-.myClass5{
-    text-align: center;
-    background-color:purple;
+.main-student{
+    background-color: #f8f8ff;
+    width: 100%;
+    height: 100vh;
 }
 
-.student-list {
-    margin-left: 22vw;
+.student-heading {
+    display: flex;
+    justify-content: space-between;
+    &__subsets {
+        display: flex;
+    }
+}
+
+.pagination {
+    display: flex;
+    align-items: flex-start;
 }
 

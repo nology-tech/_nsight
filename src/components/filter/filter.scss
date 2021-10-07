@@ -1,0 +1,28 @@
+.filter {
+    &-heading {
+    display: flex;
+    align-items: center;
+    }
+    &-list {
+    display: absolute;
+    transition-duration: 0.5s;
+    background-color: white;
+    font-family: 'Poppins';
+    font-size: 12px;
+    padding: 9px 20px;
+    width: 200px;
+    }
+    &-heading:hover {
+        cursor: pointer;
+    }
+    &-item {
+        list-style-type: none;
+        &__checkbox {
+            background-color: #F8F8FF;
+            border-radius: 3px;
+            border: none;
+            margin-right: 20px;
+            padding: 5px;
+        }
+    }
+}
