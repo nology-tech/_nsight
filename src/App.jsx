@@ -7,6 +7,7 @@ import Students from './pages/students/students.jsx';
 import Settings from "./pages/settings/settings.jsx";
 import Enrollment from "./pages/enrollment/enrollment.jsx";
 import DummyPage from "./pages/dummyPage/dummyPage";
+import StudentDummyPage from "./pages/studentDummyPage/studentDummyPage";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Switch>
             <Route path="/courses/:courseId" component={DummyPage}/>
             <Route path="/courses" component={Courses} />
+            <Route path="/students/:studentId" component={StudentDummyPage} />
             <Route path="/students" component={Students} />
             <Route path="/Enrollment" component={Enrollment} />
             <Route path="/Settings" component={Settings} />

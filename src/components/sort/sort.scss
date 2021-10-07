@@ -1,0 +1,26 @@
+@import "../../assets/styles/styles.scss";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.sort {
+    display: flex;
+    align-items: flex-start;
+    &__word {
+        margin-left: 9px;
+    }
+}
+
+.sort-dropdown {
+    background-color: white;
+    font-family: 'Poppins';
+    font-size: 12px;
+    padding: 9px 20px;
+    width: 200px;
+    &__heading {
+        margin-bottom: 0;
+    }
+}
