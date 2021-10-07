@@ -18,19 +18,27 @@ const App = () => {
                 </div>
                 <div className="col-9 p-0">
                     <Switch>
-                        <Route
-                            path="/courses/:courseId"
-                            component={DummyPage}
-                        />
-                        <Route path="/courses" component={Courses} />
-                        <Route
-                            path="/students/:studentId"
-                            component={StudentDummyPage}
-                        />
-                        <Route path="/students" component={Students} />
-                        <Route path="/Enrollment" component={Enrollment} />
-                        <Route path="/Settings" component={Settings} />
-                        <Route path="/" component={Dashboard} />
+                        <Route path="/courses">
+                            <Courses />
+                        </Route>
+                        <Route path="/courses/:courseId">
+                            <DummyPage />
+                        </Route>
+                        <Route path="/students">
+                            <Students />
+                        </Route>
+                        <Route path="/students/:studentId">
+                            <StudentDummyPage />
+                        </Route>
+                        <Route path="/enrollment">
+                            <Enrollment />
+                        </Route>
+                        <Route path="/settings">
+                            <Settings />
+                        </Route>
+                        <Route path="/">
+                            <Dashboard />
+                        </Route>
                     </Switch>
                 </div>
             </div>
