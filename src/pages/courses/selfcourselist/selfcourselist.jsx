@@ -32,7 +32,7 @@ const SelfCourseList = (props) => {
                         <div className="col">
                             <p className="selfcourse__tag">{selfCourse.percentageEmployed}</p>
                         </div>
-                        <div class="col arrow">
+                        <div class="col-md-1 ms-auto">
                         <Link to={"/courses/" + selfCourse.id}>
                             <img src={arrow} alt="" />
                         </Link>
