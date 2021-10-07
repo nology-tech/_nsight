@@ -1,29 +1,30 @@
 import "./studentList.scss";
 import moreInfo from "../../assets/icons/chevron-more.svg";
-import { 
-    BrowserRouter as Router, 
-    Link 
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const StudentList = (props) => {
     const { studentData } = props;
 
-    const studentDisplay = studentData.map(student => {
+    const studentDisplay = studentData.map((student) => {
         let employed = "NO";
         if (student.employed) {
-            employed = "YES"
+            employed = "YES";
         }
 
         return (
             <div class="row student-list">
                 <div class="col">
-                    <h5>{student.first_name} {student.last_name}</h5>
+                    <h5>
+                        {student.first_name} {student.last_name}
+                    </h5>
                 </div>
                 <div class="col">
                     <p className="student-list__data">{student.email}</p>
                 </div>
                 <div class="col">
-                    <p className="student-list__data">{student.mobile_number}</p>
+                    <p className="student-list__data">
+                        {student.mobile_number}
+                    </p>
                 </div>
                 <div class="col">
                     <p className="student-list__data">{student.type}</p>
@@ -40,7 +41,8 @@ const StudentList = (props) => {
                     </Link>
                 </div>
             </div>
-    )});
+        );
+    });
 
     return (
         <div class="container">
@@ -63,8 +65,7 @@ const StudentList = (props) => {
                 <div class="col">
                     <p>Course Name</p>
                 </div>
-                <div class="col">
-                </div>
+                <div class="col"></div>
             </div>
             {studentDisplay}
         </div>
