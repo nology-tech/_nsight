@@ -4,8 +4,6 @@ import CourseList from "./CourseList/CourseList";
 import SelfCourseList from "./selfcourselist/selfcourselist";
 import TopHeader from "../../components/topheader/topheader";
 import CourseFilter from "./coursefilter/coursefilter";
-import dummyPage from "../dummyPage/dummyPage";
-import { Link } from "react-router-dom";
 import "./courses.scss";
 
 const Courses = (props) => {
@@ -34,7 +32,12 @@ const Courses = (props) => {
     return (
         <div className="mainCourse">
             <TopHeader title="Courses">
-                <CourseFilter setFullTime={setFullTime} fullTime={fullTime} setSelfPaced={setSelfPaced} selfPaced={selfPaced} />
+                <CourseFilter
+                    setFullTime={setFullTime}
+                    fullTime={fullTime}
+                    setSelfPaced={setSelfPaced}
+                    selfPaced={selfPaced}
+                />
             </TopHeader>
             <div class="container">
                 {fullTime && (
@@ -49,7 +52,7 @@ const Courses = (props) => {
                                 <div class="col">Course Start</div>
                                 <div class="col">Course Completion</div>
                                 <div class="col">Status</div>
-                                    <div class="col-md-1 ms-auto"> </div>
+                                <div class="col-md-1 ms-auto"> </div>
                             </div>
                             {coursesData}
                         </div>
