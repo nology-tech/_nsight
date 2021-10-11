@@ -4,8 +4,6 @@ import CourseList from "./CourseList/CourseList";
 import SelfCourseList from "./selfcourselist/selfcourselist";
 import TopHeader from "../../components/topheader/topheader";
 import CourseFilter from "./coursefilter/coursefilter";
-import dummyPage from "../dummyPage/dummyPage";
-import { Link } from "react-router-dom";
 import "./courses.scss";
 
 const Courses = (props) => {
@@ -18,14 +16,14 @@ const Courses = (props) => {
         (course) => course.name !== "Self-Paced Course"
     );
     const coursesData = filteredCourseData.map((course) => {
-        return <CourseList course={course} />;
+        return <CourseList key={course.id} course={course} />;
     });
 
     const selfData = courses.filter(
         (course) => course.name === "Self-Paced Course"
     );
     const selfCourseData = selfData.map((course) => {
-        return <SelfCourseList selfCourse={course} />;
+        return <SelfCourseList key={course.id} selfCourse={course} />;
     });
 
     const [fullTime, setFullTime] = useState(true);
@@ -34,39 +32,44 @@ const Courses = (props) => {
     return (
         <div className="mainCourse">
             <TopHeader title="Courses">
-                <CourseFilter setFullTime={setFullTime} fullTime={fullTime} setSelfPaced={setSelfPaced} selfPaced={selfPaced} />
+                <CourseFilter
+                    setFullTime={setFullTime}
+                    fullTime={fullTime}
+                    setSelfPaced={setSelfPaced}
+                    selfPaced={selfPaced}
+                />
             </TopHeader>
-            <div class="container">
+            <div className="container">
                 {fullTime && (
                     <>
                         <h2>Full-Time Bootcamp</h2>
                         <div className="courses">
-                            <div class="row names">
-                                <div class="col">Course Name</div>
-                                <div class="col"> No. Enrolled</div>
-                                <div class="col">% Employment</div>
-                                <div class="col">Course Lead</div>
-                                <div class="col">Course Start</div>
-                                <div class="col">Course Completion</div>
-                                <div class="col">Status</div>
-                                    <div class="col-md-1 ms-auto"> </div>
+                            <div className="row names">
+                                <div className="col">Course Name</div>
+                                <div className="col"> No. Enrolled</div>
+                                <div className="col">% Employment</div>
+                                <div className="col">Course Lead</div>
+                                <div className="col">Course Start</div>
+                                <div className="col">Course Completion</div>
+                                <div className="col">Status</div>
+                                <div className="col-md-1 ms-auto"> </div>
                             </div>
                             {coursesData}
                         </div>
                     </>
                 )}
-                <div class="container p-0">
+                <div className="container p-0">
                     {selfPaced && (
                         <>
                             <h2>Self-Paced Bootcamp</h2>
                             <div className="courses">
-                                <div class="row selfnames">
-                                    <div class="col">Course Name</div>
-                                    <div class="col">No. Enrolled</div>
-                                    <div class="col">No. Completed</div>
-                                    <div class="col">Course Lead</div>
-                                    <div class="col">% Employment</div>
-                                    <div class="col-md-1 ms-auto"></div>
+                                <div className="row selfnames">
+                                    <div className="col">Course Name</div>
+                                    <div className="col">No. Enrolled</div>
+                                    <div className="col">No. Completed</div>
+                                    <div className="col">Course Lead</div>
+                                    <div className="col">% Employment</div>
+                                    <div className="col-md-1 ms-auto"></div>
                                 </div>
                                 {selfCourseData}
                             </div>

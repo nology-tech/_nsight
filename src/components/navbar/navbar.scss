@@ -1,55 +1,65 @@
 @import "../../assets/styles/styles.scss";
 
-.navbar {
+.wrapper {
+    min-height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
     background-color: $primary-nav;
+    box-shadow: 0px 20px 40px #f0f0ee;
+    width: 100%;
     padding: 30px 0;
     border-radius: 0 30px 0 0;
-    box-shadow: 0px 20px 40px #F0F0EE;
-    height: 100vh;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
 
     .logo {
         margin-top: 60px;
         width: 80px;
-
     }
 
-    .list-break-bottom {
-        width: 81.7%;
-        height: 25px;
-        border-bottom: 1px solid $secondary-nav;
-        margin-bottom: 25px;
-    }
-
-    &__item {
-        color: $nav-text-color;
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 20px;
         width: 100%;
 
-        a {
-            text-decoration: none;
-            font-size: 16px;
+        .list-break-bottom {
+            width: 81.7%;
+            height: 25px;
+            border-bottom: 1px solid $secondary-nav;
+            margin-bottom: 25px;
+        }
+
+        &__item {
             color: $nav-text-color;
-            padding: 15px 0 15px 4em;
-            border-left: 1px solid transparent;
-        }
+            width: 100%;
 
-        .active {
-            background-color: $third-nav;
-            color: $default;
-            cursor: pointer;
-            border-left: 1px solid #724BCB;
-            
-        }
+            a {
+                text-decoration: none;
+                font-size: 16px;
+                color: $nav-text-color;
+                padding: 15px 0 15px 4em;
+                width: 100%;
 
-        img {
-            padding-right: 40px;
-            width: 60px;
+                &:hover {
+                    background-color: $third-nav;
+                    color: $default;
+                    cursor: pointer;
+                }
+            }
+
+            .active {
+                background-color: $third-nav;
+                color: $default;
+                cursor: pointer;
+            }
+
+            img {
+                padding-right: 40px;
+                width: 60px;
+            }
         }
     }
 }
@@ -71,7 +81,7 @@
 }
 
 @media screen and (min-width: 1600px) {
-    .navbar{
+    .navbar {
         a {
             padding: 15px 0 15px 7em;
         }
@@ -79,7 +89,7 @@
 }
 
 @media screen and (min-width: 1700px) {
-    .navbar{   
+    .navbar {
         a {
             padding: 15px 0 15px 8em;
         }
