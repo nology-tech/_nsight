@@ -1,4 +1,10 @@
 @import "../../assets/styles/styles.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .topheader{
   // width: 70vw;
   height: 10vh;
@@ -6,15 +12,19 @@
   display: flex;
   border-bottom: solid 2px #EDE8F8;
   margin-top: 5px;
+  margin-bottom: 50px;
   padding-left: 50px;
-  &__heading{
+  min-height: 150px;
+  &__header{
     color: #2D3748;
     font-family: "Poppins";
+    padding-top: 55px;
   }
 }
 .btn{
   // width: fit-content;
   // height: fit-content;
-  margin-right: 200px;
+  margin-right: 130px;
   margin-top: unset;
+  margin-top: 30px;
 }

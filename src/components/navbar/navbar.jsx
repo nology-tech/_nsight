@@ -8,14 +8,11 @@ import nut from "../../assets/icons/nut.svg";
 import nutonhover from "../../assets/icons/nutonhover.svg";
 import students from "../../assets/icons/students.svg";
 import studentsonhover from "../../assets/icons/studentsonhover.svg";
-import house from "../../assets/icons/house.svg";
-import houseonhover from "../../assets/icons/houseonhover.svg";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/images/_nology.png";
 
 const Navbar = () => {
     const [bookState, setBookState] = useState(false);
-    const [houseState, setHouseState] = useState(true);
     const [medalsState, setMedalsState] = useState(false);
     const [studentsState, setStudentsState] = useState(false);
     const [nutState, setNutState] = useState(false);
@@ -23,11 +20,6 @@ const Navbar = () => {
     const handleCoursesClick = () => {
         handleClearActiveStatus();
         setBookState(true);
-    };
-
-    const handleDashboardClick = () => {
-        handleClearActiveStatus();
-        setHouseState(true);
     };
 
     const handleStudentsClick = () => {
@@ -48,8 +40,6 @@ const Navbar = () => {
     const handleClearActiveStatus = () => {
         if (bookState) {
             setBookState(false);
-        } else if (houseState) {
-            setHouseState(false);
         } else if (studentsState) {
             setStudentsState(false);
         } else if (medalsState) {
@@ -65,21 +55,6 @@ const Navbar = () => {
 
             <div className="navbar container">
                 <div className="list-break-bottom"></div>
-                <div className="row navbar__item justify-content-start">
-                    <NavLink
-                        exact
-                        to="/"
-                        className="col"
-                        onClick={handleDashboardClick}
-                        activeClassName="active"
-                    >
-                        {!houseState && <img src={house} alt="house" />}
-                        {houseState && (
-                            <img src={houseonhover} alt="houseonhover" />
-                        )}
-                        Dashboard
-                    </NavLink>
-                </div>
                 <div className="row navbar__item justify-content-start">
                     <NavLink
                         exact
