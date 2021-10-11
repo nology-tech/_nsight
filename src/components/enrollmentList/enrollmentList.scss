@@ -1,16 +1,18 @@
+@import "../../assets/styles/styles.scss";
+
 .student {
   padding-top: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: auto;
+  height: 70px;
   background-color: #FFFFFF;
   box-shadow: 0px 30px 40px rgba(114, 75, 203, 0.06);
   border-radius: 7px;
   margin: 10px;
   font-family: "Poppins";
-  font-size: 10px;
+  // font-size: 10px;
   &__img{
       text-align: center;
   }
@@ -23,7 +25,7 @@
 .student-container-headers {
   font-style: normal;
   font-weight: 500;
-  font-size: 8px;
+  // font-size: 12px;
 //   line-height: 12px;
   background-color: #F8F8FF;
   justify-content: space-between;
@@ -31,7 +33,7 @@
   height: 19px;
 
   p{
-      margin: 0;
+      // margin: 0;
   }
 }
 
@@ -40,7 +42,7 @@
     font-family: "Poppins";
     font-style: normal;
     font-weight: bold;
-    font-size: 16px;
+    // font-size: 16px;
     line-height: 24px;
 
     display: flex;
@@ -58,7 +60,7 @@
     font-family: "Poppins";
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
+    // font-size: 14px;
     line-height: 21px;
 
     display: flex;

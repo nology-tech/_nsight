@@ -7,7 +7,7 @@ const EnrollmentList = (props) => {
 
     const intakeDisplay = enrollmentData.map((intake, i) => {
         let isSelfPaced = "fullTime";
-        if (intake.intakeName === "self-paced") {
+        if (intake.intakeName === "Self-paced") {
             isSelfPaced = "self-paced";
         }
 

@@ -1,7 +1,7 @@
 const courses = [
     {
         id: 1,
-        intakeName: "mariana",
+        intakeName: "Mariana",
         students: [
             {
                 id: 1,
@@ -63,7 +63,7 @@ const courses = [
     },
     {
         id: 2,
-        intakeName: "aruba",
+        intakeName: "Aruba",
         students: [
             {
                 id: 1,
@@ -111,7 +111,7 @@ const courses = [
     },
     {
         id: 3,
-        intakeName: "self-paced",
+        intakeName: "Self-paced",
         students: [
             {
                 id: 1,
