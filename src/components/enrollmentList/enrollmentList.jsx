@@ -8,7 +8,7 @@ const EnrollmentList = (props) => {
     const intakeDisplay = enrollmentData.map((intake, i) => {
 
         let isSelfPaced = "fullTime";
-        if (intake.intakeName === "self-paced") {
+        if (intake.intakeName === "Self-paced") {
             isSelfPaced = "self-paced";
         }
 
@@ -17,7 +17,7 @@ const EnrollmentList = (props) => {
         if (i !== 0) {
             return (
                 <>
-                    <h1 className={isSelfPaced}>{intake.intakeName}</h1>
+                    <h3 className={isSelfPaced}>{intake.intakeName}</h3>
                     
                     {intake.students.map((student) => {
                         let employed = "NO";
@@ -53,7 +53,7 @@ const EnrollmentList = (props) => {
         } else {
             return (
                 <>
-                <h1 className={isSelfPaced}>{intake.intakeName}</h1>                                    
+                <h3 className={isSelfPaced}>{intake.intakeName}</h3>                                    
                     <div class="row student student-container-headers">
                         <div class="col">
                             <p>Student Name</p>
