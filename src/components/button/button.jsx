@@ -1,19 +1,27 @@
 import React from 'react'
 import "./button.scss"
 
-const Button = ({text , btnStyle}) => {
+const Button = ({text , isSecondary, isBorder}) => {
 
-    let buttonStyle = "button1"
+    //primary -> purple save button
+    //primary-border -> white (purple font and border) button
+    //secondary-> red with white text Delete User Confirm button
+    //secondary-border-> //white with red border Delete User Cancel button
+    
+    //*** Width to be assigned within its container.!
 
-    if (btnStyle === "secondary") {
-        buttonStyle += " button-secondary";
-      } else if (btnStyle === "primary") {
-        buttonStyle += " button-primary";
-      } else if (btnStyle === "tertiary") {
-        buttonStyle += " button-tertiary";
-      } else if (btnStyle === "fourth") {
-        buttonStyle += " button-fourth";
-      }
+    let buttonStyle = "button"
+
+    if (!isSecondary && !isBorder) {
+        buttonStyle += " primary";
+      } else if (isSecondary && !isBorder) {
+        buttonStyle += " secondary";
+      } else if (!isSecondary && isBorder) {
+        buttonStyle += " primary-border";
+      } else if (isSecondary && isBorder) {
+        buttonStyle += " secondary-border"
+      } 
+
 
     return (
         <button className={buttonStyle}>{text}</button>
