@@ -26,11 +26,14 @@ const Students = () => {
             const sanitisedStudentFirstName = student.first_name.toLowerCase();
             const sanitisedStudentLastName = student.last_name.toLowerCase();
             const sanitisedStudentName = `${sanitisedStudentFirstName} ${sanitisedStudentLastName}`;
+            console.log("JOINED DATA" + sanitisedStudentName.includes(sanitiseInput))
             return sanitisedStudentName.includes(sanitiseInput);
         });
         setStudentsCopy(studentSearch);
         const toShow = studentSearch.slice(pageStart, pageEnd);
         setStudents(toShow);
+        console.log("With search " + studentsCopy);
+
 
         setShowResults(true);
         if (e.target.value.length === 0) {
@@ -38,6 +41,8 @@ const Students = () => {
             const toShow = studentsData.slice(pageStart, pageEnd);
             setStudents(toShow);
             setStudentsCopy(studentsData);
+            console.log("Without search " + studentsCopy);
+
         }
     };
 
