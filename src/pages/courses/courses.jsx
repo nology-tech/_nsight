@@ -39,7 +39,7 @@ const Courses = (props) => {
                     selfPaced={selfPaced}
                 />
             </TopHeader>
-            <div class="container p-0 pt-5">
+            <div class="container p-0">
                 {fullTime && (
                     <>
                         <h3>Full-Time Bootcamp</h3>
@@ -58,7 +58,7 @@ const Courses = (props) => {
                         </div>
                     </>
                 )}
-                <div class="container p-0 pt-2">
+                <div class="container p-0">
                     {selfPaced && (
                         <>
                             <h3>Self-Paced Bootcamp</h3>
