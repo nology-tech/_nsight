@@ -10,10 +10,13 @@
 
 .student-heading {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: 0 24px;
+    margin-bottom: 22px;
     &__subsets {
         display: flex;
+        align-items: center;
     }
 }
 

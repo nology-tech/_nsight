@@ -223,7 +223,7 @@ const Students = () => {
             <div className="container">
                 <div className="student-heading">
                     <div>
-                        <h4>Student List</h4>
+                        <h3>Student List</h3>
                     </div>
                     <div className="student-heading__subsets">
                         <Searchbox handleSearch={handleSearch} />
