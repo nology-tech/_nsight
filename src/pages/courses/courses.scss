@@ -1,5 +1,11 @@
 @import "../../assets/styles/styles.scss";
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .mainCourse{
   background-color: #f8f8ff; //ebebf5
   width: 100%;

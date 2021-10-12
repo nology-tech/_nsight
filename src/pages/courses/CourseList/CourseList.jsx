@@ -23,27 +23,27 @@ const CourseList = (props) => {
     }
     return (
         <div className="courselist">
-            <div class="container">
+            {/* <div class="container"> */}
                 <div class="row w-100">
                     <div class="col-2">
-                        <p>{course.name}</p>
+                        <p className="courselist__name">{course.name}</p>
                     </div>
-                    <div class="col">
+                    <div class="col-1">
                         <p className="courselist__tag">{course.numberEnrolled}</p>
                     </div>
-                    <div class="col">
+                    <div class="col-1">
                         <p className="courselist__tag">{course.percentageEmployed}</p>
                     </div>
-                    <div class="col">
+                    <div class="col-2">
                         <p className="courselist__tag">{course.courseLead}</p>
                     </div>
-                    <div class="col">
+                    <div class="col-2">
                         <p className="courselist__tag">{course.courseStart}</p>
                     </div>
-                    <div class="col">
+                    <div class="col-2">
                         <p className="courselist__tag">{course.courseCompletion}</p>
                     </div>
-                    <div class="col">
+                    <div class="col-1">
                         <div className="stats">
                             <li style={{color:statColour}}>{status}</li>
                         </div>
@@ -55,7 +55,7 @@ const CourseList = (props) => {
                     </div>
                 </div>
             </div>
-        </div>
+        // </div>
     )
 }
 

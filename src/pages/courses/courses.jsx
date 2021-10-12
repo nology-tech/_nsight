@@ -36,26 +36,26 @@ const Courses = (props) => {
             <TopHeader title="Courses">
                 <CourseFilter setFullTime={setFullTime} fullTime={fullTime} setSelfPaced={setSelfPaced} selfPaced={selfPaced} />
             </TopHeader>
-            <div class="container p-0">
+            <div class="container p-0 pt-5">
                 {fullTime && (
                     <>
                         <h3>Full-Time Bootcamp</h3>
                         <div className="courses">
                             <div class="row names w-100">
                                 <div class="col-2"> <p>Course Name</p></div>
-                                <div class="col"> <p> No. Enrolled </p> </div>
-                                <div class="col"> <p> % Employment </p></div>
-                                <div class="col"><p>Course Lead</p></div>
-                                <div class="col"><p>Course Start</p></div>
-                                <div class="col"><p>Course Completion</p></div>
-                                <div class="col"><p>Status</p></div>
+                                <div class="col-1"> <p> No. Enrolled </p> </div>
+                                <div class="col-1"> <p> % Employment </p></div>
+                                <div class="col-2"><p>Course Lead</p></div>
+                                <div class="col-2"><p>Course Start</p></div>
+                                <div class="col-2"><p>Course Completion</p></div>
+                                <div class="col-1"><p>Status</p></div>
                                 <div class="col-1"></div>
                             </div>
                             {coursesData}
                         </div>
                     </>
                 )}
-                <div class="container p-0">
+                <div class="container p-0 pt-2">
                     {selfPaced && (
                         <>
                             <h3>Self-Paced Bootcamp</h3>
