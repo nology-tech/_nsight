@@ -110,6 +110,8 @@ const Students = () => {
         return tempCourses;
     };
 
+    
+
     const filterByCourseName = (e) => {
         const courses = handleSetCourses(e.target.value);
         const stateArray = Object.keys(courses).filter((key) => courses[key]);
