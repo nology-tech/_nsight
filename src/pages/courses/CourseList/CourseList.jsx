@@ -1,25 +1,19 @@
-import React from 'react'
-import "./CourseList.scss"
+import React from "react";
+import "./CourseList.scss";
 import arrow from "../../../assets/icons/chevron-more.svg";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useParams
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const CourseList = (props) => {
-    const {course} = props
+    const { course } = props;
 
     let status = "";
     let statColour = "";
-    if(course.status === false){
-        status = "Inactive"
+    if (course.status === false) {
+        status = "Inactive";
         statColour = "red";
-    }else {
-        status = "Active"
-        statColour = "green"
+    } else {
+        status = "Active";
+        statColour = "green";
     }
     return (
         <div className="courselist">
@@ -45,7 +39,7 @@ const CourseList = (props) => {
                     </div>
                     <div class="col-1">
                         <div className="stats">
-                            <li style={{color:statColour}}>{status}</li>
+                            <li style={{ color: statColour }}>{status}</li>
                         </div>
                     </div>
                     <div class="col-1">
@@ -59,4 +53,4 @@ const CourseList = (props) => {
     )
 }
 
-export default CourseList
+export default CourseList;

@@ -4,8 +4,6 @@ import CourseList from "./CourseList/CourseList";
 import SelfCourseList from "./selfcourselist/selfcourselist";
 import TopHeader from "../../components/topheader/topheader";
 import CourseFilter from "./coursefilter/coursefilter";
-import dummyPage from "../dummyPage/dummyPage";
-import { Link } from "react-router-dom";
 import "./courses.scss";
 
 const Courses = (props) => {
@@ -18,14 +16,14 @@ const Courses = (props) => {
         (course) => course.name !== "Self-Paced Course"
     );
     const coursesData = filteredCourseData.map((course) => {
-        return <CourseList course={course} />;
+        return <CourseList key={course.id} course={course} />;
     });
 
     const selfData = courses.filter(
         (course) => course.name === "Self-Paced Course"
     );
     const selfCourseData = selfData.map((course) => {
-        return <SelfCourseList selfCourse={course} />;
+        return <SelfCourseList key={course.id} selfCourse={course} />;
     });
 
     const [fullTime, setFullTime] = useState(true);
@@ -34,7 +32,12 @@ const Courses = (props) => {
     return (
         <div className="mainCourse">
             <TopHeader title="Courses">
-                <CourseFilter setFullTime={setFullTime} fullTime={fullTime} setSelfPaced={setSelfPaced} selfPaced={selfPaced} />
+                <CourseFilter
+                    setFullTime={setFullTime}
+                    fullTime={fullTime}
+                    setSelfPaced={setSelfPaced}
+                    selfPaced={selfPaced}
+                />
             </TopHeader>
             <div class="container p-0 pt-5">
                 {fullTime && (

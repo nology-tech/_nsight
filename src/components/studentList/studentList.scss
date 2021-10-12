@@ -1,24 +1,30 @@
+@import "../../assets/styles/styles.scss";
 
-// * {
-//     margin: 0;
-//     padding: 0;
-//     box-sizing: border-box;
-// }
-// .container{
-//     padding-top: 10px;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     text-align: center;
-//     height: 70px;
-//     width: 1300px;
-//     background-color: #FFFFFF;
-//     box-shadow: 0px 30px 30px rgba(114, 75, 203, 0.06);
-//     border-radius: 7px;
-//     margin: 10px;
-//     font-family: "Poppins";
-//     font-size: 14px;
-//     &__img{
-//         text-align: center;
-//     }
-// }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.students{
+    text-align: center;
+}
+
+.student-list{
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 70px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 30px 30px rgba(114, 75, 203, 0.06);
+    border-radius: 7px;
+    margin: 10px;
+    font-family: "Poppins";
+    font-size: 12px;
+
+    &__data{
+        color: #95ACCB;
+    } 
+}

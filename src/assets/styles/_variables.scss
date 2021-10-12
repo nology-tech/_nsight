@@ -2,7 +2,7 @@
 $primary: #CE7DA5;
 $secondary: #420072;
 $success: #8EB987;
-$danger: #EE2C43;
+$danger: #EE6161;
 $default: #F2F2FF;
 $primary-btn: #724BCB;
 $primary-nav: rgb(16,43,63);
@@ -10,8 +10,28 @@ $secondary-nav: rgb(40,51,98);
 $third-nav: rgb(41,57,84);
 $nav-text-color: rgb(135,149,159);
 
+// Navy blue
+$color-primary-default: #102b3f; // navigation background
+$color-primary-light: #95accb; // enrollments subtitle e.g. Mariana and settings
+$color-primary-dark: #293954; // navigation link hover
+// Purple
+$color-secondary-default: #724BCB; // button and hover link
+$color-secondary-light: #f8f8ff; // background color of table
+// Grey
+$color-tertiary-light: #ebebf5; // search bar background
+// Black
+$color-quaternary-default: #2D3748; // headings and links
+$color-quaternary-light: #595959; // table headings
+// Warnings
+$color-success: #2ff596; // active in courses table
+$color-failure: #D63434; // inactive in course table
+// Base
+$color-base-light: #FFF;
+$color-base-dark: #000;
+
 $font-family-sans-serif: "Nunito, Helvetica Neue, Tahoma, Arial, San-Serif";
 $font-family-serif:      "Nunito, Helvetica Neue, Tahoma, Arial, San-Serif";
 $font-family-monospace:  "Nunito, Helvetica Neue, Tahoma, Arial, San-Serif";
 $font-family-base:       "Nunito, Helvetica Neue, Tahoma, Arial, San-Serif";
+$font-family-primary: "Poppins", sans-serif;
 

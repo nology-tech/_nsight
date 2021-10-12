@@ -1,18 +1,12 @@
 import React from "react";
 import "./selfcouselist.scss";
 import arrow from "../../../assets/icons/chevron-more.svg";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useParams
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const SelfCourseList = (props) => {
-    const { selfCourse, course } = props;
-    
-    return(
+    const { selfCourse } = props;
+
+    return (
         <>
             <div className="selfcourse">
                 {/* <div className="container"> */}
@@ -41,6 +35,6 @@ const SelfCourseList = (props) => {
                 {/* </div> */}
             </div>
         </>
-    )
-}
-export default SelfCourseList
+    );
+};
+export default SelfCourseList;
