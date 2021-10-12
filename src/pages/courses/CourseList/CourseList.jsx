@@ -24,9 +24,9 @@ const CourseList = (props) => {
     return (
         <div className="courselist">
             <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <h5>{course.name}</h5>
+                <div class="row w-100">
+                    <div class="col-2">
+                        <p>{course.name}</p>
                     </div>
                     <div class="col">
                         <p className="courselist__tag">{course.numberEnrolled}</p>
@@ -48,7 +48,7 @@ const CourseList = (props) => {
                             <li style={{color:statColour}}>{status}</li>
                         </div>
                     </div>
-                    <div class="col-md-1 ms-auto">
+                    <div class="col-1">
                     <Link to={"/courses/" + course.id}>
                         <img src={arrow} alt="" />
                     </Link>

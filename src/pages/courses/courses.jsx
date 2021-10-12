@@ -36,20 +36,20 @@ const Courses = (props) => {
             <TopHeader title="Courses">
                 <CourseFilter setFullTime={setFullTime} fullTime={fullTime} setSelfPaced={setSelfPaced} selfPaced={selfPaced} />
             </TopHeader>
-            <div class="container">
+            <div class="container p-0">
                 {fullTime && (
                     <>
-                        <h2>Full-Time Bootcamp</h2>
+                        <h3>Full-Time Bootcamp</h3>
                         <div className="courses">
-                            <div class="row names">
-                                <div class="col">Course Name</div>
-                                <div class="col"> No. Enrolled</div>
-                                <div class="col">% Employment</div>
-                                <div class="col">Course Lead</div>
-                                <div class="col">Course Start</div>
-                                <div class="col">Course Completion</div>
-                                <div class="col">Status</div>
-                                    <div class="col-md-1 ms-auto"> </div>
+                            <div class="row names w-100">
+                                <div class="col-2"> <p>Course Name</p></div>
+                                <div class="col"> <p> No. Enrolled </p> </div>
+                                <div class="col"> <p> % Employment </p></div>
+                                <div class="col"><p>Course Lead</p></div>
+                                <div class="col"><p>Course Start</p></div>
+                                <div class="col"><p>Course Completion</p></div>
+                                <div class="col"><p>Status</p></div>
+                                <div class="col-1"></div>
                             </div>
                             {coursesData}
                         </div>
@@ -58,15 +58,15 @@ const Courses = (props) => {
                 <div class="container p-0">
                     {selfPaced && (
                         <>
-                            <h2>Self-Paced Bootcamp</h2>
+                            <h3>Self-Paced Bootcamp</h3>
                             <div className="courses">
-                                <div class="row selfnames">
-                                    <div class="col">Course Name</div>
-                                    <div class="col">No. Enrolled</div>
-                                    <div class="col">No. Completed</div>
-                                    <div class="col">Course Lead</div>
-                                    <div class="col">% Employment</div>
-                                    <div class="col-md-1 ms-auto"></div>
+                                <div class="row selfnames w-100">
+                                    <div class="col-2"><p>Course Name</p></div>
+                                    <div class="col-2"><p>No. Enrolled</p></div>
+                                    <div class="col-2"><p>No. Completed</p></div>
+                                    <div class="col-3"><p>Course Lead</p></div>
+                                    <div class="col-2"><p>% Employment</p></div>
+                                    <div class="col-1"></div>
                                 </div>
                                 {selfCourseData}
                             </div>
