@@ -5,6 +5,11 @@ import { Link } from "react-router-dom";
 const StudentList = (props) => {
     const { studentData } = props;
 
+    const linkStyle = {
+        textDecoration: "none",
+        color: 'black'
+    };
+
     const studentDisplay = studentData.map((student) => {
         let employed = "NO";
         if (student.employed) {
@@ -12,6 +17,7 @@ const StudentList = (props) => {
         }
 
         return (
+            <Link to={"/students/" + student.id} style={linkStyle}>
             <div className="row student-list" key={student.id}>
                 <div className="col-2">
                     <h5>
@@ -36,11 +42,10 @@ const StudentList = (props) => {
                     <p className="student-list__data">{student.course_name}</p>
                 </div>
                 <div className="col-1">
-                    <Link to={"/students/" + student.id}>
                         <img src={moreInfo} alt="more student info" />
-                    </Link>
                 </div>
             </div>
+            </Link>
         );
     });
 
