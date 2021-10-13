@@ -7,23 +7,20 @@
 .selfcourse{
   padding-top: 10px;
   display: flex;
-  // justify-content: space-between;
   align-items: center;
   text-align: center;
   height: 70px;
-  // width: 1300px;
-  background-color: #FFFFFF;
+  background-color: $color-base-light;
   box-shadow: 0px 30px 30px rgba(114, 75, 203, 0.06);
   border-radius: 7px;
-  margin: 10px;
-  // font-size: 12px;
+  margin: 10px 0;
+  font-family: "Poppins";
+
   &__tag{
-    color: #95ACCB;
+    color: $color-primary-light;
+  }
+  &__name{
+    font-weight: bold;
   }
 
-  .arrow{
-    // margin-left: 50px;
-    padding-right: unset;
-    margin-right: unset;
-  }
 }
