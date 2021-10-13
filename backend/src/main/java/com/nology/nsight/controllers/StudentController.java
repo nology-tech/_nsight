@@ -3,6 +3,8 @@ package com.nology.nsight.controllers;
 import com.nology.nsight.entities.Students;
 import com.nology.nsight.repositories.IStudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,7 +34,15 @@ public class StudentController {
     }
 
     // PUT
+    @PutMapping("/students/{id}")
+    public Students updateStudent(@RequestBody Students newStudent, @PathVariable int id) {
+        repository.findById(id).get();
+        return repository.save(newStudent);
+    }
 
     //DELETE
-
+    @DeleteMapping("/students/{id}")
+    public void deleteStudent(@PathVariable int id) {
+        repository.deleteById(id);
+    }
 }
