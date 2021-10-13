@@ -13,20 +13,23 @@ const Enrollment = () => {
     const [showResults, setShowResults] = useState(false);
 
     const handleSearch = (e) => {
+        
         const sanitiseInput = e.target.value.toLowerCase();
-        const studentSearch = enrollmentData.filter((intake) => {
-            intake.students.map((student) => {
+        const studentSearch = enrollmentData.map((intake) => {
+            intake.students.filter((student) => {
                 const sanitisedStudentFirstName = student.first_name.toLowerCase();
                 const sanitisedStudentLastName = student.last_name.toLowerCase();
                 const sanitisedStudentName = `${sanitisedStudentFirstName} ${sanitisedStudentLastName}`;
-                console.log(sanitisedStudentName);
-                console.log("JOINED DATA" + sanitisedStudentName.includes(sanitiseInput))
+                // console.log(sanitisedStudentName);
+                // console.log("JOINED DATA" + sanitisedStudentName.includes(sanitiseInput))
+                console.log(sanitisedStudentName.includes(sanitiseInput));
                 return sanitisedStudentName.includes(sanitiseInput);
-            })
+            })            
         });
         setEnrollmentsCopy(studentSearch);
         // const toShow = studentSearch.slice(pageStart, pageEnd);
         setEnrollments(studentSearch);
+        console.log(studentSearch);
         console.log("With search " + enrollments);
 
 
@@ -99,7 +102,7 @@ const Enrollment = () => {
     return (
         <div className="enrollment-container">
             <TopHeader title="Enrollments"/>
-            <Searchbox handleSearch={handleSearch} />
+            {/* <Searchbox handleSearch={handleSearch} /> */}
             <Filter courses={courses} filterByCourseName={filterByCourseName} />
             <div className="enrollment-list">
                 <EnrollmentList enrollmentData={enrollments} />
