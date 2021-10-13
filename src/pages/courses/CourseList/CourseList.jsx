@@ -17,46 +17,38 @@ const CourseList = (props) => {
     }
     return (
         <div className="courselist">
-            <div className="container">
-                <div className="row">
-                    <div className="col">
-                        <h5>{course.name}</h5>
+                <div className="row w-100">
+                    <div className="col-2">
+                        <p className="courselist__name">{course.name}</p>
                     </div>
-                    <div className="col">
-                        <p className="courselist__tag">
-                            {course.numberEnrolled}
-                        </p>
+                    <div className="col-1">
+                        <p className="courselist__tag">{course.numberEnrolled}</p>
                     </div>
-                    <div className="col">
-                        <p className="courselist__tag">
-                            {course.percentageEmployed}
-                        </p>
+                    <div className="col-1">
+                        <p className="courselist__tag">{course.percentageEmployed}</p>
                     </div>
-                    <div className="col">
+                    <div className="col-2">
                         <p className="courselist__tag">{course.courseLead}</p>
                     </div>
-                    <div className="col">
+                    <div className="col-2">
                         <p className="courselist__tag">{course.courseStart}</p>
                     </div>
-                    <div className="col">
-                        <p className="courselist__tag">
-                            {course.courseCompletion}
-                        </p>
+                    <div className="col-2">
+                        <p className="courselist__tag">{course.courseCompletion}</p>
                     </div>
-                    <div className="col">
+                    <div className="col-1">
                         <div className="stats">
                             <li style={{ color: statColour }}>{status}</li>
                         </div>
                     </div>
-                    <div className="col-md-1 ms-auto">
-                        <Link to={"/courses/" + course.id}>
-                            <img src={arrow} alt="" />
-                        </Link>
+                    <div className="col-1">
+                    <Link to={"/courses/" + course.id}>
+                        <img src={arrow} alt="" />
+                    </Link>
                     </div>
                 </div>
             </div>
-        </div>
-    );
-};
+    )
+}
 
 export default CourseList;
