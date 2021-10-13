@@ -3,15 +3,15 @@
 .topheader{
   // width: 70vw;
   height: 10vh;
-  background-color: #FFFFFF;
+  background-color: $color-base-light;
   display: flex;
-  border-bottom: solid 2px #EDE8F8;
+  border-bottom: solid 2px $color-tertiary-default;
   margin-top: 5px;
   margin-bottom: 50px;
-  padding-left: 50px;
+  padding-left: 40px;
   min-height: 150px;
   &__header{
-    color: #2D3748;
+    color: $color-quaternary-default;
     font-family: "Poppins";
     padding-top: 55px;
   }

@@ -9,38 +9,28 @@ const SelfCourseList = (props) => {
     return (
         <>
             <div className="selfcourse">
-                <div className="container">
-                    <div className="row all tags">
-                        <div className="col">
-                            <h5>{selfCourse.name}</h5>
+                    <div className="row all tags w-100">
+                        <div className="col-2">
+                            <p className="selfcourse__name">{selfCourse.name}</p>
                         </div>
-                        <div className="col">
-                            <p className="selfcourse__tag">
-                                {selfCourse.numberEnrolled}
-                            </p>
+                        <div className="col-2">
+                            <p className="selfcourse__tag">{selfCourse.numberEnrolled}</p>
                         </div>
-                        <div className="col">
-                            <p className="selfcourse__tag">
-                                {selfCourse.numberCompleted}
-                            </p>
+                        <div className="col-2">
+                            <p className="selfcourse__tag">{selfCourse.numberCompleted}</p>
                         </div>
-                        <div className="col">
-                            <p className="selfcourse__tag">
-                                {selfCourse.courseLead}
-                            </p>
+                        <div className="col-3">
+                            <p className="selfcourse__tag">{selfCourse.courseLead}</p>
                         </div>
-                        <div className="col">
-                            <p className="selfcourse__tag">
-                                {selfCourse.percentageEmployed}
-                            </p>
+                        <div className="col-2">
+                            <p className="selfcourse__tag">{selfCourse.percentageEmployed}</p>
                         </div>
-                        <div className="col-md-1 ms-auto">
-                            <Link to={"/courses/" + selfCourse.id}>
-                                <img src={arrow} alt="" />
-                            </Link>
+                        <div className="col-1">
+                        <Link to={"/courses/" + selfCourse.id}>
+                            <img src={arrow} alt="" />
+                        </Link>
                         </div>
                     </div>
-                </div>
             </div>
         </>
     );

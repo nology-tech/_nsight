@@ -1,13 +1,17 @@
+@import "../../assets/styles/styles.scss";
+
 .searchbar {
-    background-color: #EBEBF5;
+    background-color: $color-tertiary-light;
     max-width: 250px;
     height: 32px;
+    &__icon {
+        padding: 8px;
+    }
     &__input {
-        background-color: #EBEBF5;
+        background-color: $color-tertiary-light;
         border: none;
     }
     &__input:focus {
         outline: none;
     }
 }
-

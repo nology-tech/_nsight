@@ -1,14 +1,28 @@
+@import "../../assets/styles/styles.scss";
+
 .filter {
+    position: relative;
     &-heading {
     display: flex;
     align-items: center;
+    margin-left: 9px;
+    border: none;
+    border-radius: 7px 7px 0 0;
+    padding: 9px 19px;
+    background-color: $color-base-light;
+        &__word {
+            margin: 0 0 0 9px;
+        }
     }
     &-list {
-    display: absolute;
+    position: absolute;
+    right: 0;
     transition-duration: 0.5s;
-    background-color: white;
-    font-family: 'Poppins';
+    background-color: $color-base-light;
+    font-family: $font-family-primary;
     font-size: 12px;
+    border: none;
+    border-radius: 7px 0 7px 7px;
     padding: 9px 20px;
     width: 200px;
     }
@@ -18,7 +32,7 @@
     &-item {
         list-style-type: none;
         &__checkbox {
-            background-color: #F8F8FF;
+            background-color: $color-secondary-light;
             border-radius: 3px;
             border: none;
             margin-right: 20px;

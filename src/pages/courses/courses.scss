@@ -1,17 +1,20 @@
 @import "../../assets/styles/styles.scss";
 
-.mainCourse {
-    background-color: #f8f8ff; //ebebf5
-    width: 100%;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mainCourse{
+  background-color: $color-secondary-light; 
+  width: 100%;
+  min-height: 100vh;
+  // font-family: "Poppins";
 }
 .courses {
     text-align: center;
 }
-
-.names {
-    margin-left: 10px;
-}
-
-.selfnames {
-    margin-left: 20px;
+p{
+  font-size: 12px;
 }

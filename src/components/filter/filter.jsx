@@ -30,10 +30,10 @@ const Filter = (props) => {
     };
 
     return (
-        <div>
+        <div className="filter">
             <div className="filter-heading" onClick={toggleFilter}>
                 <img src={filterIcon} alt="Filter magnifying glass" />
-                <p>Filters</p>
+                <p className="filter-heading__word">Filters</p>
             </div>
             {filter && <ul className="filter-list">{distinctCourseNames}</ul>}
         </div>

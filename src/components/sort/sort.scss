@@ -7,20 +7,33 @@
 }
 
 .sort {
-    display: flex;
-    align-items: flex-start;
-    &__word {
+    position: relative;
+    &-heading {
+        display: flex;
+        align-items: center;
         margin-left: 9px;
+        border: none;
+        border-radius: 7px 7px 0 0;
+        padding: 9px 19px;
+        background-color: $color-base-light;
+        &__word {
+            margin: 0 0 0 9px;
+        }
     }
-}
 
-.sort-dropdown {
-    background-color: white;
-    font-family: 'Poppins';
-    font-size: 12px;
-    padding: 9px 20px;
-    width: 200px;
-    &__heading {
-        margin-bottom: 0;
+    &-list {
+        position: absolute;
+        right: 0;
+        background-color: $color-base-light;
+        font-family: $font-family-primary;
+        font-size: 12px;
+        border: none;
+        border-radius: 7px 0 7px 7px;
+        padding: 9px 20px;
+        width: 210px;
+
+        &__heading {
+            margin-bottom: 0;
+        }
     }
 }
