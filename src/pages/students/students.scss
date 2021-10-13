@@ -1,8 +1,9 @@
 @import "../../assets/styles/styles.scss";
 
 .main-student {
-    background-color: #f8f8ff;
+    background-color: $color-secondary-light;
     width: 100%;
+    min-height: 100vh;
     img {
         cursor: pointer;
     }
@@ -10,13 +11,58 @@
 
 .student-heading {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    padding: 0 24px;
+    margin-bottom: 22px;
     &__subsets {
         display: flex;
+        align-items: center;
     }
+}
+
+.page-results {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 37px 0;
+    font-size: 14px;
+    color: $color-primary-light;
 }
 
 .pagination {
     display: flex;
     align-items: flex-start;
+    position: relative;
+    p {
+        margin-bottom: 0;
+        padding: 0 5px;
+    }
+    margin-right: 30px;
+    &-list {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        background-color: $color-base-light;
+        width: 27px;
+        border: 1px solid $color-primary-light;
+        ul {
+            padding: 5px;
+            margin: 0;
+        }
+        li {
+            list-style-type: none;
+        }
+    }
+}
+
+.chevron-previous {
+    margin-right: 30px;
+    margin-left: 33px;
+}
+
+.show-results {
+    p {
+        margin-bottom: 0;
+    }
 }

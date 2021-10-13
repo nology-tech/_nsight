@@ -220,67 +220,65 @@ const Students = () => {
     return (
         <div className="main-student">
             <TopHeader title="Students" />
-            <div className="student-heading">
-                <div>
-                    <h4>Student List</h4>
-                </div>
-                <div className="student-heading__subsets">
-                    <Searchbox handleSearch={handleSearch} />
-                    <Sort
-                        sortAscendingByFirstName={sortAscendingByFirstName}
-                        sortDescendingByFirstName={sortDescendingByFirstName}
-                    />
-                    <Filter
-                        courses={courses}
-                        filterByCourseName={filterByCourseName}
-                    />
-                </div>
-            </div>
             <div className="container">
+                <div className="student-heading">
+                    <div>
+                        <h3>Student List</h3>
+                    </div>
+                    <div className="student-heading__subsets">
+                        <Searchbox handleSearch={handleSearch} />
+                        <Sort
+                            sortAscendingByFirstName={sortAscendingByFirstName}
+                            sortDescendingByFirstName={sortDescendingByFirstName}
+                        />
+                        <Filter
+                            courses={courses}
+                            filterByCourseName={filterByCourseName}
+                        />
+                    </div>
+                </div>
                 <StudentList studentData={students} />
+                <div className="page-results">
+                    <div className="pagination">
+                        <p>Rows per page: </p>
+                        <p onClick={togglePagination}>
+                            {perPage} <img src={downArrow} alt="down arrow" />
+                        </p>
+                        {pagination && (
+                            <div className="pagination-list">
+                                <ul>
+                                    <li onClick={togglePerPage} value="5">
+                                        5
+                                    </li>
+                                    <li onClick={togglePerPage} value="10">
+                                        10
+                                    </li>
+                                    <li onClick={togglePerPage} value="15">
+                                        15
+                                    </li>
+                                    <li onClick={togglePerPage} value="20">
+                                        20
+                                    </li>
+                                </ul>
+                            </div>
+                        )}
+                    </div>
+                <div className="show-results">
+                    {!showResults && (
+                        <p>
+                            {pageStart + 1}-{pageEnd} of {studentsData.length}
+                        </p>
+                    )}
+                    {showResults && (
+                        <p>
+                            Showing results: {pageStart + 1}-{pageEnd} of {studentsCopy.length}
+                        </p>
+                    )}
+                </div>
+                <img className="chevron-previous" src={chevronLeft} alt="previous page" onClick={previousPage} />
+                <img src={chevronRight} alt="next page" onClick={nextPage} />
             </div>
-            <div className="pagination">
-                <p>Rows per page</p>
-                <p onClick={togglePagination}>
-                    {perPage} <img src={downArrow} alt="down arrow" />
-                </p>
-                {pagination && (
-                    <ul>
-                        <li onClick={togglePerPage} value="5">
-                            5
-                        </li>
-                        <li onClick={togglePerPage} value="10">
-                            10
-                        </li>
-                        <li onClick={togglePerPage} value="15">
-                            15
-                        </li>
-                        <li onClick={togglePerPage} value="20">
-                            20
-                        </li>
-                        <li onClick={togglePerPage} value="25">
-                            25
-                        </li>
-                        <li onClick={togglePerPage} value="30">
-                            30
-                        </li>
-                    </ul>
-                )}
             </div>
-            <div>
-                {!showResults && (
-                    <p>
-                        {pageStart + 1}-{pageEnd} of {studentsData.length}
-                    </p>
-                )}
-                {showResults && (
-                    <p>
-                        Showing results: {length} of {studentsCopy.length}
-                    </p>
-                )}
-            </div>
-            <img src={chevronLeft} alt="previous page" onClick={previousPage} />
-            <img src={chevronRight} alt="next page" onClick={nextPage} />
         </div>
     );
 };
