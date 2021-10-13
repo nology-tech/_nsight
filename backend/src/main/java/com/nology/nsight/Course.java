@@ -1,5 +1,7 @@
 package com.nology.nsight;
 
+import org.springframework.lang.Nullable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
@@ -13,10 +15,10 @@ public class Course {
     private int numberEnrolled;
     private int percentageEmployed;
     private String courseLead;
-    private int numberCompleted;
-    private boolean status;
-    private Date courseStart;
-    private Date courseCompletion;
+    private Integer numberCompleted = null;
+    private Boolean status = null;
+    private Date courseStart = null;
+    private Date courseCompletion = null;
 
     public Course(int id, String courseName, int numberEnrolled, int percentageEmployed, String courseLead, int numberCompleted, boolean status, Date courseStart, Date courseCompletion) {
         this.id = id;
