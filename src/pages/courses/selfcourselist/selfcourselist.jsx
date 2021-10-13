@@ -9,12 +9,11 @@ const SelfCourseList = (props) => {
     return (
         <>
             <div className="selfcourse">
-                {/* <div className="container"> */}
-                    <div class="row all tags w-100">
-                        <div class="col-2">
+                    <div className="row all tags w-100">
+                        <div className="col-2">
                             <p className="selfcourse__name">{selfCourse.name}</p>
                         </div>
-                        <div class="col-2">
+                        <div className="col-2">
                             <p className="selfcourse__tag">{selfCourse.numberEnrolled}</p>
                         </div>
                         <div className="col-2">
@@ -26,13 +25,12 @@ const SelfCourseList = (props) => {
                         <div className="col-2">
                             <p className="selfcourse__tag">{selfCourse.percentageEmployed}</p>
                         </div>
-                        <div class="col-1">
+                        <div className="col-1">
                         <Link to={"/courses/" + selfCourse.id}>
                             <img src={arrow} alt="" />
                         </Link>
                         </div>
                     </div>
-                {/* </div> */}
             </div>
         </>
     );

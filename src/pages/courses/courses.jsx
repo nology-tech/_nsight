@@ -7,10 +7,6 @@ import CourseFilter from "./coursefilter/coursefilter";
 import "./courses.scss";
 
 const Courses = (props) => {
-    // Two boolean states
-    // 1 for Full time && 1 for Self-paced
-    // function to pass into filter, switches from true to false
-    // etc.
 
     const filteredCourseData = courses.filter(
         (course) => course.name !== "Self-Paced Course"
@@ -39,37 +35,37 @@ const Courses = (props) => {
                     selfPaced={selfPaced}
                 />
             </TopHeader>
-            <div class="container p-0">
+            <div className="container p-0">
                 {fullTime && (
                     <>
                         <h3>Full-Time Bootcamp</h3>
                         <div className="courses">
-                            <div class="row names w-100">
-                                <div class="col-2"> <p>Course Name</p></div>
-                                <div class="col-1"> <p> No. Enrolled </p> </div>
-                                <div class="col-1"> <p> % Employment </p></div>
-                                <div class="col-2"><p>Course Lead</p></div>
-                                <div class="col-2"><p>Course Start</p></div>
-                                <div class="col-2"><p>Course Completion</p></div>
-                                <div class="col-1"><p>Status</p></div>
-                                <div class="col-1"></div>
+                            <div className="row names w-100">
+                                <div className="col-2"> <p>Course Name</p></div>
+                                <div className="col-1"> <p> No. Enrolled </p> </div>
+                                <div className="col-1"> <p> % Employment </p></div>
+                                <div className="col-2"><p>Course Lead</p></div>
+                                <div className="col-2"><p>Course Start</p></div>
+                                <div className="col-2"><p>Course Completion</p></div>
+                                <div className="col-1"><p>Status</p></div>
+                                <div className="col-1"></div>
                             </div>
                             {coursesData}
                         </div>
                     </>
                 )}
-                <div class="container p-0">
+                <div className="container p-0">
                     {selfPaced && (
                         <>
                             <h3>Self-Paced Bootcamp</h3>
                             <div className="courses">
-                                <div class="row selfnames w-100">
-                                    <div class="col-2"><p>Course Name</p></div>
-                                    <div class="col-2"><p>No. Enrolled</p></div>
-                                    <div class="col-2"><p>No. Completed</p></div>
-                                    <div class="col-3"><p>Course Lead</p></div>
-                                    <div class="col-2"><p>% Employment</p></div>
-                                    <div class="col-1"></div>
+                                <div className="row selfnames w-100">
+                                    <div className="col-2"><p>Course Name</p></div>
+                                    <div className="col-2"><p>No. Enrolled</p></div>
+                                    <div className="col-2"><p>No. Completed</p></div>
+                                    <div className="col-3"><p>Course Lead</p></div>
+                                    <div className="col-2"><p>% Employment</p></div>
+                                    <div className="col-1"></div>
                                 </div>
                                 {selfCourseData}
                             </div>
