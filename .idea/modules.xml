@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/_nsight.iml" filepath="$PROJECT_DIR$/.idea/_nsight.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/nsight.iml" filepath="$PROJECT_DIR$/backend/nsight.iml" />
+    </modules>
+  </component>
+</project>
