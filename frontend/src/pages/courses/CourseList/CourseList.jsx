@@ -19,7 +19,7 @@ const CourseList = (props) => {
         <div className="courselist">
                 <div className="row w-100">
                     <div className="col-2">
-                        <p className="courselist__name">{course.name}</p>
+                        <p className="courselist__name">{course.courseName}</p>
                     </div>
                     <div className="col-1">
                         <p className="courselist__tag">{course.numberEnrolled}</p>

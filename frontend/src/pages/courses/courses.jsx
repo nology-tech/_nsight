@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import courses from "../../assets/data/coursedata";
+import React, { useState, useEffect } from "react";
+// import courses from "../../assets/data/coursedata";
 import CourseList from "./CourseList/CourseList";
 import SelfCourseList from "./selfcourselist/selfcourselist";
 import TopHeader from "../../components/topheader/topheader";
@@ -8,15 +8,25 @@ import "./courses.scss";
 
 const Courses = (props) => {
 
+    const [courses, setCourses] = useState([]); 
+
+    const fetchCourseData = () => {
+        fetch("http://localhost:8080/courses")
+        .then(response => response.json())
+        .then(jsonResponse => setCourses(jsonResponse))
+        .catch(err => console.log("err"))};
+
+    useEffect(() => {fetchCourseData()},[]);
+
     const filteredCourseData = courses.filter(
-        (course) => course.name !== "Self-Paced Course"
+        (course) => course.courseName !== "Self-Paced Course"
     );
     const coursesData = filteredCourseData.map((course) => {
         return <CourseList key={course.id} course={course} />;
     });
 
     const selfData = courses.filter(
-        (course) => course.name === "Self-Paced Course"
+        (course) => course.courseName === "Self-Paced Course"
     );
     const selfCourseData = selfData.map((course) => {
         return <SelfCourseList key={course.id} selfCourse={course} />;

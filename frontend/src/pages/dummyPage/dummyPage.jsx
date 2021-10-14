@@ -7,6 +7,12 @@ const DummyPage = (props) => {
     // const {course} = props;
     const [course, setCourse] = useState("");
 
+    // const fetchCourseData = () => {
+    //     fetch("http://localhost:8080/courses")
+    //     .then(response => response.json())
+    //     .then(jsonResponse => setCourses(jsonResponse))
+    //     .catch(err => console.log("err"))};
+
     useEffect(() => {
         const foundCourse = courses.find(
             (course) => course.id === Number(courseId)
