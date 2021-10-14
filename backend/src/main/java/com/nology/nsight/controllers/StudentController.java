@@ -27,7 +27,7 @@ public class StudentController {
     @GetMapping("/students/{id}")
     public ResponseEntity<Object> showStudent(@PathVariable int id) {
         if (!repository.existsById(id)) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Couldn't find student with id " + id);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Message("Couldn't find student with id " + id));
         }
         return ResponseEntity.status(HttpStatus.OK).body(repository.findById(id).get());
     }
@@ -41,25 +41,24 @@ public class StudentController {
     }
 
     // PUT
-    @PutMapping("/students/{id}")
-    public ResponseEntity<Object> updateStudent(@RequestBody Students newStudent, @PathVariable int id) {
-        if (!repository.existsById(id)) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Couldn't find student with id " + id);
+    @PutMapping("students/{id}")
+    public ResponseEntity<Object> updateStudent(@PathVariable int id, @RequestBody Students updatedStudent) {
+        if(this.repository.existsById(id)) {
+            this.repository.deleteById(id);
+            this.repository.save(updatedStudent);
+            return ResponseEntity.status(HttpStatus.OK).body(updatedStudent);
         }
-        repository.findById(id).get();
-        repository.save(newStudent);
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(newStudent);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Message("Could not find student with id " + id));
     }
 
     //DELETE
     @DeleteMapping("/students/{id}")
-    public ResponseEntity<Object> deleteStudent(@PathVariable int id) {
+    public ResponseEntity<Message> deleteStudent(@PathVariable int id) {
         if (repository.existsById(id)) {
             repository.deleteById(id);
             return ResponseEntity.status(HttpStatus.OK)
                 .body(new Message("Successfully deleted the Student from the database."));
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Couldn't find student with id " + id);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Message("Couldn't find student with id " + id));
     }
 }

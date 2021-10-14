@@ -68,38 +68,52 @@ public class StudentsControllerTest {
     @Test
     @DisplayName("Update Route should update the student and return a successful message")
     public void updateRouteShouldUpdateTheStudentAndReturnASuccessfulMessage() throws Exception {
+        List<Students> students = new ArrayList();
+        Students newStudent = new Students(1, "Jerome", "Kithinji", null , "kithinjijerome@gmail.com", "07535529310", "Nology", "consumer", true, "E&Y", "software engineer");
+        Students updatedStudent = new Students(1, "Alex", "Wower", null , "alexwower@gmail.com", "07893435432", "Nology", "consultancy", true, "Nology", "software engineer");
+        Students secondStudentToUpdate = new Students(2, "Helen", "Khor", null , "hkhor@gmail.com", "07901234565", "Nology", "consultancy", true, "Nology", "software engineer");
+        students.add(newStudent);
+
+        when(repository.existsById(1)).thenReturn(true);
+        when(repository.save(updatedStudent)).thenReturn(updatedStudent);
+
         mockMvc.perform(put("/students/1")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(toJson(updateStudent1))
+                        .content(toJson(updatedStudent))
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(1)))
-                .andExpect(jsonPath("$.first_name", is("Charlene")))
-                .andExpect(jsonPath("$.last_name", is("Kithinji")))
-                .andExpect(jsonPath("$.dob", is(null)))
-                .andExpect(jsonPath("$.email", is("kithinjicharlene@gmail.com")))
-                .andExpect(jsonPath("$.mobile_number", is("07535529310")))
-                .andExpect(jsonPath("$.thumbnail", is("Nology")))
-                .andExpect(jsonPath("$.type", is("consumer")))
-                .andExpect(jsonPath("$.employed", is(true)))
-                .andExpect(jsonPath("$.employer", is("E&Y")))
-                .andExpect(jsonPath("$.role", is("software engineer")))
+                .andExpect(jsonPath("$.first_name", is("Alex")))
+                .andReturn();
+
+        when(repository.existsById(2)).thenReturn(false);
+
+        mockMvc.perform(put("/students/2")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(toJson(secondStudentToUpdate))
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.text", is("Could not find student with id 2")))
                 .andReturn();
     }
 
+
     @Test
-    @DisplayName("Delete Route should delete a student")
-    public void deleteRouteDeleteAStudent() throws Exception {
-//        when(repository.findAll()).thenReturn(StudentList);
-
-//         Create a list of fake projects for our mock repo to return
+    @DisplayName("Delete Route should delete a project and return a success message")
+    public void DeleteRouteShouldDeleteAStudentAndReturnASuccessMessage() throws Exception{
         List<Students> students = new ArrayList();
-        students.add(new Students(4, "Salim", "Abada", null , "salim@gmail.com", "07901234565", "Nology", "consultancy", true, "Nology", "software engineer"));
-        when(repository.findAll()).thenReturn(students);
+        students.add(new Students(1, "Salim", "Abada", null , "salim@gmail.com", "07901234565", "Nology", "consultancy", true, "Nology", "software engineer"));
 
-        mockMvc.perform(delete("/students/4"))
+        when(repository.existsById(1)).thenReturn(true);
+        mockMvc.perform(delete("/students/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.text", is("Successfully deleted the Student from the database.")))
+                .andReturn();
+
+        when(repository.existsById(2)).thenReturn(false);
+        mockMvc.perform(delete("/students/2"))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.text", is("Couldn't find student with id 2")))
                 .andReturn();
     }
 
