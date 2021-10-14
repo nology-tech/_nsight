@@ -25,6 +25,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(StudentController.class)
 public class StudentsControllerTest {
+    private final List<Students> StudentList = List.of(
+        new Students(1, "Jerome", "Kithinji", null , "kithinjijerome@gmail.com", "07535529310", "Nology", "consumer", true, "E&Y", "software engineer"),
+        new Students(2, "Alex", "Wower", null , "alexwower@gmail.com", "07893435432", "Nology", "consultancy", true, "Nology", "software engineer"),
+        new Students(3, "Helen", "Khor", null , "hkhor@gmail.com", "07901234565", "Nology", "consultancy", true, "Nology", "software engineer")
+    );
+
+    private final Students newStudent4 = new Students(4, "Salim", "Abada", null , "salim@gmail.com", "07901234565", "Nology", "consultancy", true, "Nology", "software engineer");
 
     @Autowired
     private MockMvc mockMvc;
@@ -32,55 +39,54 @@ public class StudentsControllerTest {
     @MockBean
     private IStudentRepository repository;
 
-    private final Students newStudent = new Students(1, "Jerome", "Kithinji", null , "kithinjijerome@gmail.com", "07535529310", "Nology", "0753552934", true, "consumer", "consumer");
+    @Test
+    @DisplayName("Index Route should return a list of users if they exist")
+    public void indexRouteShouldReturnListOfUsers() throws Exception {
+        when(repository.findAll()).thenReturn(StudentList);
 
-
-//    @Test
-//    @DisplayName("Index Route should return a list of users if they exist")
-//    public void indexRouteShouldReturnListOfUsers() throws Exception {
-//        when(repository.findAll()).thenReturn();
-//
-//        mockMvc.perform(get("/students"))
-//                .andExpect(status().isOk())
-//                .andExpect(jsonPath("$", hasSize()))
-//                .andReturn();
-//
-//
-//    }
+        mockMvc.perform(get("/students"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(3)))
+                .andReturn();
+    }
 
     @Test
     @DisplayName("Create Route should create a new student.")
     public void createRouteShouldCreateAStudent() throws Exception {
         mockMvc.perform(post("/students")
                     .contentType(MediaType.APPLICATION_JSON)
-                    .content(toJson(newStudent))
+                    .content(toJson(newStudent4))
                     .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.text", is("Successfully added the Student to the database.")))
                 .andReturn();
 
-        mockMvc.perform(delete("/students/1"));
-
+        mockMvc.perform(delete("/students/4"));
     }
 
-//    @Test
-//    @DisplayName("Delete Route should delete a student")
-//    public void deleteRouteDeleteAStudent() throws Exception {
+    @Test
+    @DisplayName("Delete Route should delete a student")
+    public void deleteRouteDeleteAStudent() throws Exception {
 //        mockMvc.perform(post("/students")
 //                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(toJson(newStudent))
-//                        .accept(MediaType.APPLICATION_JSON));
-//
-//        mockMvc.perform(delete("/students/1"))
-//                .andExpect(status().isOk())
-//                .andExpect(jsonPath("$.text", is("Successfully deleted the Student from the database.")))
+//                        .content(toJson(newStudent4))
+//                        .accept(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isCreated())
+//                .andExpect(jsonPath("$.text", is("Successfully added the Student to the database.")))
 //                .andReturn();
-//
+
+        when(repository.findAll()).thenReturn(StudentList);
+
+        mockMvc.perform(delete("/students/3"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.text", is("Successfully deleted the Student from the database.")))
+                .andReturn();
+
 //        mockMvc.perform(post("/students")
 //                .contentType(MediaType.APPLICATION_JSON)
 //                .content(toJson(newStudent))
 //                .accept(MediaType.APPLICATION_JSON));
-//    }
+    }
 
 
     private static String toJson(Students newStudent) throws JsonProcessingException {
