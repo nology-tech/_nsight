@@ -3,7 +3,6 @@ import "./students.scss";
 import Searchbox from "../../components/searchbox/searchbox";
 import Sort from "../../components/sort/sort";
 import StudentList from "./studentList/studentList";
-// import studentsData from "../../assets/data/student-data";
 import Filter from "../../components/filter/filter";
 import chevronLeft from "../../assets/icons/chevron-left.svg";
 import chevronRight from "../../assets/icons/chevron-right.svg";
@@ -21,13 +20,11 @@ const Students = () => {
     const [showResults, setShowResults] = useState(false);
 
     // API to fetch data from the backend
-    const fetchStudents = () =>{
-        fetch("http://localhost:8080/students")
-            .then(response => response.json())
-            .then(jsonResponse => setStudentsData(jsonResponse))
-            .catch(err => console.log("error"))
+    const fetchStudents = async () => {
+        const response = await fetch("http://localhost:8080/students");
+        const jsonResponse = await response.json();
+        return jsonResponse;
     };
-
 
     // SEARCH by first and last name
     const handleSearch = (e) => {
@@ -215,15 +212,16 @@ const Students = () => {
         togglePagination();
     };
 
-    const getStudents = () => {
+    const getStudents = (studentsData) => {
         const toShow = studentsData.slice(pageStart, pageEnd);
         setStudentsCopy(studentsData);
         setStudents(toShow);
     };
 
-    useEffect(() => {
-        fetchStudents();
-        getStudents();
+    useEffect(async () => {
+        const fetchedStudents = await fetchStudents();
+        getStudents(fetchedStudents);
+        setStudentsData(fetchedStudents)
     }, []);
 
     let length = 0;

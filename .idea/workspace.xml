@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fefdec2-4431-4b22-8c4a-a626934a28ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.idea/frontend.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/studentList/studentList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/students/studentList/studentList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/studentList/studentList.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/students/studentList/studentList.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nology/nsight/controllers/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nology/nsight/controllers/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/students/students.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/students/students.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +59,7 @@
       <workItem from="1633956221582" duration="438000" />
       <workItem from="1633957802616" duration="38000" />
       <workItem from="1633958502414" duration="13514000" />
-      <workItem from="1634219384139" duration="1429000" />
+      <workItem from="1634219384139" duration="1712000" />
     </task>
     <servers />
   </component>
