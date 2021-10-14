@@ -1,10 +1,11 @@
 package com.nology.nsight.exceptions;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@ResponseStatus
-public class ResourceNotFoundException extends RuntimeException {
-    public ResourceNotFoundException(String message){
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class ResourceNotFoundException extends Exception{
+    public ResourceNotFoundException(String message) {
         super(message);
     }
 }

@@ -1,12 +1,13 @@
-package com.nology.nsight.entity;
+package com.nology.nsight.entities;
 
 public class Message {
     private final String text;
 
-    public Message(String text){
+    public Message(String text) {
         this.text = text;
     }
-    public String getText(){
+
+    public String getText() {
         return text;
     }
 }

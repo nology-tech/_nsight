@@ -1,4 +1,4 @@
-package com.nology.nsight.entity;
+package com.nology.nsight.entities;
 
 import org.springframework.lang.Nullable;
 
@@ -90,6 +90,10 @@ public class Course {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public Boolean getStatus() {
+        return status;
     }
 
     public Date getCourseStart() {
