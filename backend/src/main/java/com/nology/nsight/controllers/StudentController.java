@@ -21,8 +21,6 @@ public class StudentController {
     @GetMapping("/students")
     public ResponseEntity<List<Students>> indexStudents() {
         return ResponseEntity.status(HttpStatus.OK).body(repository.findAll());
-//
-//        return this.repository.findAll();
     }
 
     // GET/{id}
@@ -56,12 +54,12 @@ public class StudentController {
 
     //DELETE
     @DeleteMapping("/students/{id}")
-    public  ResponseEntity<Object> deleteStudent(@PathVariable int id) {
-        if (!repository.existsById(id)) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Couldn't find student with id " + id);
-        }
-        repository.deleteById(id);
-        return ResponseEntity.status(HttpStatus.OK)
+    public ResponseEntity<Object> deleteStudent(@PathVariable int id) {
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+            return ResponseEntity.status(HttpStatus.OK)
                 .body(new Message("Successfully deleted the Student from the database."));
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Couldn't find student with id " + id);
     }
 }

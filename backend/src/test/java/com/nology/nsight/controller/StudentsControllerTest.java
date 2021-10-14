@@ -13,11 +13,10 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.Matchers.*;
-import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -32,6 +31,8 @@ public class StudentsControllerTest {
     );
 
     private final Students newStudent4 = new Students(4, "Salim", "Abada", null , "salim@gmail.com", "07901234565", "Nology", "consultancy", true, "Nology", "software engineer");
+    private final Students updateStudent1 = new Students(1, "Charlene", "Kithinji", null , "kithinjicharlene@gmail.com", "07535529310", "Nology", "consumer", true, "E&Y", "software engineer");
+
 
     @Autowired
     private MockMvc mockMvc;
@@ -40,8 +41,8 @@ public class StudentsControllerTest {
     private IStudentRepository repository;
 
     @Test
-    @DisplayName("Index Route should return a list of users if they exist")
-    public void indexRouteShouldReturnListOfUsers() throws Exception {
+    @DisplayName("Index Route should return a list of students if they exist")
+    public void indexRouteShouldReturnListOfStudents() throws Exception {
         when(repository.findAll()).thenReturn(StudentList);
 
         mockMvc.perform(get("/students"))
@@ -65,27 +66,41 @@ public class StudentsControllerTest {
     }
 
     @Test
+    @DisplayName("Update Route should update the student and return a successful message")
+    public void updateRouteShouldUpdateTheStudentAndReturnASuccessfulMessage() throws Exception {
+        mockMvc.perform(put("/students/1")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(toJson(updateStudent1))
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id", is(1)))
+                .andExpect(jsonPath("$.first_name", is("Charlene")))
+                .andExpect(jsonPath("$.last_name", is("Kithinji")))
+                .andExpect(jsonPath("$.dob", is(null)))
+                .andExpect(jsonPath("$.email", is("kithinjicharlene@gmail.com")))
+                .andExpect(jsonPath("$.mobile_number", is("07535529310")))
+                .andExpect(jsonPath("$.thumbnail", is("Nology")))
+                .andExpect(jsonPath("$.type", is("consumer")))
+                .andExpect(jsonPath("$.employed", is(true)))
+                .andExpect(jsonPath("$.employer", is("E&Y")))
+                .andExpect(jsonPath("$.role", is("software engineer")))
+                .andReturn();
+    }
+
+    @Test
     @DisplayName("Delete Route should delete a student")
     public void deleteRouteDeleteAStudent() throws Exception {
-//        mockMvc.perform(post("/students")
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(toJson(newStudent4))
-//                        .accept(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isCreated())
-//                .andExpect(jsonPath("$.text", is("Successfully added the Student to the database.")))
-//                .andReturn();
+//        when(repository.findAll()).thenReturn(StudentList);
 
-        when(repository.findAll()).thenReturn(StudentList);
+//         Create a list of fake projects for our mock repo to return
+        List<Students> students = new ArrayList();
+        students.add(new Students(4, "Salim", "Abada", null , "salim@gmail.com", "07901234565", "Nology", "consultancy", true, "Nology", "software engineer"));
+        when(repository.findAll()).thenReturn(students);
 
-        mockMvc.perform(delete("/students/3"))
+        mockMvc.perform(delete("/students/4"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.text", is("Successfully deleted the Student from the database.")))
                 .andReturn();
-
-//        mockMvc.perform(post("/students")
-//                .contentType(MediaType.APPLICATION_JSON)
-//                .content(toJson(newStudent))
-//                .accept(MediaType.APPLICATION_JSON));
     }
 
 
