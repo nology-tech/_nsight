@@ -1,5 +1,5 @@
 import "./studentList.scss";
-import moreInfo from "../../assets/icons/chevron-more.svg";
+import moreInfo from "../../../assets/icons/chevron-more.svg";
 import { Link } from "react-router-dom";
 
 const StudentList = (props) => {

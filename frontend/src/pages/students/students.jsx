@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./students.scss";
 import Searchbox from "../../components/searchbox/searchbox";
 import Sort from "../../components/sort/sort";
-import StudentList from "../../components/studentList/studentList";
-import studentsData from "../../assets/data/student-data";
+import StudentList from "./studentList/studentList";
+// import studentsData from "../../assets/data/student-data";
 import Filter from "../../components/filter/filter";
 import chevronLeft from "../../assets/icons/chevron-left.svg";
 import chevronRight from "../../assets/icons/chevron-right.svg";
@@ -11,6 +11,7 @@ import downArrow from "../../assets/icons/down-arrow.svg";
 import TopHeader from "../../components/topheader/topheader";
 
 const Students = () => {
+    const [studentsData, setStudentsData] = useState([]);
     const [students, setStudents] = useState([]);
     const [studentsCopy, setStudentsCopy] = useState([]);
     const [pagination, setPagination] = useState(false);
@@ -18,6 +19,15 @@ const Students = () => {
     const [pageStart, setPageStart] = useState(0);
     const [pageEnd, setPageEnd] = useState(perPage);
     const [showResults, setShowResults] = useState(false);
+
+    // API to fetch data from the backend
+    const fetchStudents = () =>{
+        fetch("http://localhost:8080/students")
+            .then(response => response.json())
+            .then(jsonResponse => setStudentsData(jsonResponse))
+            .catch(err => console.log("error"))
+    };
+
 
     // SEARCH by first and last name
     const handleSearch = (e) => {
@@ -114,8 +124,6 @@ const Students = () => {
         setCourses(tempCourses); // not synchronous
         return tempCourses;
     };
-
-    
 
     const filterByCourseName = (e) => {
         const courses = handleSetCourses(e.target.value);
@@ -214,6 +222,7 @@ const Students = () => {
     };
 
     useEffect(() => {
+        fetchStudents();
         getStudents();
     }, []);
 
