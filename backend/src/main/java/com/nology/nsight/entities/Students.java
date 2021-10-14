@@ -1,7 +1,10 @@
 package com.nology.nsight.entities;
 
+import com.nology.nsight.entity.Course;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.util.Date;
 
 @Entity
@@ -19,6 +22,17 @@ public class Students {
     private Boolean employed;
     private String employer;
     private String role;
+
+    @ManyToOne
+    private Course course;
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
 
     public Students(int id, String first_name, String last_name, Date dob, String email, String mobile_number, String thumbnail, String type, Boolean employed, String employer, String role) {
         this.id = id;
