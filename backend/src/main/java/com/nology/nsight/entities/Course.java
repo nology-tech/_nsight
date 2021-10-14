@@ -1,4 +1,4 @@
-package com.nology.nsight.entity;
+package com.nology.nsight.entities;
 
 import org.springframework.lang.Nullable;
 

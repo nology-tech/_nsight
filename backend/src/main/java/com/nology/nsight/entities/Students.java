@@ -1,7 +1,5 @@
 package com.nology.nsight.entities;
 
-import com.nology.nsight.entity.Course;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;

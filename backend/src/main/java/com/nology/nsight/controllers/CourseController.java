@@ -1,16 +1,14 @@
-package com.nology.nsight.controller;
+package com.nology.nsight.controllers;
 
-import com.nology.nsight.entity.Course;
-import com.nology.nsight.entity.Message;
-import com.nology.nsight.exceptions.ResourceNotFoundException;
-import com.nology.nsight.repository.CourseRepository;
+import com.nology.nsight.entities.Course;
+import com.nology.nsight.entities.Message;
+import com.nology.nsight.repositories.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.OneToMany;
 import java.util.List;
 
 @RestController
