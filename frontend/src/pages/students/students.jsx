@@ -18,6 +18,7 @@ const Students = () => {
     const [pageStart, setPageStart] = useState(0);
     const [pageEnd, setPageEnd] = useState(perPage);
     const [showResults, setShowResults] = useState(false);
+    const [courses, setCourses] = useState({});
 
     // API to fetch data from the backend
     const fetchStudents = async () => {
@@ -99,9 +100,6 @@ const Students = () => {
         return self.indexOf(value) === index;
     };
 
-    const courseNames = studentsData.map((student) => student.course_name);
-
-    const uniqueCourseNames = courseNames.filter(unique);
 
     const createStatefulObject = (courseNames) => {
         return courseNames.reduce((statefulObject, courseName) => {
@@ -110,9 +108,6 @@ const Students = () => {
         }, {});
     };
 
-    const [courses, setCourses] = useState(
-        createStatefulObject(uniqueCourseNames)
-    );
 
     const handleSetCourses = (courseName) => {
         const tempCourses = { ...courses };
@@ -127,7 +122,7 @@ const Students = () => {
         const stateArray = Object.keys(courses).filter((key) => courses[key]);
 
         const filteredCourseName = studentsData.filter((student) =>
-            stateArray.includes(student.course_name)
+            stateArray.includes(student.course.courseName)
         );
 
         if (filteredCourseName.length === 0) {
@@ -221,8 +216,15 @@ const Students = () => {
     useEffect(async () => {
         const fetchedStudents = await fetchStudents();
         getStudents(fetchedStudents);
-        setStudentsData(fetchedStudents)
+        setStudentsData(fetchedStudents);
     }, []);
+
+    useEffect(() => {
+        const courseNames = studentsData.map((student) => student.course.courseName);
+        const uniqueCourseNames = [...new Set(courseNames)];
+
+        setCourses(createStatefulObject(uniqueCourseNames))
+    }, [studentsData]);
 
     let length = 0;
     if (students.length > perPage) {
@@ -277,21 +279,21 @@ const Students = () => {
                             </div>
                         )}
                     </div>
-                <div className="show-results">
-                    {!showResults && (
-                        <p>
-                            {pageStart + 1}-{pageEnd} of {studentsData.length}
-                        </p>
-                    )}
-                    {showResults && (
-                        <p>
-                            Showing results: {pageStart + 1}-{pageEnd} of {studentsCopy.length}
-                        </p>
-                    )}
+                    <div className="show-results">
+                        {!showResults && (
+                            <p>
+                                {pageStart + 1}-{length} of {studentsData.length}
+                            </p>
+                        )}
+                        {showResults && (
+                            <p>
+                                Showing results: {pageStart + 1}-{length} of {studentsCopy.length}
+                            </p>
+                        )}
+                    </div>
+                    <img className="chevron-previous" src={chevronLeft} alt="previous page" onClick={previousPage} />
+                    <img src={chevronRight} alt="next page" onClick={nextPage} />
                 </div>
-                <img className="chevron-previous" src={chevronLeft} alt="previous page" onClick={previousPage} />
-                <img src={chevronRight} alt="next page" onClick={nextPage} />
-            </div>
             </div>
         </div>
     );

@@ -39,7 +39,7 @@ const StudentList = (props) => {
                     <p className="student-list__data">{employed}</p>
                 </div>
                 <div className="col-2">
-                    <p className="student-list__data">{student.course_name}</p>
+                    <p className="student-list__data">{student.course.courseName}</p>
                 </div>
                 <div className="col-1">
                         <img src={moreInfo} alt="more student info" />

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class CourseController {
     public Course findCourseById(int id) {
         List<Course> courses = repository.findAll();
