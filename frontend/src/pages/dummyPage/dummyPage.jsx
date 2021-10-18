@@ -23,7 +23,7 @@ const DummyPage = (props) => {
     return (
         <>
             <h1>Hello world</h1>
-            <h2>{courseID.courseStart}</h2>
+            <h2>{courseID.courseName}</h2>
         </>
     );
 };
