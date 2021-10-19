@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fefdec2-4431-4b22-8c4a-a626934a28ab" name="Default Changelist" comment="" />
+    <list default="true" id="9fefdec2-4431-4b22-8c4a-a626934a28ab" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/topheader/topheader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/topheader/topheader.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/courses/courses.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/courses/courses.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/enrollment/enrollment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/enrollment/enrollment.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/studentDetails/studentDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/studentDetails/studentDetails.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/students/students.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/students/students.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,6 +34,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -35,6 +43,11 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/pages/students" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -48,10 +61,23 @@
       <workItem from="1633956221582" duration="438000" />
       <workItem from="1633957802616" duration="38000" />
       <workItem from="1633958502414" duration="13514000" />
+      <workItem from="1634219384139" duration="2026000" />
+      <workItem from="1634650254618" duration="402000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

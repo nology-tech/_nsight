@@ -3,9 +3,9 @@ import "./filter.scss";
 import filterIcon from "../../assets/icons/filter.svg";
 
 const Filter = (props) => {
-    const { courses, filterByCourseName } = props;
+    const { courses, filterByCourseName, filter, toggleFilter } = props;
 
-    const [filter, setFilter] = useState(false);
+    // const [filter, setFilter] = useState(false);
 
     const distinctCourseNames = Object.entries(courses).map((course) => {
         return (
@@ -25,9 +25,9 @@ const Filter = (props) => {
         );
     });
 
-    const toggleFilter = (e) => {
-        setFilter(!filter);
-    };
+    // const toggleFilter = (e) => {
+    //     setFilter(!filter);
+    // };
 
     return (
         <div className="filter">
