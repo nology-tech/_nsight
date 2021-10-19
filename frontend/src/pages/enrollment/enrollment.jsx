@@ -13,11 +13,13 @@ const Enrollment = () => {
     const [showResults, setShowResults] = useState(false);
     const [enrollmentData, setEnrollmentData] = useState([]);
 
+    // Returns a promise which returns API data || Error
     const fetchEnrollmentData = () => {
-        fetch("http://localhost:8080/students")
-        .then(response => response.json())
-        .then(jsonResponse => setEnrollmentData(jsonResponse))
-        .catch(err => console.log("err"))};
+        return fetch("http://localhost:8080/students")
+            .then(response => response.json())
+            .then(jsonResponse => jsonResponse)
+            .catch(err => console.log("err"))
+        };
 
     const handleSearch = (e) => {
         
@@ -50,7 +52,7 @@ const Enrollment = () => {
         }
     };
 
-    const courseNames = enrollmentData.map((courses) => courses.intakeName);
+    const courseNames = enrollmentData.map((student) => student.course.courseName);
 
     const createStatefulObject = (courseNames) => {
         return courseNames.reduce((statefulObject, courseName) => {
@@ -97,13 +99,16 @@ const Enrollment = () => {
         }
     };
 
-    const getEnrollments = () => {
-        setEnrollments(enrollmentData);
-        setEnrollmentsCopy(enrollmentData);
+    // Asynchronously handle call to API
+    // Get data => set all states that need data
+    const getEnrollments = async () => {
+        const data = await fetchEnrollmentData();
+        setEnrollmentData(data);
+        setEnrollments(data);
+        setEnrollmentsCopy(data);
     }
 
-    useEffect(() => {fetchEnrollmentData()},[]);
-
+    // Call API on page load and set states
     useEffect(() => {
         getEnrollments();
     }, []);
