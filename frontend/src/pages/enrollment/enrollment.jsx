@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './enrollment.scss'
-import enrollmentData from "../../assets/data/enrollment-data";
+// import enrollmentData from "../../assets/data/enrollment-data";
 import Filter from "../../components/filter/filter"
 import EnrollmentList from "../../components/enrollmentList/enrollmentList"
 import TopHeader from '../../components/topheader/topheader';
@@ -11,6 +11,13 @@ const Enrollment = () => {
     const [enrollments, setEnrollments] = useState([]);
     const [enrollmentsCopy, setEnrollmentsCopy] = useState([]);
     const [showResults, setShowResults] = useState(false);
+    const [enrollmentData, setEnrollmentData] = useState([]);
+
+    const fetchEnrollmentData = () => {
+        fetch("http://localhost:8080/students")
+        .then(response => response.json())
+        .then(jsonResponse => setEnrollmentData(jsonResponse))
+        .catch(err => console.log("err"))};
 
     const handleSearch = (e) => {
         
@@ -94,6 +101,8 @@ const Enrollment = () => {
         setEnrollments(enrollmentData);
         setEnrollmentsCopy(enrollmentData);
     }
+
+    useEffect(() => {fetchEnrollmentData()},[]);
 
     useEffect(() => {
         getEnrollments();

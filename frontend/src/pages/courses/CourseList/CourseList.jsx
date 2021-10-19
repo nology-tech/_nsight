@@ -31,10 +31,10 @@ const CourseList = (props) => {
                         <p className="courselist__tag">{course.courseLead}</p>
                     </div>
                     <div className="col-2">
-                        <p className="courselist__tag">{course.courseStart}</p>
+                        <p className="courselist__tag">{course.courseStart.toString().substring(0 , 10)}</p>
                     </div>
                     <div className="col-2">
-                        <p className="courselist__tag">{course.courseCompletion}</p>
+                        <p className="courselist__tag">{course.courseCompletion.toString().substring(0 , 10)}</p>
                     </div>
                     <div className="col-1">
                         <div className="stats">
