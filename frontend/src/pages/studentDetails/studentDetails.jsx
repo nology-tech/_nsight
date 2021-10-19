@@ -21,7 +21,7 @@ const StudentDetails = (props) => {
 
     return (
 <div className="main-student">
-            <TopHeader title={`${student.first_name} ${student.last_name}`} />
+            <TopHeader title={`${student.first_name} ${student.last_name}`} buttonText="+  Edit" />
             <StudentIndex />
         </div>
     );

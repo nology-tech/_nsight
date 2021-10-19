@@ -7,7 +7,7 @@ const Students = () => {
 
     return (
         <div className="main-student">
-            <TopHeader title="Students" />
+            <TopHeader title="Students" buttonText="+  Create" />
             <StudentIndex />
         </div>
     );
