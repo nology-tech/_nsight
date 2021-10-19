@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import StudentIndex from "../students/studentIndex/studentIndex";
 import TopHeader from "../../components/topheader/topheader";
 import "./studentDetails.scss";
+import StudentCard from "../../components/studentCard/studentCard";
 
 const StudentDetails = (props) => {
     const { studentId } = useParams();
@@ -22,6 +23,7 @@ const StudentDetails = (props) => {
     return (
 <div className="main-student">
             <TopHeader title={`${student.first_name} ${student.last_name}`} buttonText="+  Edit" />
+            <StudentCard student={student} />
             <StudentIndex />
         </div>
     );
