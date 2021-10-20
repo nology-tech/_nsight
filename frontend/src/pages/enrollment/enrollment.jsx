@@ -53,10 +53,12 @@ const Enrollment = () => {
     };
 
     const courseNames = enrollmentData.map((student) => student.course.courseName);
+    // const courseNames = enrollmentData.map((intake) => intake.intakeName);
 
     const createStatefulObject = (courseNames) => {
         return courseNames.reduce((statefulObject, courseName) => {
             statefulObject[courseName] = false;
+            console.log(courseNames);
             return statefulObject;
         }, {});
     };
@@ -106,6 +108,7 @@ const Enrollment = () => {
         setEnrollmentData(data);
         setEnrollments(data);
         setEnrollmentsCopy(data);
+        console.log(enrollmentData);
     }
 
     // Call API on page load and set states
