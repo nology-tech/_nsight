@@ -1,5 +1,6 @@
 import React from "react";
 import "./studentCard.scss";
+import placeholderImage from "../../assets/images/beer.jpg";
 
 const StudentCard = (props) => {
     const {student} = props;
@@ -25,46 +26,50 @@ const StudentCard = (props) => {
     const studentDobFormat = dd + "/" + mm + "/" + yyyy;
 
     return (
-        <div className="coursedetails">
+        <div className="studentDetails">
             <div className="container p-5">
                 <h2 className="header">Overview</h2>
                 <div className="row justify-content-between">
                     <div className="col-3 card">
-                        <h2>{`${student.first_name} ${student.last_name}`}</h2>
-                        <p>{`${student.course?.courseName} Student`}</p>
+                        <div className="studentDetails__student">
+                            <img className="studentDetails__img" src={placeholderImage} alt="student image" />
+                            <h2>{`${student.first_name} ${student.last_name}`}</h2>
+                            <p className="information">{`${student.course?.courseName} Student`}</p>
+                            <Link to={}>Edit Student</Link>
+                        </div>
                     </div>
                     <div className="col-3 card">
                         <h3>Contact Details</h3>
                         <div className="row justify-content-between">
                             <p>Date of Birth:</p>
-                            <p>{studentDobFormat}</p>
+                            <p className="information">{studentDobFormat}</p>
                         </div>
                         <div className="row justify-content-between">
                             <p>Email address:</p>
-                            <p>{student.email}</p>
+                            <p className="information">{student.email}</p>
                         </div>
                         <div className="row justify-content-between">
                             <p>Mobile number:</p>
-                            <p>{student.mobile_number}</p>
+                            <p className="information">{student.mobile_number}</p>
                         </div>
                         <div className="row justify-content-between">
                             <p>Consumer/Consultant:</p>
-                            <p>{student.type}</p>
+                            <p className="information">{student.type}</p>
                         </div>
                     </div>
                     <div className="col-3 card">
                         <h3>Employment Details</h3>
                         <div className="row justify-content-between">
                             <p>Employment Status:</p>
-                            <p>{employed}</p>
+                            <p className="information">{employed}</p>
                         </div>
                         <div className="row justify-content-between">
                             <p>Employer:</p>
-                            <p>{student.employer}</p>
+                            <p className="information">{student.employer}</p>
                         </div>
                         <div className="row justify-content-between">
                             <p>Job role:</p>
-                            <p>{student.role}</p>
+                            <p className="information">{student.role}</p>
                         </div>
                     </div>
                 </div>
