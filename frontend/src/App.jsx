@@ -7,7 +7,7 @@ import Settings from "./pages/settings/settings.jsx";
 import Enrollment from "./pages/enrollment/enrollment.jsx";
 import DummyPage from "./pages/dummyPage/dummyPage";
 import StudentDetails from "./pages/studentDetails/studentDetails";
-import EditStudentDummy from "./pages/editStudentDummy/editStudentDummy";
+import EditStudent from "./pages/editStudent/editStudent";
 
 
 const App = () => {
@@ -26,7 +26,7 @@ const App = () => {
                             <Courses />
                         </Route>
                         <Route path="/students/:studentId/edit">
-                            <EditStudentDummy />
+                            <EditStudent />
                         </Route>
                         <Route path="/students/:studentId">
                             <StudentDetails />
