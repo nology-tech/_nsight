@@ -4,16 +4,34 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: $font-family-primary;
 }
 
 .coursedetails{
-  background-color: $color-secondary-light;
   width: 100%;
   min-height: 100vh;
+  font-family: $font-family-primary;
+  &__img{
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  &__header{
+    margin-top: 10px;
+  }
+  &__line{
+    border: 1px solid #E2E8F0;
+  }
+  &__tags{
+    text-align: right;
+    color: $color-primary-light;
+  }
 }
 
 .card{
-  height: 325px;
+  height: 350px;
   width: 350px;
   background-color: $color-base-light;
   border-radius: 3%;

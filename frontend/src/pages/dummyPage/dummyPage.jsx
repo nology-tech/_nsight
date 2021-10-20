@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Topcards from "../../components/topcards/topcards";
+import TopHeader from "../../components/topheader/topheader";
+import CourseFilter from "../courses/coursefilter/coursefilter";
+import "./dummyPage.scss";
 // import courses from "../../assets/data/coursedata";
 
 const DummyPage = (props) => {
@@ -22,11 +25,11 @@ const DummyPage = (props) => {
     // }, [courseId]);
 
     return (
-        <>
-            <h1>Hello world</h1>
+        <div className="coursedetails__main">
+            <TopHeader title="Courses"><CourseFilter/></TopHeader>
             <Topcards courseID ={courseID}/>
             {/* <h2>{courseID.courseName}</h2> */}
-        </>
+        </div>
     );
 };
 export default DummyPage;
