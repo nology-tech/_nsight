@@ -28,7 +28,7 @@ const DummyPage = (props) => {
         <div className="coursedetails__main">
             <TopHeader title="Courses"><CourseFilter/></TopHeader>
             <Topcards courseID ={courseID}/>
-            {/* <h2>{courseID.courseName}</h2> */}
+            
         </div>
     );
 };

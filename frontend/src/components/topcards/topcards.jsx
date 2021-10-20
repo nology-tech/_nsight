@@ -14,6 +14,7 @@ const Topcards = (props) => {
       status = "Active";
       statColour = "green";
   }
+  const coursenumofEmployed = Math.floor(courseID.numberEnrolled * (courseID.percentageEmployed / 100));
   const data = [{
     count: courseID.percentageEmployed,       // Value of the property. Required.
     color: "#2FF596",  // Color code for the pie's color. Required.
@@ -25,7 +26,7 @@ const Topcards = (props) => {
   return (
     
     <div className="coursedetails">
-      <div className="container p-5">
+      <div className="container p-0">
         <h2 className="header">Overview</h2>
         <div className="row justify-content-between w-100">
           <div className="col-3 align-items-center card">
@@ -57,17 +58,21 @@ const Topcards = (props) => {
           </div>
           <div className="col-3 card">
           <h3 className="coursedetails__header">Employed Post-course</h3>
+          <div className="coursedetails__pie align-items-center">
             <DonutChart
               innerRadius={70}
               outerRadius={100}
               transition={true}
               svgClass="example6"
-              pieClass="pie6"
+              pieClass="coursedetails__pie"
               displayTooltip={false}
-              strokeWidth={3}
+              strokeWidth={0}
               data={data} /> 
-              //rotate
-          {courseID.percentageEmployed}
+              <div className="coursedetails__pietag">
+              <h2>{courseID.percentageEmployed} %</h2>
+              <p>{coursenumofEmployed} out of {courseID.numberEnrolled}</p>
+              </div>
+              </div>
           </div>
         </div>
       </div>

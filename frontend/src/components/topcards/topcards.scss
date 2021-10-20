@@ -6,11 +6,25 @@
   box-sizing: border-box;
   font-family: $font-family-primary;
 }
-
+.example6{
+  transform: rotate(90deg);
+}
 .coursedetails{
   width: 100%;
   min-height: 100vh;
   font-family: $font-family-primary;
+  &__pie{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    rotate: 90deg;
+  }
+  &__pietag{
+    position: absolute;
+    text-align: center;
+    color: #2FF596;
+  }
   &__img{
     border-radius: 50%;
     height: 200px;
