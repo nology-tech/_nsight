@@ -1,6 +1,7 @@
 import React from "react";
 import "./studentCard.scss";
 import placeholderImage from "../../assets/images/beer.jpg";
+import { Link } from "react-router-dom";
 
 const StudentCard = (props) => {
     const {student} = props;
@@ -35,7 +36,7 @@ const StudentCard = (props) => {
                             <img className="studentDetails__img" src={placeholderImage} alt="student image" />
                             <h2>{`${student.first_name} ${student.last_name}`}</h2>
                             <p className="information">{`${student.course?.courseName} Student`}</p>
-                            <Link to={}>Edit Student</Link>
+                            <Link to={"/students/" + student.id + "/edit/"}>Edit Student</Link>
                         </div>
                     </div>
                     <div className="col-3 card">
