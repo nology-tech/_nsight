@@ -1,0 +1,56 @@
+@import "../../assets/styles/styles.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-family-primary;
+}
+
+.studentDetails {
+    width: 100%;
+    min-height: 100vh;
+    font-family: $font-family-primary;
+    &__img{
+        border-radius: 50%;
+        height: 200px;
+        width: 200px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    &__header{
+        margin-top: 10px;
+    }
+    &__student {
+        text-align: center;
+    }
+}
+
+.card {
+    min-height: 325px;
+    width: 350px;
+    background-color: $color-base-light;
+    border-radius: 3%;
+    box-shadow: 0px 30px 30px rgba(114, 75, 203, 0.06);
+    // margin: 10px 50px;
+    padding: 25px 22px;
+}
+
+.information {
+    color: $color-primary-light;
+    margin-bottom: 15px;
+}
+
+p {
+    margin: 0;
+}
+
+
+// .card{
+//   height: 350px;
+//   width: 350px;
+//   background-color: $color-base-light;
+//   border-radius: 3%;
+//   box-shadow: 0px 30px 30px rgba(114, 75, 203, 0.06);
+//   // margin: 10px 50px;
+// }
