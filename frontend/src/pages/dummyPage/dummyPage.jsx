@@ -26,7 +26,7 @@ const DummyPage = (props) => {
 
     return (
         <div className="coursedetails__main">
-            <TopHeader title="Courses">
+            <TopHeader title="Courses" buttonText="+  Create">
             </TopHeader>
             <Topcards courseID ={courseID}/>
         </div>
