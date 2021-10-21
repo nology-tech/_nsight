@@ -110,7 +110,7 @@ const Enrollment = () => {
 
     return (
         <div className="enrollment-container">
-            <TopHeader title="Enrollments"/>
+            <TopHeader title="Enrollments" buttonText="+  Create"/>
             {/* <Searchbox handleSearch={handleSearch} /> */}
             <Filter courses={courses} filterByCourseName={filterByCourseName} />
             <div className="enrollment-list">

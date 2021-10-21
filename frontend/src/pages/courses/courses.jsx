@@ -37,7 +37,7 @@ const Courses = (props) => {
 
     return (
         <div className="mainCourse">
-            <TopHeader title="Courses">
+            <TopHeader title="Courses" buttonText="+  Create">
                 <CourseFilter
                     setFullTime={setFullTime}
                     fullTime={fullTime}
