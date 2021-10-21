@@ -5,6 +5,8 @@ import moreInfo from "../../assets/icons/chevron-more.svg";
 const EnrollmentList = (props) => {
     const { enrollmentData } = props;
 
+    console.log(enrollmentData);
+
     const intakeDisplay = enrollmentData.map((intake, i) => {
         let isSelfPaced = "fullTime";
         if (intake.intakeName === "Self-paced") {
@@ -39,7 +41,7 @@ const EnrollmentList = (props) => {
                                 </div>
                                 <div className="col">{employed}</div>
                                 <div className="col">
-                                    <p>{student.course.courseName}</p>
+                                    <p>{student.course_name}</p>
                                 </div>
                                 <div className="col">
                                     <img
