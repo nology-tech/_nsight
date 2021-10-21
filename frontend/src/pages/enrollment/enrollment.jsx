@@ -8,7 +8,6 @@ import Searchbox from '../../components/searchbox/searchbox';
 
 const Enrollment = () => {
 
-    const [enrollments, setEnrollments] = useState([]);
     const [enrollmentsCopy, setEnrollmentsCopy] = useState([]);
     const [showResults, setShowResults] = useState(false);
     const [enrollmentData, setEnrollmentData] = useState([]);
@@ -21,6 +20,27 @@ const Enrollment = () => {
             .catch(err => console.log("err"))
         };
 
+    const cleanEnrollmentData = (enrollmentData) => {
+        return enrollmentData.reduce((arr, student) => {
+            const foundObject = arr.find((enrollment) => enrollment.intakeName === student.course.courseName)
+
+            if(foundObject) {
+                foundObject.students.push(student);
+            } else {
+                const newObj = {
+                    id: student.course.id,
+                    intakeName: student.course.courseName,
+                    students: []
+                };
+                
+                newObj.students.push(student);
+                arr.push(newObj);
+            }
+
+            return arr;
+        }, [])
+    }
+    
     const handleSearch = (e) => {
         
         const sanitiseInput = e.target.value.toLowerCase();
@@ -37,23 +57,20 @@ const Enrollment = () => {
         });
         setEnrollmentsCopy(studentSearch);
         // const toShow = studentSearch.slice(pageStart, pageEnd);
-        setEnrollments(studentSearch);
+        setEnrollmentData(studentSearch);
         console.log(studentSearch);
-        console.log("With search " + enrollments);
+        console.log("With search " + enrollmentData);
 
 
         setShowResults(true);
         if (e.target.value.length === 0) {
             setShowResults(false);
             // const toShow = studentsData.slice(pageStart, pageEnd);
-            setEnrollments(enrollmentData);
+            setEnrollmentData(enrollmentData);
             setEnrollmentsCopy(enrollmentData);
-            console.log("Without search " + enrollments);
+            console.log("Without search " + enrollmentData);
         }
     };
-
-    const courseNames = enrollmentData.map((student) => student.course.courseName);
-    // const courseNames = enrollmentData.map((intake) => intake.intakeName);
 
     const createStatefulObject = (courseNames) => {
         return courseNames.reduce((statefulObject, courseName) => {
@@ -63,9 +80,7 @@ const Enrollment = () => {
         }, {});
     };
 
-    const [courses, setCourses] = useState(
-        createStatefulObject(courseNames)
-    );
+    const [courses, setCourses] = useState({});
 
     const handleSetCourses = (courseName) => {
         const tempCourses = { ...courses };
@@ -77,17 +92,15 @@ const Enrollment = () => {
 
     const filterByCourseName = (e) => {
         const courses = handleSetCourses(e.target.value);
+        console.log("hello");
         const stateArray = Object.keys(courses).filter((key) => courses[key]);
 
-        const filteredCourseName = enrollmentData.filter((intake) =>
-            stateArray.includes(intake.intakeName)
-        );
+        const filteredCourseName = enrollmentsCopy.filter((intake) => stateArray.includes(intake.intakeName));
 
         if (filteredCourseName.length === 0) {
             getEnrollments(enrollmentData);
         } else {
-            setEnrollmentsCopy(filteredCourseName);
-            setEnrollments(filteredCourseName);
+            setEnrollmentData(filteredCourseName);
         }
 
         const filteredStateArray = stateArray.filter((courseName) =>
@@ -105,15 +118,21 @@ const Enrollment = () => {
     // Get data => set all states that need data
     const getEnrollments = async () => {
         const data = await fetchEnrollmentData();
-        setEnrollmentData(data);
-        setEnrollments(data);
-        setEnrollmentsCopy(data);
-        console.log(enrollmentData);
+        const cleanedData = cleanEnrollmentData(data);
+        setEnrollmentData(cleanedData);
+        setEnrollmentsCopy(cleanedData);
+        
+        return cleanedData;
     }
 
     // Call API on page load and set states
     useEffect(() => {
-        getEnrollments();
+        const asyncHandler = async () => {
+            const cleanedData = await getEnrollments();
+            const courseNames = cleanedData.map((intake) => intake.intakeName);
+            setCourses(createStatefulObject(courseNames));
+        }
+        asyncHandler();
     }, []);
 
     return (
@@ -122,7 +141,7 @@ const Enrollment = () => {
             {/* <Searchbox handleSearch={handleSearch} /> */}
             <Filter courses={courses} filterByCourseName={filterByCourseName} />
             <div className="enrollment-list">
-                <EnrollmentList enrollmentData={enrollments} />
+                <EnrollmentList enrollmentData={enrollmentData} />
             </div>
         </div>
     )

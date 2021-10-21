@@ -5,28 +5,9 @@ import moreInfo from "../../assets/icons/chevron-more.svg";
 const EnrollmentList = (props) => {
     const { enrollmentData } = props;
 
-    const cleanEnrollmentData = enrollmentData.reduce((arr, student) => {
-        const foundObject = arr.find((enrollment) => enrollment.intakeName === student.course.courseName)
+    console.log(enrollmentData);
 
-        if(foundObject) {
-            foundObject.students.push(student);
-        } else {
-            const newObj = {
-                id: student.course.id,
-                intakeName: student.course.courseName,
-                students: []
-            };
-            
-            newObj.students.push(student);
-            arr.push(newObj);
-        }
-
-        return arr;
-    }, [])
-
-    console.log(cleanEnrollmentData);
-
-    const intakeDisplay = cleanEnrollmentData.map((intake, i) => {
+    const intakeDisplay = enrollmentData.map((intake, i) => {
         let isSelfPaced = "fullTime";
         if (intake.intakeName === "Self-paced") {
             isSelfPaced = "self-paced";
