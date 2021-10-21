@@ -1,0 +1,15 @@
+@import "../../assets/styles/styles.scss";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-family-primary;
+}
+
+.coursedetails__main{
+  background-color: $color-secondary-light;
+  width: 100%;
+  min-height: 100vh;
+  font-family: $font-family-primary;
+}
