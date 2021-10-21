@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Topcards from "../../components/topcards/topcards";
 import TopHeader from "../../components/topheader/topheader";
-import CourseFilter from "../courses/coursefilter/coursefilter";
 import "./dummyPage.scss";
+import Dropdown from "../../components/dropdown/dropdown";
 // import courses from "../../assets/data/coursedata";
 
 const DummyPage = (props) => {
@@ -26,9 +26,9 @@ const DummyPage = (props) => {
 
     return (
         <div className="coursedetails__main">
-            <TopHeader title="Courses"><CourseFilter/></TopHeader>
+            <TopHeader title="Courses">
+            </TopHeader>
             <Topcards courseID ={courseID}/>
-            
         </div>
     );
 };
