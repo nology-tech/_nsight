@@ -39,7 +39,7 @@ const EnrollmentList = (props) => {
                                 </div>
                                 <div className="col">{employed}</div>
                                 <div className="col">
-                                    <p>{student.course_name}</p>
+                                    <p>{student.course.courseName}</p>
                                 </div>
                                 <div className="col">
                                     <img

@@ -11,7 +11,7 @@ const SelfCourseList = (props) => {
             <div className="selfcourse">
                     <div className="row all tags w-100">
                         <div className="col-2">
-                            <p className="selfcourse__name">{selfCourse.name}</p>
+                            <p className="selfcourse__name">{selfCourse.courseName}</p>
                         </div>
                         <div className="col-2">
                             <p className="selfcourse__tag">{selfCourse.numberEnrolled}</p>
