@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Topcards from "../../components/topcards/topcards";
+import TopHeader from "../../components/topheader/topheader";
+import "./dummyPage.scss";
+import Dropdown from "../../components/dropdown/dropdown";
 // import courses from "../../assets/data/coursedata";
 
 const DummyPage = (props) => {
@@ -21,10 +25,11 @@ const DummyPage = (props) => {
     // }, [courseId]);
 
     return (
-        <>
-            <h1>Hello world</h1>
-            <h2>{courseID.courseName}</h2>
-        </>
+        <div className="coursedetails__main">
+            <TopHeader title="Courses" buttonText="+  Create">
+            </TopHeader>
+            <Topcards courseID ={courseID}/>
+        </div>
     );
 };
 export default DummyPage;

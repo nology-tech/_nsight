@@ -1,0 +1,54 @@
+@import "../../assets/styles/styles.scss";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-family-primary;
+}
+.example6{
+  transform: rotate(90deg);
+}
+.coursedetails{
+  width: 100%;
+  min-height: 100vh;
+  font-family: $font-family-primary;
+  &__pie{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    rotate: 90deg;
+  }
+  &__pietag{
+    position: absolute;
+    text-align: center;
+    color: #2FF596;
+  }
+  &__img{
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  &__header{
+    margin-top: 10px;
+  }
+  &__line{
+    border: 1px solid #E2E8F0;
+  }
+  &__tags{
+    text-align: right;
+    color: $color-primary-light;
+  }
+}
+
+.card{
+  height: 350px;
+  width: 350px;
+  background-color: $color-base-light;
+  border-radius: 3%;
+  box-shadow: 0px 30px 30px rgba(114, 75, 203, 0.06);
+  // margin: 10px 50px;
+}

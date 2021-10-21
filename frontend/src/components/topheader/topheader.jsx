@@ -3,7 +3,7 @@ import "./topheader.scss"
 import Button from '../button/button';
 
 const TopHeader = (props) => {
-  const {title} = props;
+  const {title, buttonText} = props;
   return (
     <>
     <div className="topheader">
@@ -12,7 +12,7 @@ const TopHeader = (props) => {
         {props.children}
       </div>
     <div className="btn">
-      <Button btnStyle="primary" text="+  Create"/>
+      <Button btnStyle="primary" text={buttonText} />
     </div>
     </div>
   </>
