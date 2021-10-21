@@ -9,7 +9,7 @@ const FormField = (props) => {
         if(type == "select") {
             return (
                 <> 
-                    <select>
+                    <select className="formfield__select">
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                     </select>
@@ -19,7 +19,7 @@ const FormField = (props) => {
         else {
             return (
                 <>
-                    <input type={type} value={value}/>
+                    <input className="formfield__input" type={type} value={value}/>
                 </>
             )
         }
