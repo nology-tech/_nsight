@@ -13,7 +13,6 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@CrossOrigin
 public class CourseController {
     public Course findCourseById(int id) {
         List<Course> courses = repository.findAll();
